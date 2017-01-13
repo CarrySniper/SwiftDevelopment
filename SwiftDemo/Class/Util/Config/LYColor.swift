@@ -14,16 +14,19 @@ struct Color {
     
 }
 
-
-
 /// //十六进制颜色转换成UIColor
 ///
 /// - Parameter value: 十六进制字符串  如："2B2B2B"
+/// - Parameter alpha: 透明度  0.0 ~ 1.0
 /// - Returns: UIColor
 func LYColorHex(value: NSString) -> UIColor {
+    return LYColorHex(value: value, alpha:1.0)
+}
+
+func LYColorHex(value: NSString, alpha: CGFloat) -> UIColor {
     let hexValue = strtoul(value.cString(using: String.Encoding.utf8.rawValue), nil, 16)
     return UIColor(red: ((CGFloat)((hexValue & 0xFF0000) >> 16)) / 255.0,
                    green: ((CGFloat)((hexValue & 0xFF00) >> 8)) / 255.0,
                    blue: ((CGFloat)(hexValue & 0xFF)) / 255.0,
-                   alpha: 1.0)
+                   alpha: alpha)
 }

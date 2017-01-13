@@ -2,6 +2,12 @@
 import Foundation
 import UIKit
 
+
+struct UrlString {
+    
+    static let home = RequestAPI(api: "Api/Home")                             //首页信息GET
+}
+
 func RequestAPI(api: NSString) ->NSString {
     
     // 测试服
@@ -12,8 +18,4 @@ func RequestAPI(api: NSString) ->NSString {
     return NSString.init(format: "%@/%@", serverHost, api)
 }
 
-struct UrlString {
-    
-    static let home = RequestAPI(api: "Api/Home")                             //首页信息GET
-}
 
