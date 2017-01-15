@@ -8,6 +8,9 @@ struct Color {
     
     static let nav          = LYColorHex(value: "242424")   //  导航条颜色
     static let tabber       = LYColorHex(value: "242424")   //  tabbar颜色
+    static let bg           = LYColorHex(value: "FFFFFF")   //  背景颜色
+    static let bgList       = LYColorHex(value: "000000")   //  列表背景颜色
+    static let line         = LYColorHex(value: "5F005F")   //  线条颜色
     
     static let textNormal   = LYColorHex(value: "AEAEAE")   //  字体正常的颜色
     static let textSelect   = LYColorHex(value: "D6BD99")   //  字体选中的颜色
