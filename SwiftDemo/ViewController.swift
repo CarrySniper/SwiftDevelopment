@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -16,7 +17,30 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.white
         
-        NSLog("%@", UrlString.home)
+        NSLog("%@", ServerAPI.home)
+        
+        
+        Alamofire.request(ServerAPI.home).responseJSON { response in
+            print(response.request)  // original URL request
+            print(response.response) // HTTP URL response
+            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
+//        Alamofire.request(.get , "https://httpbin.org/get", parameters: nil).responseJSON { response in
+//            print(response.request)  // original URL request
+//            print(response.response) // HTTP URL response
+//            print(response.data)     // server data
+//            print(response.result)   // result of response serialization
+//            
+//            if let JSON = response.result.value {
+//                print("JSON: \(JSON)")
+//            }
+//        }
+        
     }
 
     override func didReceiveMemoryWarning() {
