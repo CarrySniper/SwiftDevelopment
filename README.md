@@ -4,15 +4,33 @@ LY为女票名字
 
 ##学习从此刻开始（时间倒序）
 
+####2017-01-16
+百度经验：iOS开发 Swift自定义UITabBarController <br>
+
+可查找文件文件TabBarManager.swift
+```
+    /// 自定义UITabBar
+    ///
+    /// - Parameter selectedIndex: 选中下标 从0开始
+    func customTabbar(selectedIndex:NSInteger)
+    
+    override func viewDidLoad()
+```
 ####2017-01-13
 百度经验：iOS开发 Swift去除Main.storyboard <br>
 http://jingyan.baidu.com/article/9faa7231935a97473c28cbdb.html
 
+可查找文件文件AppDelegate.swift
+```
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window?.rootViewController = ViewController()
+    window?.makeKeyAndVisible()
+```
 百度经验：iOS开发 CocoaPods安装、移除和常见问题 <br>
 http://jingyan.baidu.com/article/c1a3101e5aeab3de656debe5.html
 
 仿OC的宏定义，利用结构体和静态变量定义全局属性。<br>
-如：颜色
+如：颜色，可查找文件LYColor.swift
 ```
 import Foundation
 import UIKit
