@@ -48,7 +48,6 @@ class TabBarManager: UITabBarController {
         self.selectedIndex = selectedIndex
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

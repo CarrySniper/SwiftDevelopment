@@ -5,7 +5,8 @@ import UIKit
 
 struct ServerAPI {
     
-    static let home = RequestAPI(api: "Api/Home")                             //首页信息GET
+    static let home                 = RequestAPI(api: "Api/Home")                    //首页信息GET
+    static let advertisement        = RequestAPI(api: "Api/Ad")                      //广告数据GET
 }
 
 func RequestAPI(api: String) ->String {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class HomeVC: BaseViewController {
 
@@ -16,16 +17,25 @@ class HomeVC: BaseViewController {
 
         // Do any additional setup after loading the view.
         
-        NSLog("%@", ServerAPI.home)        
-        
-        Alamofire.request(ServerAPI.home).responseJSON { response in
+        let parameters: Parameters = ["page": "1", "pageSize":"20"]
+        Alamofire.request(ServerAPI.advertisement, method: .get, parameters: parameters).responseJSON {
+            response in
             print(response.request)  // original URL request
             print(response.response) // HTTP URL response
             print(response.data)     // server data
             print(response.result)   // result of response serialization
             
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+            switch response.result {
+            case .success( _):
+                if let data = response.result.value {
+                    let array = JSON(data)
+                    print(array)
+                    
+                }
+                break
+            case .failure(let error):
+                print(error)
+                break
             }
         }
     }
