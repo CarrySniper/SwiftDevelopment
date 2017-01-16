@@ -4,8 +4,9 @@ LY为女票名字
 
 ##学习从此刻开始（时间倒序）
 
-####2017-01-16
+####2017-01-16（周一）
 百度经验：iOS开发 Swift添加CocoaPods依赖库管理 <br>
+http://jingyan.baidu.com/article/4f34706e2eee45e387b56dc0.html
 
 可查找文件文件Podfile
 ```
@@ -17,7 +18,6 @@ target 'SwiftDemo' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-
   # Pods for SwiftDemo
   
   pod 'Alamofire'           # 网络请求库
@@ -25,7 +25,7 @@ target 'SwiftDemo' do
   
 end
 ```
-百度经验：iOS开发 Swift自定义UITabBarController <br>
+百度经验：iOS开发 Swift纯代码管理UITabBarController <br>
 
 可查找文件文件TabBarManager.swift
 ```
@@ -36,7 +36,7 @@ end
     
     override func viewDidLoad()
 ```
-####2017-01-13
+####2017-01-13（周五）
 百度经验：iOS开发 Swift去除Main.storyboard <br>
 http://jingyan.baidu.com/article/9faa7231935a97473c28cbdb.html
 
