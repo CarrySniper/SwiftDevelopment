@@ -9,7 +9,7 @@ LY为女票名字
 http://jingyan.baidu.com/article/4f34706e2eee45e387b56dc0.html
 
 可查找文件文件Podfile
-```
+```swift
 # Uncomment the next line to define a global platform for your project
 
 platform :ios, '8.0'
@@ -28,7 +28,7 @@ end
 >百度经验：iOS开发 Swift纯代码管理UITabBarController <br>
 
 可查找文件文件TabBarManager.swift
-```
+```swift
 /// 自定义UITabBar
 /// - Parameter selectedIndex: 选中下标 从0开始
 func customTabbar(selectedIndex:NSInteger)
@@ -40,7 +40,7 @@ override func viewDidLoad()
 http://jingyan.baidu.com/article/9faa7231935a97473c28cbdb.html
 
 可查找文件文件AppDelegate.swift
-```
+```swift
 window = UIWindow(frame: UIScreen.main.bounds)
 window?.rootViewController = ViewController()
 window?.makeKeyAndVisible()
@@ -51,7 +51,7 @@ http://jingyan.baidu.com/article/c1a3101e5aeab3de656debe5.html
 
 仿OC的宏定义，利用结构体和静态变量定义全局属性。<br>
 如：颜色，可查找文件LYColor.swift
-```
+```swift
 import Foundation
 import UIKit
 
@@ -79,6 +79,6 @@ func LYColorHex(value: NSString) -> UIColor {
 }
 ```
 使用方法：
-```
+```swift
 let myColor = Color.textNormal
 ```
