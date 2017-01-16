@@ -12,30 +12,40 @@ import UIKit
 class TabBarManager: UITabBarController {
 
     
-    func user(index:NSInteger) {
+    /// 自定义UITabBar
+    ///
+    /// - Parameter selectedIndex: 选中下标 从0开始
+    func customTabbar(selectedIndex:NSInteger) {
         
-        let vc = ViewController()
-        let vc1 = ViewController1()
+        // MARK: 视图控制器
+        let vc0 = HomeVC()
+        let vc1 = ListVC()
         let vc2 = MeVC()
         
-        vc.title = "首页"
-        vc1.title = "订单"
+        // MARK: 标题
+        vc0.title = "首页"
+        vc1.title = "列表"
         vc2.title = "我的"
         
-        vc.tabBarItem.image = UIImage(named: "tabbar_normal0")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-        vc.tabBarItem.selectedImage = UIImage(named: "tabbar_selected0")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        // MARK: tabbar图标
+        vc0.tabBarItem.image = UIImage(named: "tabbar_normal0")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        vc0.tabBarItem.selectedImage = UIImage(named: "tabbar_selected0")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         vc1.tabBarItem.image = UIImage(named: "tabbar_normal1")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         vc1.tabBarItem.selectedImage = UIImage(named: "tabbar_selected1")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         vc2.tabBarItem.image = UIImage(named: "tabbar_normal2")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         vc2.tabBarItem.selectedImage = UIImage(named: "tabbar_selected2")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         
-        let navCtr = UINavigationController.init(rootViewController: vc)
+        // MARK: 导航控制器
+        let navCtr0 = UINavigationController.init(rootViewController: vc0)
         let navCtr1 = UINavigationController.init(rootViewController: vc1)
         let navCtr2 = UINavigationController.init(rootViewController: vc2)
         
-        let vcArray = [navCtr, navCtr1, navCtr2]
-        
+        // MARK: UITabBarController所有
+        let vcArray = [navCtr0, navCtr1, navCtr2]
         self.setViewControllers(vcArray, animated: true)
+        
+        // MARK: 选中下标
+        self.selectedIndex = selectedIndex
     }
     
     
@@ -55,7 +65,6 @@ class TabBarManager: UITabBarController {
                            NSForegroundColorAttributeName:Color.textSelect]
         
         UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, for: UIControlState.normal)
-        
         UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: UIControlState.selected)
     }
     

@@ -1,17 +1,16 @@
 //
-//  ViewController1.swift
+//  ListVC.swift
 //  SwiftDemo
 //
-//  Created by 思久科技 on 2017/1/13.
+//  Created by 思久科技 on 2017/1/16.
 //  Copyright © 2017年 思久科技. All rights reserved.
 //
 
 import UIKit
 
-class ViewController1: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
-    var tableView = UITableView()
+class ListVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
+    var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,22 +51,23 @@ class ViewController1: UIViewController,UITableViewDelegate,UITableViewDataSourc
         return cell!
     }
     
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return String.init(format: "第%d组", section)
-    }
+//    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return String.init(format: "第%d组", section)
+//    }
     func createTableView(style : UITableViewStyle) -> UITableView {
         let tableView = UITableView.init(frame: self.view.frame, style: style)
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.rowHeight = 44.0
-        tableView.sectionHeaderHeight = 40.0
+        tableView.sectionHeaderHeight = 0.001
         tableView.sectionFooterHeight = 0.001
         
         tableView.separatorColor = Color.line
         tableView.backgroundColor = Color.bg
         return tableView
     }
+
     /*
     // MARK: - Navigation
 

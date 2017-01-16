@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func toMain(index:NSInteger) {
         tabBarCtr = TabBarManager()
-        tabBarCtr?.user(index: 0)
+        tabBarCtr?.customTabbar(selectedIndex: 1)
         
         window?.rootViewController = tabBarCtr
     }
