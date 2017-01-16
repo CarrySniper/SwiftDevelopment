@@ -5,6 +5,26 @@ LY为女票名字
 ##学习从此刻开始（时间倒序）
 
 ####2017-01-16
+百度经验：iOS开发 Swift添加CocoaPods依赖库管理 <br>
+
+可查找文件文件Podfile
+```
+# Uncomment the next line to define a global platform for your project
+
+platform :ios, '8.0'
+
+target 'SwiftDemo' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+
+  # Pods for SwiftDemo
+  
+  pod 'Alamofire'           # 网络请求库
+  pod 'SwiftyJSON'          # Json解析库
+  
+end
+```
 百度经验：iOS开发 Swift自定义UITabBarController <br>
 
 可查找文件文件TabBarManager.swift
