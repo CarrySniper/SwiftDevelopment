@@ -53,8 +53,10 @@ class TabBarManager: UITabBarController {
 
         // Do any additional setup after loading the view.
         
+        // tabBar是否半透明
+        self.tabBar.isTranslucent = true
+        
         // tabBar背景颜色
-        self.tabBar.isTranslucent = false
         self.tabBar.barTintColor = Color.tabber;
         
         // UITabBarItem字体和颜色

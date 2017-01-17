@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
     var tabBarCtr : TabBarManager?
     
 
@@ -20,22 +21,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        self .toMain(index: 0)
+        self.toTabBar(index: 0)
         
         window?.makeKeyAndVisible()
         
         return true
     }
     
-    
-    func toMain(index:NSInteger) {
+    func toTabBar(index: NSInteger) {
+        // TODO: 去标签栏页
         tabBarCtr = TabBarManager()
-        tabBarCtr?.customTabbar(selectedIndex: 1)
+        tabBarCtr?.customTabbar(selectedIndex: index)
         
         window?.rootViewController = tabBarCtr
     }
     
-    //==========================================
+    func toLogin() {
+        // TODO: 去登录页
+    }
+    
+    //=============================================================
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

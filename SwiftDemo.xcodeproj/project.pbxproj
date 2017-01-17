@@ -11,6 +11,7 @@
 		52863BAC1E2C5FBD00CB97A1 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52863BA71E2C5FBD00CB97A1 /* HomeVC.swift */; };
 		52863BAD1E2C5FBD00CB97A1 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52863BA81E2C5FBD00CB97A1 /* ListVC.swift */; };
 		52863BAE1E2C5FBD00CB97A1 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52863BA91E2C5FBD00CB97A1 /* MeVC.swift */; };
+		52863BB01E2CF25800CB97A1 /* ListTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52863BAF1E2CF25800CB97A1 /* ListTC.swift */; };
 		529004951E28716E00A209BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529004941E28716E00A209BC /* AppDelegate.swift */; };
 		5290049C1E28716E00A209BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5290049B1E28716E00A209BC /* Assets.xcassets */; };
 		5290049F1E28716E00A209BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5290049D1E28716E00A209BC /* LaunchScreen.storyboard */; };
@@ -82,6 +83,9 @@
 		529005371E28A73E00A209BC /* tabbar_selected3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 529004F61E28A73E00A209BC /* tabbar_selected3@3x.png */; };
 		5290053D1E28AE4600A209BC /* LYColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5290053C1E28AE4600A209BC /* LYColor.swift */; };
 		529005421E28C25300A209BC /* LYUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529005411E28C25300A209BC /* LYUrl.swift */; };
+		52FF1FE51E2DABC000C69A44 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FF1FE41E2DABC000C69A44 /* BaseModel.swift */; };
+		52FF1FED1E2DBCBF00C69A44 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FF1FEC1E2DBCBF00C69A44 /* Config.swift */; };
+		52FF1FEF1E2DBFFF00C69A44 /* NetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52FF1FEE1E2DBFFF00C69A44 /* NetWork.swift */; };
 		7E3B1A4D59636A968C3DA822 /* Pods_SwiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232BA2A3A38B0C03A5468524 /* Pods_SwiftDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +96,7 @@
 		52863BA71E2C5FBD00CB97A1 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		52863BA81E2C5FBD00CB97A1 /* ListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		52863BA91E2C5FBD00CB97A1 /* MeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		52863BAF1E2CF25800CB97A1 /* ListTC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTC.swift; sourceTree = "<group>"; };
 		529004911E28716E00A209BC /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		529004941E28716E00A209BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5290049B1E28716E00A209BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,6 +170,9 @@
 		529004F61E28A73E00A209BC /* tabbar_selected3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_selected3@3x.png"; sourceTree = "<group>"; };
 		5290053C1E28AE4600A209BC /* LYColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYColor.swift; sourceTree = "<group>"; };
 		529005411E28C25300A209BC /* LYUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LYUrl.swift; sourceTree = "<group>"; };
+		52FF1FE41E2DABC000C69A44 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		52FF1FEC1E2DBCBF00C69A44 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		52FF1FEE1E2DBFFF00C69A44 /* NetWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWork.swift; sourceTree = "<group>"; };
 		9BDB81D025F80FABA0A9130D /* Pods-SwiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,6 +242,7 @@
 		52863BAB1E2C5FBD00CB97A1 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				52863BAF1E2CF25800CB97A1 /* ListTC.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -259,6 +268,7 @@
 		529004931E28716E00A209BC /* SwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				52FF1FEC1E2DBCBF00C69A44 /* Config.swift */,
 				529004941E28716E00A209BC /* AppDelegate.swift */,
 				529004A61E287E5600A209BC /* Class */,
 				5290049B1E28716E00A209BC /* Assets.xcassets */,
@@ -284,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				529004A81E287ECB00A209BC /* TabBarManager.swift */,
+				52FF1FEE1E2DBFFF00C69A44 /* NetWork.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -454,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				52863BA01E2C5EC300CB97A1 /* BaseViewController.swift */,
+				52FF1FE41E2DABC000C69A44 /* BaseModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -647,8 +659,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				52863BAE1E2C5FBD00CB97A1 /* MeVC.swift in Sources */,
+				52863BB01E2CF25800CB97A1 /* ListTC.swift in Sources */,
+				52FF1FEF1E2DBFFF00C69A44 /* NetWork.swift in Sources */,
 				52863BAD1E2C5FBD00CB97A1 /* ListVC.swift in Sources */,
 				5290053D1E28AE4600A209BC /* LYColor.swift in Sources */,
+				52FF1FED1E2DBCBF00C69A44 /* Config.swift in Sources */,
+				52FF1FE51E2DABC000C69A44 /* BaseModel.swift in Sources */,
 				529004A91E287ECB00A209BC /* TabBarManager.swift in Sources */,
 				52863BA11E2C5EC300CB97A1 /* BaseViewController.swift in Sources */,
 				52863BAC1E2C5FBD00CB97A1 /* HomeVC.swift in Sources */,
@@ -769,6 +785,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LV9N6Q8MDS;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = SwiftDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -785,6 +802,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LV9N6Q8MDS;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = SwiftDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

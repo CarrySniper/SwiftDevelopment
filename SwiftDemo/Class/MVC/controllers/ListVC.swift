@@ -7,18 +7,28 @@
 //
 
 import UIKit
+import HandyJSON
 
 class ListVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     var tableView = UITableView()
+    var dataSource = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        self.tableView = self.createTableView(style: UITableViewStyle.grouped)
+        self.tableView = self.createTableView(style: UITableViewStyle.plain)
+        self.tableView.frame = CGRect.init(x: 0, y: 64, width: self.view.frame.width, height: self.view.frame.height-64-49)
         self.view.addSubview(self.tableView)
+        
+        let parameters: NSDictionary = ["page": "1", "pageSize":"20"]
+        
+        NetWork.request(url: ServerAPI.advertisement, method: .get, parameters: parameters) { (data) in
+            print("%@", data)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +39,7 @@ class ListVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     // MARK: - UITableViewDataSource
     // MARK: 行数
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return dataSource.count
     }
     // MARK: 组数 optional 可选
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,32 +49,42 @@ class ListVC: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let identifier = "UITableViewCell"
-        var cell = tableView.dequeueReusableCell(withIdentifier: identifier);
+        let cell = ListTC.dequeueReusable(tableView, identifier)
         
-        if(cell == nil){//因为是纯代码实现，没有对行里的cell做注册，这里是 做注册， 注册一次后，下次会继续使用这个缓存
-            cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier);
-            //以上使用了系统默认的一个cell样式
-        }
+        let model = dataSource[indexPath.row] as! BaseModel
         
-        cell?.textLabel?.text = "UITableViewCell"
+        tableView.rowHeight = cell .setModel(model: model)
         
-        return cell!
+        return cell
     }
     
-//    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return String.init(format: "第%d组", section)
-//    }
+    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return String.init(format: "第%d组", section)
+    }
+    
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let hfView = UITableViewHeaderFooterView.init()
+        hfView.contentView.backgroundColor = Color.line
+        return hfView
+    }
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let hfView = UITableViewHeaderFooterView.init()
+        hfView.contentView.backgroundColor = UIColor.yellow
+        return hfView
+    }
+    
     func createTableView(style : UITableViewStyle) -> UITableView {
-        let tableView = UITableView.init(frame: self.view.frame, style: style)
+        let tableView = UITableView.init(frame: self.view.bounds, style: style)
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.rowHeight = 44.0
-        tableView.sectionHeaderHeight = 0.001
-        tableView.sectionFooterHeight = 0.001
+        tableView.sectionHeaderHeight = 40.0
+        tableView.sectionFooterHeight = 8.0
         
         tableView.separatorColor = Color.line
         tableView.backgroundColor = Color.bg
+ 
         return tableView
     }
 

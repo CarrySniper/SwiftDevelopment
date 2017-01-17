@@ -16,8 +16,20 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         // TODO: - 所有继承者都带有下面设置
-        self.view.backgroundColor = Color.bg
         
+        // MARK: 背景颜色
+        self.view.backgroundColor = Color.bg
+        // MARK: 导航栏是否半透明
+        self.navigationController?.navigationBar.isTranslucent = true
+        // MARK: 导航栏背景颜色
+        self.navigationController?.navigationBar.barTintColor = Color.nav
+        // MARK: 导航栏图标颜色
+        self.navigationController?.navigationBar.tintColor = Color.navTitle
+        // MARK: 导航栏标题颜色
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.systemFont(ofSize: 20.0),
+                                                                        NSForegroundColorAttributeName:Color.navTitle]
+
+        // MARK: 消除ScrollView及其子类的偏移64
         self.automaticallyAdjustsScrollViewInsets = false
     }
 
@@ -26,7 +38,15 @@ class BaseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
     /*
     // MARK: - Navigation
 

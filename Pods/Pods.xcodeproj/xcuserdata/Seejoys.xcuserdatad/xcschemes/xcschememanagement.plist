@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HandyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SwiftDemo.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>51D51573FF3A0C62FE41AEA75899EF1E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>660D803C65CB87E137100599EE051F05</key>
+		<key>0954BBD08C49A84AA2497DD14660D470</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>90E58931F4446ADA356617BCEBF13AD8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F49F4E637BD12451875145E3437825BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
