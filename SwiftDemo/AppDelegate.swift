@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  SwiftDemo
 //
-//  Created by 思久科技 on 2017/1/13.
-//  Copyright © 2017年 思久科技. All rights reserved.
+//  Created by 炬盈科技 on 2017/8/31.
+//  Copyright © 2017年 CJQ. All rights reserved.
 //
 
 import UIKit
@@ -13,12 +13,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var tabBarCtr : TabBarManager?
-    
+    var tabBarManager : TabBarManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+     
         window = UIWindow(frame: UIScreen.main.bounds)
         
         self.toTabBar(index: 0)
@@ -27,20 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
+
     func toTabBar(index: NSInteger) {
         // TODO: 去标签栏页
-        tabBarCtr = TabBarManager()
-        tabBarCtr?.customTabbar(selectedIndex: index)
+        tabBarManager = TabBarManager()
+        tabBarManager?.customTabbar(selectedIndex: index)
         
-        window?.rootViewController = tabBarCtr
+        window?.rootViewController = tabBarManager
     }
-    
+
     func toLogin() {
         // TODO: 去登录页
     }
-    
-    //=============================================================
+
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
