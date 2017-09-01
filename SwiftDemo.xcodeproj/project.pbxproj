@@ -24,6 +24,8 @@
 		9937C31F1F581C1200155FFA /* CommonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937C31E1F581C1200155FFA /* CommonTableViewCell.swift */; };
 		9937C3211F581C3600155FFA /* CLListsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937C3201F581C3600155FFA /* CLListsTableViewCell.swift */; };
 		9937C3231F581C7500155FFA /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937C3221F581C7500155FFA /* CommonModel.swift */; };
+		996339EE1F58FE3C009FF84A /* CommonUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996339ED1F58FE3C009FF84A /* CommonUrl.swift */; };
+		996339F01F58FEC7009FF84A /* NetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996339EF1F58FEC7009FF84A /* NetWorking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		9937C31E1F581C1200155FFA /* CommonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTableViewCell.swift; sourceTree = "<group>"; };
 		9937C3201F581C3600155FFA /* CLListsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLListsTableViewCell.swift; sourceTree = "<group>"; };
 		9937C3221F581C7500155FFA /* CommonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
+		996339ED1F58FE3C009FF84A /* CommonUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUrl.swift; sourceTree = "<group>"; };
+		996339EF1F58FEC7009FF84A /* NetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 				9937C31E1F581C1200155FFA /* CommonTableViewCell.swift */,
 				9937C3221F581C7500155FFA /* CommonModel.swift */,
 				9937C3151F58112000155FFA /* CommonColor.swift */,
+				996339ED1F58FE3C009FF84A /* CommonUrl.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				9937C3091F580FEF00155FFA /* TabBarManager.swift */,
+				996339EF1F58FEC7009FF84A /* NetWorking.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -345,8 +351,10 @@
 			files = (
 				9937C30A1F580FEF00155FFA /* TabBarManager.swift in Sources */,
 				9937C3231F581C7500155FFA /* CommonModel.swift in Sources */,
+				996339F01F58FEC7009FF84A /* NetWorking.swift in Sources */,
 				9937C3141F5810CC00155FFA /* CLMeViewController.swift in Sources */,
 				9937C31B1F5816F500155FFA /* UIViewController+UIInterface.swift in Sources */,
+				996339EE1F58FE3C009FF84A /* CommonUrl.swift in Sources */,
 				9937C3121F5810C200155FFA /* CLListsViewController.swift in Sources */,
 				9937C30C1F58104600155FFA /* CommonViewController.swift in Sources */,
 				9937C3161F58112000155FFA /* CommonColor.swift in Sources */,
