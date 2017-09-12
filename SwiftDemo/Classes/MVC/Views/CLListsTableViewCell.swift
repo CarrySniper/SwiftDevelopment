@@ -14,11 +14,18 @@ class CLListsTableViewCell: CommonTableViewCell {
     var iconImage = UIImageView()
     
     override func setModel(model: CommonModel) -> CGFloat {
-        
+        self.nameLabel.text = model.Name
         return 80.0
     }
     
-    
+    static func dequeueReusable(_ tableView: UITableView, _ identifier: String) -> CommonTableViewCell{
+        var cell = tableView.dequeueReusableCell(withIdentifier: identifier);
+        if (cell == nil) {
+            cell = CLListsTableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: identifier);
+        }
+        return cell! as! CommonTableViewCell
+    }
+  
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

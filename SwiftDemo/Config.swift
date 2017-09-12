@@ -13,6 +13,7 @@ import UIKit
 struct ConfigNumber {
     static let cellHeight: CGFloat          = 50.0
     static let spaceHeight: CGFloat         = 8.0
+    static let cornerRadius: CGFloat        = 5.0
 }
 
 /// API字段

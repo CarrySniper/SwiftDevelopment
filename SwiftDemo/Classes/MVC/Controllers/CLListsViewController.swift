@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class CLListsViewController: CommonViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -22,11 +23,28 @@ class CLListsViewController: CommonViewController, UITableViewDelegate, UITableV
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
         
+        let model = CommonModel.init()
+        model.Name = String(arc4random())
+        self.dataSource.add(model)
+        
+        self.tableView.reloadData()
+        
         let parameters: NSDictionary = ["page": "1", "pageSize":"20"]
         
-//        NetWork.request(url: ServerAPI.advertisement, method: .get, parameters: parameters) { (data) in
-//            print("%@", data)
-//        }
+        NetWorking.request(url: ServerAPI.advertisement, method: .get, parameters: parameters) { (data) in
+            print("%@", data)
+            
+            
+        }
+        
+        let label = self.createLabel()
+        label.text = "If you prefer not to use either of the aforementioned dependency managers, you can integrate SnapKit into your project manually.";
+        label.backgroundColor = UIColor.red
+        self.view.addSubview(label);
+        label.snp.makeConstraints { (make) in
+            make.width.equalTo(self.view)
+            make.center.equalTo(self.view)
+        }
         
     }
     

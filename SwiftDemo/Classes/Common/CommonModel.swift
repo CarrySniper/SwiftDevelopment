@@ -9,5 +9,9 @@
 import UIKit
 
 class CommonModel: NSObject {
-
+    
+    var Id: NSNumber = 0
+    
+    var Name: String = ""
+    
 }

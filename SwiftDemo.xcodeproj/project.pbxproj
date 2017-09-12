@@ -251,6 +251,7 @@
 				TargetAttributes = {
 					9937C2C61F57E40600155FFA = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = P7X66L38K4;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -489,6 +490,7 @@
 			baseConfigurationReference = 6FC2BB96323DB1C04A129C53 /* Pods-SwiftDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P7X66L38K4;
 				INFOPLIST_FILE = SwiftDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -503,6 +505,7 @@
 			baseConfigurationReference = 29C103316D2F956EDF2787BB /* Pods-SwiftDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = P7X66L38K4;
 				INFOPLIST_FILE = SwiftDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

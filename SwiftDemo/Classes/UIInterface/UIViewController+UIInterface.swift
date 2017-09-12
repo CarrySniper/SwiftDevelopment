@@ -10,7 +10,12 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    public func createTableView(style : UITableViewStyle) -> UITableView {
+    
+    /// 创建TableView
+    ///
+    /// - Parameter style: 样式
+    /// - Returns: UITableView
+    public func createTableView(style: UITableViewStyle) -> UITableView {
         let tableView = UITableView.init(frame: UIScreen.main.bounds, style: style)
         
         tableView.rowHeight = ConfigNumber.cellHeight
@@ -21,4 +26,77 @@ extension UIViewController {
         
         return tableView
     }
+    
+    // MARK: - UILabel
+    
+    /// 创建Label 默认配置
+    ///
+    /// - Returns: UILabel
+    public func createLabel() -> UILabel {
+        return self.createLabel(fontSize: 15.0)
+    }
+    
+    /// 创建Label 默认配置，字体大小可设置
+    ///
+    /// - Parameter fontSize: 字体大小
+    /// - Returns: UILabel
+    public func createLabel(fontSize: CGFloat) -> UILabel {
+        return self.createLabel(textAlignment: NSTextAlignment.left, fontSize: fontSize)
+    }
+    
+    /// 创建Label 默认配置，字体大小／文本对齐方式可设置
+    ///
+    /// - Parameters:
+    ///   - textAlignment: 文本对齐方式
+    ///   - fontSize: 字体大小
+    /// - Returns: UILabel
+    public func createLabel(textAlignment: NSTextAlignment, fontSize: CGFloat) -> UILabel {
+        let label = UILabel()
+        label.textColor = Color.text
+        label.textAlignment = textAlignment;
+        label.font = UIFont.systemFont(ofSize: fontSize)
+        label.numberOfLines = 0
+        return label
+    }
+    
+    /// 标签式Label，只有一行，字体大小自适应
+    ///
+    /// - Returns: UILabel
+    public func labellingOfLabel() -> UILabel {
+        let label = self.createLabel()
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 1
+        return label
+    }
+    
+    /// 创建Button 默认配置
+    ///
+    /// - Parameters:
+    ///   - title: 标题
+    ///   - action: 动作
+    /// - Returns: UIButton
+    public func createButton(title: String, action: Selector) -> UIButton {
+        return self.createButton(title: title, fontSize: 15.0, action: action)
+    }
+    
+    /// 创建Button 默认配置，字体大小可设置
+    ///
+    /// - Parameters:
+    ///   - title: 标题
+    ///   - fontSize: 字体大小
+    ///   - action: 动作
+    /// - Returns: UIButton
+    public func createButton(title: String, fontSize: CGFloat, action: Selector) -> UIButton {
+        let button = UIButton.init(type: UIButtonType.custom)
+        button.backgroundColor = Color.nav
+        button.layer.cornerRadius = ConfigNumber.cornerRadius
+        button.layer.masksToBounds = true
+        button.setTitle(title, for: UIControlState.normal)
+        button.setTitleColor(Color.textNormal, for: UIControlState.normal)
+        button.setTitleColor(Color.textSelect, for: UIControlState.selected)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
+        button.addTarget(self, action: action, for: UIControlEvents.touchUpInside)
+        return button
+    }
+   
 }

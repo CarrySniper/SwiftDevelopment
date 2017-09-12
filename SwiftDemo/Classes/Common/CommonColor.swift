@@ -19,6 +19,7 @@ struct Color {
     static let bgList       = CLColorHex(value: "000000")   //  列表背景颜色
     static let line         = CLColorHex(value: "5F5F5F")   //  线条颜色
     
+    static let text         = CLColorHex(value: "242424")   //  字体通用的颜色
     static let textNormal   = CLColorHex(value: "AEAEAE")   //  字体正常的颜色
     static let textSelect   = CLColorHex(value: "D6BD99")   //  字体选中的颜色
     
