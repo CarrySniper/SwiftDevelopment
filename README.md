@@ -3,6 +3,14 @@
 CL为个人特别名字
 
 ##学习从此刻开始（时间倒序）
+####2017-09-13（周三）
+图标使用PDF格式，个人使用Sketch软件制作并生成导出。
+听说苹果建议图标使用PDF格式，虽占用内存可能多（可能：不一定多），但只需要一张图，不需要区分@1x、@2x、@3x，直接一张.pdf矢量图就可以了。
+
+####2017-09-12（周二）
+1、添加公共基类，前缀：Common（通常使用Base）
+2、添加UI交互类，UIInterface（通常使用UI），顺便添加扩展Extension（Objective-C中为Category）
+![](https://github.com/cjq002/SwiftDemo/raw/master/Media/common.png) 
 
 ####2017-01-16（周一）
 >百度经验：iOS开发 Swift添加CocoaPods依赖库管理 <br>
