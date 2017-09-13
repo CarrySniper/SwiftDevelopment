@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class CLListsViewController: CommonViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -36,17 +35,9 @@ class CLListsViewController: CommonViewController, UITableViewDelegate, UITableV
             
             
         }
-        
-        let label = self.createLabel()
-        label.text = "If you prefer not to use either of the aforementioned dependency managers, you can integrate SnapKit into your project manually.";
-        label.backgroundColor = UIColor.red
-        self.view.addSubview(label);
-        label.snp.makeConstraints { (make) in
-            make.width.equalTo(self.view)
-            make.center.equalTo(self.view)
-        }
-        
+     
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

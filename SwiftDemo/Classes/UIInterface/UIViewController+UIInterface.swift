@@ -73,20 +73,33 @@ extension UIViewController {
     ///
     /// - Parameters:
     ///   - title: 标题
-    ///   - action: 动作
+    ///   - action: 动作，必须实现里面的方法
     /// - Returns: UIButton
     public func createButton(title: String, action: Selector) -> UIButton {
-        return self.createButton(title: title, fontSize: 15.0, action: action)
+        return self.createButton(title: title, image: UIImage(), action: action)
     }
     
-    /// 创建Button 默认配置，字体大小可设置
+    /// 创建Button 默认配置，字体可设置
     ///
     /// - Parameters:
     ///   - title: 标题
-    ///   - fontSize: 字体大小
-    ///   - action: 动作
+    ///   - image: 图标
+    ///   - action: 动作，必须实现里面的方法
     /// - Returns: UIButton
-    public func createButton(title: String, fontSize: CGFloat, action: Selector) -> UIButton {
+    public func createButton(title: String, image: UIImage, action: Selector) -> UIButton {
+        return self.createButton(title: title, image: image, fontSize: 15.0, action: action)
+    }
+    
+    
+    /// 创建Button 默认配置，字体/图标可设置
+    ///
+    /// - Parameters:
+    ///   - title: 标题
+    ///   - image: 图标
+    ///   - fontSize: 字体大小
+    ///   - action: 动作，必须实现里面的方法
+    /// - Returns: UIButton
+    public func createButton(title: String, image: UIImage, fontSize: CGFloat, action: Selector) -> UIButton {
         let button = UIButton.init(type: UIButtonType.custom)
         button.backgroundColor = Color.nav
         button.layer.cornerRadius = ConfigNumber.cornerRadius
@@ -94,6 +107,7 @@ extension UIViewController {
         button.setTitle(title, for: UIControlState.normal)
         button.setTitleColor(Color.textNormal, for: UIControlState.normal)
         button.setTitleColor(Color.textSelect, for: UIControlState.selected)
+        button.setImage(image, for: UIControlState.normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         button.addTarget(self, action: action, for: UIControlEvents.touchUpInside)
         return button
