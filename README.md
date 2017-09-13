@@ -1,6 +1,6 @@
 # SwiftDemo
 ###用于了解Swift的例子，很有作用，学习过程中会更新。看到的人如果觉得好，要记得做点什么哦！<br>
-CL为个人特别名字
+CL为个人特殊名字
 
 ##学习从此刻开始（时间倒序）
 ####2017-09-13（周三）
@@ -18,18 +18,14 @@ http://jingyan.baidu.com/article/4f34706e2eee45e387b56dc0.html
 
 可查找文件文件Podfile
 ```swift
-# Uncomment the next line to define a global platform for your project
- platform :ios, '8.0'
+platform :ios, '8.0'
 
 target 'SwiftDemo' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-
   # Pods for SwiftDemo
   pod 'Alamofire'           # 网络请求库
   pod 'SwiftyJSON'          # Json解析库
   pod 'SnapKit'             # UI约束
-
 end
 ```
 >百度经验：iOS开发 Swift纯代码管理UITabBarController <br>
