@@ -21,8 +21,8 @@ extension UIViewController {
         tableView.rowHeight = ConfigNumber.cellHeight
         tableView.tableHeaderView = UIView.init()
         
-        tableView.separatorColor = Color.line
-        tableView.backgroundColor = Color.bg
+        tableView.separatorColor = Color.lineColor
+        tableView.backgroundColor = Color.viewColor
         
         return tableView
     }
@@ -101,7 +101,7 @@ extension UIViewController {
     /// - Returns: UIButton
     public func createButton(title: String, image: UIImage, fontSize: CGFloat, action: Selector) -> UIButton {
         let button = UIButton.init(type: UIButtonType.custom)
-        button.backgroundColor = Color.nav
+        button.backgroundColor = Color.navigationColor
         button.layer.cornerRadius = ConfigNumber.cornerRadius
         button.layer.masksToBounds = true
         button.setTitle(title, for: UIControlState.normal)

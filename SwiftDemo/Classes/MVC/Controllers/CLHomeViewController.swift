@@ -36,7 +36,8 @@ class CLHomeViewController: CommonViewController {
         let button = self.createButton(title: "按钮",
                                        image: UIImage(named: "tabbar_selected2")!,
                                        action: #selector(aaa))
-        button.frame = CGRect(x: 0, y: 300, width: 100, height: 100)
+        button.frame = CGRect(x: 0, y: 300, width: 300, height: 100)
+        button.imageView?.contentMode = UIViewContentMode.scaleToFill
         self.view.addSubview(button)
         
     }

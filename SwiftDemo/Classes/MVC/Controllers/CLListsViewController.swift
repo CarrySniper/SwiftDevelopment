@@ -72,7 +72,7 @@ class CLListsViewController: CommonViewController, UITableViewDelegate, UITableV
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let hfView = UITableViewHeaderFooterView.init()
-        hfView.contentView.backgroundColor = Color.line
+        hfView.contentView.backgroundColor = Color.lineColor
         return hfView
     }
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

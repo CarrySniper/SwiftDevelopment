@@ -21,7 +21,7 @@ class TabBarManager: UITabBarController {
         let vc2 = CLMeViewController()
         
         // MARK: 标题
-        vc0.title = "首页"
+        vc0.title = "Home"
         vc1.title = "列表"
         vc2.title = "我的"
         
@@ -55,12 +55,12 @@ class TabBarManager: UITabBarController {
         self.tabBar.isTranslucent = true
         
         // tabBar背景颜色
-        self.tabBar.barTintColor = Color.tabber;
+//        self.tabBar.barTintColor = Color.tabbarColor;
         
         // UITabBarItem字体和颜色
-        let attributesNormal =  [NSFontAttributeName:UIFont.systemFont(ofSize: 10),
+        let attributesNormal =  [NSFontAttributeName:UIFont.boldSystemFont(ofSize: 10),
                                  NSForegroundColorAttributeName:Color.textNormal]
-        let attributesSelected =  [NSFontAttributeName:UIFont.systemFont(ofSize: 10),
+        let attributesSelected =  [NSFontAttributeName:UIFont.boldSystemFont(ofSize: 10),
                                    NSForegroundColorAttributeName:Color.textSelect]
         
         UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, for: UIControlState.normal)

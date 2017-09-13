@@ -12,16 +12,15 @@ import UIKit
 // 常用颜色 小驼峰
 struct Color {
     
-    static let nav          = CLColorHex(value: "242424")   //  导航条颜色
-    static let navTitle     = CLColorHex(value: "FFFFFF")   //  导航条标题颜色
-    static let tabber       = CLColorHex(value: "242424")   //  tabbar颜色
-    static let bg           = CLColorHex(value: "FFFFFF")   //  背景颜色
-    static let bgList       = CLColorHex(value: "000000")   //  列表背景颜色
-    static let line         = CLColorHex(value: "5F5F5F")   //  线条颜色
+    static let navigationColor  = CLColorHex(value: "F8F8F8")   //  导航条颜色
+    static let tabbarColor      = CLColorHex(value: "F8F8F8")   //  选项栏颜色
+    static let viewColor        = CLColorHex(value: "F8F8F8")   //  背景颜色
+    static let lineColor        = CLColorHex(value: "C8C8C8")   //  线条颜色
     
-    static let text         = CLColorHex(value: "242424")   //  字体通用的颜色
-    static let textNormal   = CLColorHex(value: "AEAEAE")   //  字体正常的颜色
-    static let textSelect   = CLColorHex(value: "D6BD99")   //  字体选中的颜色
+    static let title            = CLColorHex(value: "242424")   //  标题的颜色
+    static let text             = CLColorHex(value: "242424")   //  字体通用的颜色
+    static let textNormal       = CLColorHex(value: "9B9B9B")   //  字体正常的颜色
+    static let textSelect       = CLColorHex(value: "9013FE")   //  字体选中的颜色
     
 }
 
