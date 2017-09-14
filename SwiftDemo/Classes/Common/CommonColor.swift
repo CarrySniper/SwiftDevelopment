@@ -16,6 +16,8 @@ struct Color {
     static let tabbarColor      = CLColorHex(value: "F8F8F8")   //  选项栏颜色
     static let viewColor        = CLColorHex(value: "F8F8F8")   //  背景颜色
     static let lineColor        = CLColorHex(value: "C8C8C8")   //  线条颜色
+    static let spaceColor       = CLColorHex(value: "FFFFFF")   //  区间颜色
+    static let cellColor        = CLColorHex(value: "F8F8F8")   //  单元格颜色
     
     static let title            = CLColorHex(value: "242424")   //  标题的颜色
     static let text             = CLColorHex(value: "242424")   //  字体通用的颜色

@@ -11,6 +11,16 @@ import UIKit
 
 extension UIViewController {
     
+    
+    /// 创建线条
+    ///
+    /// - Returns: UIView
+    public func createLineView() -> UIView {
+        let lineView = UIView.init(frame: CGRect(x:0, y:0, width: UIScreen.main.bounds.size.width, height: 0.5))
+        lineView.backgroundColor = Color.lineColor
+        return lineView
+    }
+    
     /// 创建TableView
     ///
     /// - Parameter style: 样式
@@ -19,10 +29,12 @@ extension UIViewController {
         let tableView = UITableView.init(frame: UIScreen.main.bounds, style: style)
         
         tableView.rowHeight = ConfigNumber.cellHeight
-        tableView.tableHeaderView = UIView.init()
         
         tableView.separatorColor = Color.lineColor
         tableView.backgroundColor = Color.viewColor
+        
+        tableView.tableHeaderView = self.createLineView()
+        tableView.tableFooterView = self.createLineView()
         
         return tableView
     }

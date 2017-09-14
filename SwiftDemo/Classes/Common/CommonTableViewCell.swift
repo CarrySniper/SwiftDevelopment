@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class CommonTableViewCell: UITableViewCell {
     
@@ -24,6 +25,7 @@ class CommonTableViewCell: UITableViewCell {
         self.imageView?.removeFromSuperview()
         self.textLabel?.removeFromSuperview()
         
+        self.backgroundColor = Color.cellColor
     }
     
     override func awakeFromNib() {

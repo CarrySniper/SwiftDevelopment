@@ -55,7 +55,7 @@ class TabBarManager: UITabBarController {
         self.tabBar.isTranslucent = true
         
         // tabBar背景颜色
-//        self.tabBar.barTintColor = Color.tabbarColor;
+        //self.tabBar.barTintColor = Color.tabbarColor;
         
         // UITabBarItem字体和颜色
         let attributesNormal =  [NSFontAttributeName:UIFont.boldSystemFont(ofSize: 10),

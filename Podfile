@@ -9,5 +9,7 @@ target 'SwiftDemo' do
   pod 'Alamofire'           # 网络请求库
   pod 'SwiftyJSON'          # Json解析库
   pod 'SnapKit'             # UI约束
+  
+  pod 'KSYMediaPlayer_iOS'  # 金山云媒体播放器
 
 end

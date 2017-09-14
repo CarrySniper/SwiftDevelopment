@@ -14,13 +14,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var tabBarManager : TabBarManager?
-
+    
+    class public func instance() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
+    func pushViewController(viewController :UIViewController) {
+        viewController.hidesBottomBarWhenPushed = true;
+        if (self.window?.rootViewController is TabBarManager) {
+            // 每个TabBar元素都是UINavigationController
+            let navigationController = tabBarManager?.viewControllers?[(tabBarManager?.selectedIndex)!] as! UINavigationController
+            if (navigationController.childViewControllers.contains(viewController)) == false {
+                navigationController.pushViewController(viewController, animated: true)
+            }
+        }else{
+            let navigationController = self.window?.rootViewController as! UINavigationController
+            if (navigationController.childViewControllers.contains(viewController)) == false {
+                navigationController.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
      
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        self.toTabBar(index: 0)
+        self.toTabBar(index: 2)
         
         window?.makeKeyAndVisible()
         

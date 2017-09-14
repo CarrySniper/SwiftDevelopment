@@ -1,19 +1,20 @@
 //
-//  CLMeViewController.swift
+//  CLSettingsViewController.swift
 //  SwiftDemo
 //
-//  Created by 炬盈科技 on 2017/8/31.
+//  Created by 炬盈科技 on 2017/9/14.
 //  Copyright © 2017年 CJQ. All rights reserved.
 //
 
 import UIKit
 
-class CLMeViewController: CommonViewController {
+class CLSettingsViewController: CommonViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = "设置"
     }
 
     override func didReceiveMemoryWarning() {

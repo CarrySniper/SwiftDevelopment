@@ -44,6 +44,9 @@ class CLHomeViewController: CommonViewController {
     
     func aaa() {
         print("aaaa");
+        let vv = CLSettingsViewController.init()
+        self.navigationController?.pushViewController(vv, animated: true)
+        
     }
     
     override func didReceiveMemoryWarning() {
