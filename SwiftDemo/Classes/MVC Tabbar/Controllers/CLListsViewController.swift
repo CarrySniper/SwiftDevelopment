@@ -21,20 +21,16 @@ class CLListsViewController: CommonViewController, UITableViewDelegate, UITableV
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
+        self.tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
+        
         
         let model = CommonModel.init()
-        model.Name = String(arc4random())
         self.dataSource.add(model)
         
         self.tableView.reloadData()
         
-        let parameters: NSDictionary = ["page": "1", "pageSize":"20"]
-        
-        NetWorking.request(url: ServerAPI.advertisement, method: .get, parameters: parameters) { (data) in
-            print("%@", data)
-            
-            
-        }
      
     }
     
@@ -51,7 +47,7 @@ class CLListsViewController: CommonViewController, UITableViewDelegate, UITableV
     }
     // MARK: 组数 optional 可选
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 10
     }
     // MARK: 单元格展示
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,6 +56,7 @@ class CLListsViewController: CommonViewController, UITableViewDelegate, UITableV
         let cell = CLListsTableViewCell.dequeueReusable(tableView, identifier)
         
         let model = dataSource[indexPath.row] as! CommonModel
+        model.Name = String(arc4random())
         
         tableView.rowHeight = cell .setModel(model: model)
         

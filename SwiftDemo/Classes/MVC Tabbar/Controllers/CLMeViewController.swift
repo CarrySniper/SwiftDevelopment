@@ -99,10 +99,15 @@ class CLMeViewController: CommonViewController, UITableViewDelegate, UITableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
+        self.tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view)
+        }
         
         // MARK: 头部，跳转到个人信息页
         headerView = CLMeHeaderView.loadXib() as! CLMeHeaderView
-        self.tableView.tableHeaderView = headerView
+        self.tableView.tableHeaderView = headerView;
+        headerView.background.image = #imageLiteral(resourceName: "tabbar_selected1")
+        headerView.background.contentMode = .scaleAspectFit
         headerView.toPersonalInfoPage {
             let viewController = CLPersonalViewController.init()
             AppDelegate.instance().pushViewController(viewController: viewController)
@@ -119,12 +124,18 @@ class CLMeViewController: CommonViewController, UITableViewDelegate, UITableView
     private func setProperties() {
         self.navigationController?.delegate = self;
         self.tableView.sectionHeaderHeight = 16.0;
+        self.tableView.showsVerticalScrollIndicator = false
         
         // 嵌套二维数组，内数组元素：0:名称 1:图标 2:类名
         let sectionOne = [["我的栏目1", "", ""],
                           ["我的栏目2", "", ""],
                           ["我的栏目3", "", ""],
-                          ["我的栏目4", "", ""]
+                          ["我的栏目4", "", ""],
+                          ["我的栏目5", "", ""],
+                          ["我的栏目6", "", ""],
+                          ["我的栏目7", "", ""],
+                          ["我的栏目8", "", ""],
+
         ]
         
         let sectionTwo = [["意见反馈", "", ""],
@@ -137,13 +148,21 @@ class CLMeViewController: CommonViewController, UITableViewDelegate, UITableView
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let minAlphaOffset: CGFloat = 0.0
-        let maxAlphaOffset = headerView.makeHeight - 64.0 - 16.0;// 导航栏+间隔区
         
         let offset = scrollView.contentOffset.y;
-        let alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
-        
-        navigationView.alpha = alpha > 1 ? 1 : alpha;
+        if offset < -20 {
+            // 顶部背景放大效果
+            
+            headerView.background.makeHeight = -(offset + 20) + 140
+            headerView.background.makeBottom = headerView.makeBottom
+        }else{
+            // 透明效果
+            let minAlphaOffset: CGFloat = 0.0;
+            let maxAlphaOffset = headerView.makeHeight - 64.0 - 16.0;// 导航栏+间隔区
+            let alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
+            
+            navigationView.alpha = alpha > 1 ? 1 : alpha;
+        }
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {

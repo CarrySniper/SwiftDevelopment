@@ -30,6 +30,7 @@ class CLListsTableViewCell: CommonTableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.iconImage = UIImageView.init(frame: CGRect.init(x: 10, y: 10, width: 60, height: 60))
+        iconImage.backgroundColor = UIColor.purple
         self.contentView.addSubview(self.iconImage)
         
         self.nameLabel = UILabel.init(frame: CGRect.init(x: 80, y: 10, width: 200, height: 60))

@@ -15,6 +15,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YNf-RY-hqg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wL-4g-sGf">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,9 +38,16 @@
                     <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                 </imageView>
             </subviews>
+            <constraints>
+                <constraint firstItem="YNf-RY-hqg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KTt-Is-XlQ"/>
+                <constraint firstItem="YNf-RY-hqg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="X5v-Gy-u3j"/>
+                <constraint firstAttribute="bottom" secondItem="YNf-RY-hqg" secondAttribute="bottom" id="YQ4-d9-A0E"/>
+                <constraint firstAttribute="trailing" secondItem="YNf-RY-hqg" secondAttribute="trailing" id="jC1-J3-JjC"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="avatar" destination="Pyi-Oh-wnc" id="OK1-YW-2ny"/>
+                <outlet property="background" destination="YNf-RY-hqg" id="FMD-cx-lIH"/>
                 <outlet property="infoButton" destination="8wL-4g-sGf" id="fcW-jd-Pgk"/>
                 <outlet property="username" destination="1no-ep-wjj" id="R8I-NJ-2pk"/>
             </connections>
