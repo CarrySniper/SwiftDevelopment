@@ -94,23 +94,31 @@ class CLMeViewController: CommonViewController, UITableViewDelegate, UITableView
     
     /// 实例化对象
     private func initObject() {
-        
+        // MARK: UITableView
         self.tableView = self.createTableView(style: UITableViewStyle.plain)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
         
+        // MARK: 头部，跳转到个人信息页
         headerView = CLMeHeaderView.loadXib() as! CLMeHeaderView
         self.tableView.tableHeaderView = headerView
-        self.tableView.sectionHeaderHeight = 16.0;
+        headerView.toPersonalInfoPage {
+            let viewController = CLPersonalViewController.init()
+            AppDelegate.instance().pushViewController(viewController: viewController)
+        }        
         
+        // MARK: 自定义透明导航栏，其他导航依然使用系统自带的
         navigationView = CLNavigationView.init()
         navigationView.titleLabel.text = "个人中心"
         self.view.addSubview(navigationView)
+        
     }
     
+    /// 设置属性
     private func setProperties() {
         self.navigationController?.delegate = self;
+        self.tableView.sectionHeaderHeight = 16.0;
         
         // 嵌套二维数组，内数组元素：0:名称 1:图标 2:类名
         let sectionOne = [["我的栏目1", "", ""],
@@ -145,10 +153,6 @@ class CLMeViewController: CommonViewController, UITableViewDelegate, UITableView
         }else{
             navigationController.setNavigationBarHidden(false, animated: true)
         }
-        navigationController.navigationBar.isTranslucent = false
-    }
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        navigationController.navigationBar.isTranslucent = true
     }
     
     /*

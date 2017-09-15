@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7DDFD0ECF4852FAAB9D55B1D /* Pods_SwiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C05A85ED06920AFCA86C5C5 /* Pods_SwiftDemo.framework */; };
+		99003FB51F6B66F200D0FF7F /* CommonTypealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99003FB41F6B66F200D0FF7F /* CommonTypealias.swift */; };
+		99003FB91F6B797700D0FF7F /* CLPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99003FB71F6B797700D0FF7F /* CLPersonalViewController.swift */; };
+		99003FBA1F6B797700D0FF7F /* CLPersonalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99003FB81F6B797700D0FF7F /* CLPersonalViewController.xib */; };
 		9937C2CB1F57E40600155FFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937C2CA1F57E40600155FFA /* AppDelegate.swift */; };
 		9937C2D21F57E40600155FFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9937C2D11F57E40600155FFA /* Assets.xcassets */; };
 		9937C2D51F57E40600155FFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9937C2D31F57E40600155FFA /* LaunchScreen.storyboard */; };
@@ -37,6 +40,9 @@
 		29C103316D2F956EDF2787BB /* Pods-SwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 		6FC2BB96323DB1C04A129C53 /* Pods-SwiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		8C05A85ED06920AFCA86C5C5 /* Pods_SwiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99003FB41F6B66F200D0FF7F /* CommonTypealias.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTypealias.swift; sourceTree = "<group>"; };
+		99003FB71F6B797700D0FF7F /* CLPersonalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLPersonalViewController.swift; sourceTree = "<group>"; };
+		99003FB81F6B797700D0FF7F /* CLPersonalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLPersonalViewController.xib; sourceTree = "<group>"; };
 		9937C2C71F57E40600155FFA /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9937C2CA1F57E40600155FFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9937C2D11F57E40600155FFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +88,15 @@
 				8C05A85ED06920AFCA86C5C5 /* Pods_SwiftDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99003FB61F6B794800D0FF7F /* 个人信息 */ = {
+			isa = PBXGroup;
+			children = (
+				99003FB71F6B797700D0FF7F /* CLPersonalViewController.swift */,
+				99003FB81F6B797700D0FF7F /* CLPersonalViewController.xib */,
+			);
+			name = "个人信息";
 			sourceTree = "<group>";
 		};
 		9937C2BE1F57E40600155FFA = {
@@ -135,6 +150,7 @@
 			children = (
 				9937C30B1F58104600155FFA /* CommonViewController.swift */,
 				9937C31E1F581C1200155FFA /* CommonTableViewCell.swift */,
+				99003FB41F6B66F200D0FF7F /* CommonTypealias.swift */,
 				9937C3221F581C7500155FFA /* CommonModel.swift */,
 				9937C3151F58112000155FFA /* CommonColor.swift */,
 				996339ED1F58FE3C009FF84A /* CommonUrl.swift */,
@@ -195,6 +211,7 @@
 		99FD3F951F6A6B96004590EB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				99003FB61F6B794800D0FF7F /* 个人信息 */,
 				99FD3FAA1F6A6BE1004590EB /* 设置 */,
 			);
 			path = Controllers;
@@ -340,6 +357,7 @@
 				9937C2D51F57E40600155FFA /* LaunchScreen.storyboard in Resources */,
 				99FD3FA81F6A6B96004590EB /* CLMeHeaderView.xib in Resources */,
 				9937C2D21F57E40600155FFA /* Assets.xcassets in Resources */,
+				99003FBA1F6B797700D0FF7F /* CLPersonalViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +430,7 @@
 				99FD3FA51F6A6B96004590EB /* CLMeViewController.swift in Sources */,
 				9937C3231F581C7500155FFA /* CommonModel.swift in Sources */,
 				99FD3FA91F6A6B96004590EB /* CLMeTableViewCell.swift in Sources */,
+				99003FB91F6B797700D0FF7F /* CLPersonalViewController.swift in Sources */,
 				996339F01F58FEC7009FF84A /* NetWorking.swift in Sources */,
 				99FD3FA71F6A6B96004590EB /* CLMeHeaderView.swift in Sources */,
 				9937C31B1F5816F500155FFA /* UIViewController+UIInterface.swift in Sources */,
@@ -425,6 +444,7 @@
 				99FD3FA31F6A6B96004590EB /* CLHomeViewController.swift in Sources */,
 				99FD3F911F6A63AC004590EB /* UIView+CLFrame.swift in Sources */,
 				99FD3FA41F6A6B96004590EB /* CLListsViewController.swift in Sources */,
+				99003FB51F6B66F200D0FF7F /* CommonTypealias.swift in Sources */,
 				9937C31F1F581C1200155FFA /* CommonTableViewCell.swift in Sources */,
 				9937C2CB1F57E40600155FFA /* AppDelegate.swift in Sources */,
 			);

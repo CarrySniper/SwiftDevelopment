@@ -16,9 +16,9 @@ class CommonViewController: UIViewController, UINavigationControllerDelegate, UI
         // Do any additional setup after loading the view.
         
         self.view.backgroundColor = Color.viewColor
-//        self.navigationController?.navigationBar.barTintColor = Color.navigationColor
+        self.navigationController?.navigationBar.barTintColor = Color.navigationColor
         self.navigationController?.navigationBar.tintColor = Color.title
-        
+        self.navigationController?.navigationBar.isTranslucent = false
     }
 
     override func didReceiveMemoryWarning() {

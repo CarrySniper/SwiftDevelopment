@@ -5,11 +5,82 @@ CL为个人特殊名字
 
 ## 学习从此刻开始（时间倒序）
 
+#### 2017-09-15（周五）
+1、学习Swift闭包，ypealias定义。
+2、获取相机相册图片（配置：NSCameraUsageDescription／NSPhotoLibraryUsageDescription）
+
+Swift闭包使用说明：
+```swift
+ 1、定义闭包类型
+ typealias ErrorBlock = (_ code: NSInteger, _ message: String) -> Void
+ 
+ 2、声明闭包函数变量
+ private var errorBlcok: ErrorBlock?
+ 
+ 3、声明含有闭包变量的函数（可省略，建议使用）。当省略这一步时，需要去掉private限定，然后直接使用变量属性
+ func setMyBlock(block: @escaping ErrorBlock) {
+    self.errorBlcok = block
+ }
+ 
+ 4、触发闭包函数
+ let code: NSInteger = 404
+ let msg: String = "对象不存在"
+ 
+ if errorBlcok != nil {
+    errorBlcok!(code, msg)
+ }
+ 
+ 5、闭包回调
+ 使用第3步，调用函数
+ myObject.errorBlcok { (code, message) in
+    print("error1：" +  (String)(code) + (message))
+ }
+ 
+ 省略第3步，直接使用变量属性
+ myObject.errorBlcok = { (code, message) -> Void in
+    print("error2：" +  (String)(code) + (message))
+ }
+```
+
+获取相机相册图片简要说明
+```swift
+    private func alertAction(action: UIAlertAction) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        if action.title == "拍照获取" {
+            imagePicker.sourceType = .camera
+        }else if action.title == "相册选择" {
+            imagePicker.sourceType = .photoLibrary
+            
+        }
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let imagePickerc = info[UIImagePickerControllerOriginalImage] as! UIImage
+        avatar.image = imagePickerc
+        self.dismiss(animated: true, completion: nil)        
+    }
+```
 #### 2017-09-14（周四）
 1、设置UI主色调为系统默认颜色<br>
 2、实现UITableView分组<br>
 3、个人栏目头像显示和导航栏透明+半透明效果。<br>
->优化导航栏透明效果状态下，UINavigationController出入栈的NavigationBar显示，近乎完美。
+>优化导航栏透明效果状态下，UINavigationController出入栈的NavigationBar显示。
+isTranslucent = false，近乎完美，当然默认半透明效果就没有了。
+
+导航栏隐藏主要代码：
+```swift
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        
+        if self.isEqual(viewController) {
+            navigationController.setNavigationBarHidden(true, animated: true)
+        }else{
+            navigationController.setNavigationBarHidden(false, animated: true)
+        }
+    }
+```
 
 #### 2017-09-13（周三）
 图标使用PDF格式（矢量），个人使用Sketch软件制作并生成导出。<br>
