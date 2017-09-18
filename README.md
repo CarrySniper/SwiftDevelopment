@@ -63,6 +63,7 @@ Swift闭包使用说明：
         self.dismiss(animated: true, completion: nil)        
     }
 ```
+
 #### 2017-09-14（周四）
 1、设置UI主色调为系统默认颜色<br>
 2、实现UITableView分组<br>
@@ -110,6 +111,7 @@ target 'SwiftDemo' do
   pod 'SnapKit'             # UI约束
 end
 ```
+
 >百度经验：iOS开发 Swift纯代码管理UITabBarController <br>
 
 可查找文件文件TabBarManager.swift
@@ -120,6 +122,7 @@ func customTabbar(selectedIndex:NSInteger)
     
 override func viewDidLoad()
 ```
+
 #### 2017-01-13（周五）
 >百度经验：iOS开发 Swift去除Main.storyboard <br>
 http://jingyan.baidu.com/article/9faa7231935a97473c28cbdb.html
@@ -130,6 +133,7 @@ window = UIWindow(frame: UIScreen.main.bounds)
 window?.rootViewController = ViewController()
 window?.makeKeyAndVisible()
 ```
+
 >百度经验：iOS开发 CocoaPods安装、移除和常见问题 <br>
 http://jingyan.baidu.com/article/c1a3101e5aeab3de656debe5.html
 
@@ -163,6 +167,7 @@ func CLColorHex(value: NSString, alpha: CGFloat) -> UIColor {
                    alpha: alpha)
 }
 ```
+
 使用方法：
 ```swift
 let myColor = Color.textNormal
