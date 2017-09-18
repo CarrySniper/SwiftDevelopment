@@ -106,8 +106,6 @@ class CLMeViewController: CommonViewController, UITableViewDelegate, UITableView
         // MARK: 头部，跳转到个人信息页
         headerView = CLMeHeaderView.loadXib() as! CLMeHeaderView
         self.tableView.tableHeaderView = headerView;
-        headerView.background.image = #imageLiteral(resourceName: "tabbar_selected1")
-        headerView.background.contentMode = .scaleAspectFit
         headerView.toPersonalInfoPage {
             let viewController = CLPersonalViewController.init()
             AppDelegate.instance().pushViewController(viewController: viewController)
@@ -150,19 +148,12 @@ class CLMeViewController: CommonViewController, UITableViewDelegate, UITableView
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let offset = scrollView.contentOffset.y;
-        if offset < -20 {
-            // 顶部背景放大效果
+        // 透明效果
+        let minAlphaOffset: CGFloat = 0.0;
+        let maxAlphaOffset = headerView.makeHeight - 64.0 - 16.0;// 导航栏+间隔区
+        let alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
             
-            headerView.background.makeHeight = -(offset + 20) + 140
-            headerView.background.makeBottom = headerView.makeBottom
-        }else{
-            // 透明效果
-            let minAlphaOffset: CGFloat = 0.0;
-            let maxAlphaOffset = headerView.makeHeight - 64.0 - 16.0;// 导航栏+间隔区
-            let alpha = (offset - minAlphaOffset) / (maxAlphaOffset - minAlphaOffset);
-            
-            navigationView.alpha = alpha > 1 ? 1 : alpha;
-        }
+        navigationView.alpha = alpha > 1 ? 1 : alpha;
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {

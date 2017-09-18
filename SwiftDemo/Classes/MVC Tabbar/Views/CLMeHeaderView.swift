@@ -10,7 +10,6 @@ import UIKit
 
 class CLMeHeaderView: UIView {
 
-    @IBOutlet weak var background: UIImageView!
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var infoButton: UIButton!

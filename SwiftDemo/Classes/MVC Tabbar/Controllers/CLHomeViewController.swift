@@ -29,7 +29,7 @@ class CLHomeViewController: CommonViewController {
         
         let imageView = UIImageView.init(frame: CGRect(x: 0, y: 150, width: 100, height: 100))
         imageView.backgroundColor = UIColor.lightGray
-        imageView.image = UIImage(named: "tabbar_selected2.pdf")
+        imageView.image = UIImage(named: "tabbar_selected2")
         self.view.addSubview(imageView)
         
         

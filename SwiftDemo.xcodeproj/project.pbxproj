@@ -23,6 +23,7 @@
 		9937C3231F581C7500155FFA /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937C3221F581C7500155FFA /* CommonModel.swift */; };
 		996339EE1F58FE3C009FF84A /* CommonUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996339ED1F58FE3C009FF84A /* CommonUrl.swift */; };
 		996339F01F58FEC7009FF84A /* NetWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996339EF1F58FEC7009FF84A /* NetWorking.swift */; };
+		996F51301F6F71C400AE14FB /* bg_me_header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 996F512F1F6F71C400AE14FB /* bg_me_header.jpg */; };
 		99FD3F911F6A63AC004590EB /* UIView+CLFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FD3F901F6A63AC004590EB /* UIView+CLFrame.swift */; };
 		99FD3FA31F6A6B96004590EB /* CLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FD3F9A1F6A6B96004590EB /* CLHomeViewController.swift */; };
 		99FD3FA41F6A6B96004590EB /* CLListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FD3F9B1F6A6B96004590EB /* CLListsViewController.swift */; };
@@ -57,6 +58,7 @@
 		9937C3221F581C7500155FFA /* CommonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
 		996339ED1F58FE3C009FF84A /* CommonUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUrl.swift; sourceTree = "<group>"; };
 		996339EF1F58FEC7009FF84A /* NetWorking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorking.swift; sourceTree = "<group>"; };
+		996F512F1F6F71C400AE14FB /* bg_me_header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_me_header.jpg; sourceTree = "<group>"; };
 		99FD3F901F6A63AC004590EB /* UIView+CLFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+CLFrame.swift"; sourceTree = "<group>"; };
 		99FD3F9A1F6A6B96004590EB /* CLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLHomeViewController.swift; sourceTree = "<group>"; };
 		99FD3F9B1F6A6B96004590EB /* CLListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLListsViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		9937C3041F580F3E00155FFA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				996F512F1F6F71C400AE14FB /* bg_me_header.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				99FD3FA81F6A6B96004590EB /* CLMeHeaderView.xib in Resources */,
 				9937C2D21F57E40600155FFA /* Assets.xcassets in Resources */,
 				99003FBA1F6B797700D0FF7F /* CLPersonalViewController.xib in Resources */,
+				996F51301F6F71C400AE14FB /* bg_me_header.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
