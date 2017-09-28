@@ -1,6 +1,6 @@
 # SwiftDemo
 
->用于了解Swift的例子，很有作用，学习过程中会更新。慢慢养成看Wiki的习惯<br>
+>用于了解Swift的例子，很有作用，学习过程中会更新。慢慢养成看Wiki的习惯。<br>
 CL为个人特殊名字
 
 ## 学习从此刻开始（时间倒序）
@@ -83,38 +83,5 @@ window?.makeKeyAndVisible()
 >百度经验：iOS开发 CocoaPods安装、移除和常见问题 <br>
 http://jingyan.baidu.com/article/c1a3101e5aeab3de656debe5.html
 
-
 仿OC的宏定义，利用结构体和静态变量定义全局属性。<br>
-如：颜色，可查找文件CommonColor.swift
-```swift
-import Foundation
-import UIKit
-
-// 常用颜色 小驼峰
-struct Color {   
-    static let textNormal   = CLColorHex(value: "AEAEAE")   //  字体正常的颜色
-    static let textSelect   = CLColorHex(value: "D6BD99")   //  字体选中的颜色    
-}
-
-/// //十六进制颜色转换成UIColor
-///
-/// - Parameter value: 十六进制字符串  如："2B2B2B"
-/// - Parameter alpha: 透明度  0.0 ~ 1.0
-/// - Returns: UIColor
-func CLColorHex(value: NSString) -> UIColor {
-    return CLColorHex(value: value, alpha:1.0)
-}
-
-func CLColorHex(value: NSString, alpha: CGFloat) -> UIColor {
-    let hexValue = strtoul(value.cString(using: String.Encoding.utf8.rawValue), nil, 16)
-    return UIColor(red: ((CGFloat)((hexValue & 0xFF0000) >> 16)) / 255.0,
-                   green: ((CGFloat)((hexValue & 0xFF00) >> 8)) / 255.0,
-                   blue: ((CGFloat)(hexValue & 0xFF)) / 255.0,
-                   alpha: alpha)
-}
-```
-
-使用方法：
-```swift
-let myColor = Color.textNormal
-```
+详情请查询:[Wiki 2017 0113](https://github.com/cjq002/SwiftDemo/wiki)
