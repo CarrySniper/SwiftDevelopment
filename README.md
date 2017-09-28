@@ -8,7 +8,7 @@ CL为个人特殊名字
 #### 2017-09-15（周五）
 1、学习Swift闭包，ypealias定义。<br>
 2、获取相机相册图片<br>
-详情请查询:[Wiki 2017 0915](https://github.com/cjq002/SwiftDemo.wiki.git)
+详情请查询:[Wiki 2017 0915](https://github.com/cjq002/SwiftDemo.wiki)
 
 #### 2017-09-14（周四）
 1、设置UI主色调为系统默认颜色<br>
