@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '8.0'
+ platform :ios, '9.0'
 
 target 'SwiftDemo' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -10,6 +10,4 @@ target 'SwiftDemo' do
   pod 'SwiftyJSON'          # Json解析库
   pod 'SnapKit'             # UI约束
   
-  pod 'KSYMediaPlayer_iOS'  # 金山云媒体播放器
-
 end

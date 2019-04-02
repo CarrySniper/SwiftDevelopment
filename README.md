@@ -1,7 +1,8 @@
 # SwiftDemo
 
 >用于了解Swift的例子，很有作用，学习过程中会更新。慢慢养成看Wiki的习惯。<br>
-CL为个人特殊名字
+CL为个人特殊名字,Swift 5发布，工程项目得新建才能更好地适配。
+最近Objective C语言偏向MVVM架构，所以Swift一起转向MVVM。
 
 ## 学习从此刻开始（时间倒序）
 
@@ -60,13 +61,13 @@ end
 
 >百度经验：iOS开发 Swift纯代码管理UITabBarController <br>
 
-可查找文件文件TabBarManager.swift
+可查找文件文件CLTabBarController.swift
 ```swift
 /// 自定义UITabBar
 /// - Parameter selectedIndex: 选中下标 从0开始
-func customTabbar(selectedIndex:NSInteger)
-    
-override func viewDidLoad()
+tabBarController = CLTabBarController()
+tabBarController?.selectedIndex = 1
+window?.rootViewController = tabBarController
 ```
 
 #### 2017-01-13（周五）

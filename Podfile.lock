@@ -1,23 +1,24 @@
 PODS:
-  - Alamofire (4.5.1)
-  - KSYMediaPlayer_iOS (2.7.0):
-    - KSYMediaPlayer_iOS/KSYMediaPlayer_live (= 2.7.0)
-  - KSYMediaPlayer_iOS/KSYMediaPlayer_live (2.7.0)
-  - SnapKit (3.2.0)
-  - SwiftyJSON (3.1.4)
+  - Alamofire (4.8.2)
+  - SnapKit (4.2.0)
+  - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
   - Alamofire
-  - KSYMediaPlayer_iOS
   - SnapKit
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - SnapKit
+    - SwiftyJSON
+
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  KSYMediaPlayer_iOS: f795409d2b70b7c0cefa1eed5e6be566b4e14c63
-  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: a8583adbea82703ab494fb259812547b4b6e9674
+PODFILE CHECKSUM: 9b7d23cea841a86c40737b500f55d059fd608d55
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3
