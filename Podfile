@@ -10,4 +10,9 @@ target 'SwiftDemo' do
   pod 'SwiftyJSON'          # Json解析库
   pod 'SnapKit'             # UI约束
   
+  pod 'SwiftProgressHUD'
+  
+  pod 'YYModel'          	# OC的模型转换
+  pod 'AVOSCloud'  			# OC的云存储
+  
 end

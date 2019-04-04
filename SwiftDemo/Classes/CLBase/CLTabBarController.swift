@@ -67,7 +67,7 @@ class CLTabBarController: UITabBarController {
 		let attributesNormal =  [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 10),
 								 NSAttributedString.Key.foregroundColor:CLColor.textNormal]
 		let attributesSelected =  [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 10),
-								   NSAttributedString.Key.foregroundColor:CLColor.textSelect]
+								   NSAttributedString.Key.foregroundColor:CLColor.textSelected]
 		
 		UITabBarItem.appearance().setTitleTextAttributes(attributesNormal, for: UIControl.State.normal)
 		UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: UIControl.State.selected)

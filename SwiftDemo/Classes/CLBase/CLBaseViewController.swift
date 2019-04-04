@@ -23,15 +23,15 @@ class CLBaseViewController: UIViewController {
 		if (self.navigationController?.viewControllers.count == 0) {
 			self.navigationItem.leftBarButtonItem = nil
 		}else{
-			let leftBarItem = UIBarButtonItem.init(image: UIImage.init(named: "navigation_cancel"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(customBack))
+			let leftBarItem = UIBarButtonItem.init(image: UIImage.init(named: "navigation_back"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(customBack))
 			leftBarItem.imageInsets = UIEdgeInsets.init(top: 0, left: -5, bottom: 0, right: 0)
 			self.navigationItem.leftBarButtonItem = leftBarItem
 		}
     }
 	
-	/// <#Description#>
+	/// 视图将要展现
 	///
-	/// - Parameter animated: <#animated description#>
+	/// - Parameter animated: 是否有动画
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		

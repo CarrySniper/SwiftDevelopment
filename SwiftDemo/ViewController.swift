@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view.
 
 //		self.view.backgroundColor = UIColor.colorHexString(hexString: "FF0088")
-		self.view.backgroundColor = UIColor.colorHex(hex: 0xFF0088)
+		self.view.backgroundColor = UIColor.colorHex(0xFF0088)
 	}
 
 

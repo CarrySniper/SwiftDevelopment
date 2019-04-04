@@ -7,19 +7,47 @@
 //
 
 import UIKit
+import YYModel
 
-class CLUserHomeViewController: CLBaseViewController {
+class CLUserHomeViewController: CLBaseHomeViewController {
 
-    override func viewDidLoad() {
+	@IBOutlet weak var codeButton: CLVerificationCodeButton!
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+	
 		
+		// 验证码
+		codeButton.layer.cornerRadius = 15;
+		codeButton.layer.masksToBounds = true;
+		codeButton.layer.borderWidth = 0.5;
+		codeButton.layer.borderColor = CLColor.red.cgColor;
+		codeButton.setHandler(6, start: { (button) in
+			button.layer.borderWidth = 0.0;
+			// 发起网络请求
+//			[weakSelf sendCodeAction];
+		}, end: { (button) in
+			button.layer.borderWidth = 0.5;
+		})
+		
+		
+		let dict = ["className":"ssgasg","age":18] as [String : Any]
+		
+		let model : CLBaseModel = CLBaseModel.yy_model(withJSON: dict)!
+		print(model.className)
     }
 
 
 	@IBAction func userInfoAction(_ sender: Any) {
+		struct Number {
+			static var number: Int = 0
+		}
+		Number.number += 1
 		
+//		showSuccess(String (format: "HUD %d", Number.number))
+		return
 		AppDelegate.postNotificationToLoginPage()
 	}
 	/*

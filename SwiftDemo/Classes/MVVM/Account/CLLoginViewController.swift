@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CLLoginViewController: CLBaseViewController, UITextFieldDelegate {
+class CLLoginViewController: CLBaseHomeViewController, UITextFieldDelegate {
 
 	@IBOutlet weak var phoneTextField: UITextField!
 	@IBOutlet weak var passwordTextField: UITextField!
@@ -20,7 +20,6 @@ class CLLoginViewController: CLBaseViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-		self.navigationItem.leftBarButtonItem = nil
 		
 		let rightBarItem = UIBarButtonItem.init(image: UIImage.init(named: "navigation_cancel"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(customBack))
 		self.navigationItem.rightBarButtonItem = rightBarItem
@@ -37,7 +36,9 @@ class CLLoginViewController: CLBaseViewController, UITextFieldDelegate {
 	// MARK: - UIControl
 	// MARK: 登录操作
 	@IBAction func loginAction(_ sender: Any) {
+		self.dismiss(animated: true, completion: nil)
 	}
+	
 	// MARK: 去注册
 	@IBAction func registerAction(_ sender: Any) {
 		let transition = CATransition.init()
@@ -57,9 +58,13 @@ class CLLoginViewController: CLBaseViewController, UITextFieldDelegate {
 		let vc = CLRegisterViewController.init()
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
+	
 	// MARK: 去修改密码
 	@IBAction func forgetAction(_ sender: Any) {
+		let vc = CLResetPasswordViewController.init()
+		self.navigationController?.pushViewController(vc, animated: true)
 	}
+	
 	// MARK: 密码输入安全切换 **** 1234
 	@IBAction func secureAction(_ sender: Any) {
 		if (secureButton.isSelected == false) {
@@ -71,6 +76,20 @@ class CLLoginViewController: CLBaseViewController, UITextFieldDelegate {
 		}
 	}
 	
+	// MARK: - UITextFieldDelegate
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		switch textField {
+		case phoneTextField:
+			passwordTextField.becomeFirstResponder()
+			break
+		default:
+			textField.resignFirstResponder()
+			break
+		}
+		return true
+	}
+	
+	// MARK: - 设置UI
 	private func setupUI() {
 		self.view.backgroundColor = UIColor.white;
 		

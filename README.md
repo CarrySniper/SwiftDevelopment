@@ -38,7 +38,7 @@ isTranslucent = false，近乎完美，当然默认半透明效果就没有了�
 将PDF图放到Assets.xcassets里面，并且设置Image Set->Scales为Single Scale。
 
 #### 2017-09-12（周二）
-1、添加公共基类，前缀：Common（通常使用Base）<br>
+1、添加公共基类，前缀：CLBase（通常使用Base,避免和别人的基类同名冲突，加上CL）<br>
 2、添加UI交互类，UIInterface（通常使用UI），顺便添加扩展Extension（Objective-C中为Category）<br>
 ![](https://github.com/cjq002/SwiftDemo/raw/master/Media/common.png) 
 

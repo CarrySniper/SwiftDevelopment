@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+typealias CLViodHandler = () -> Void
+
 /// 数值
 struct ConfigNumber {
 	static let cellHeight: CGFloat          = 50.0

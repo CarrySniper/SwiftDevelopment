@@ -15,8 +15,8 @@ extension AppDelegate {
 	/// 配置应用
 	func configApplication() {
 		// 设置输入光标颜色
-		UITextView.appearance().tintColor = CLColor.textSelect
-		UITextField.appearance().tintColor = CLColor.textSelect
+		UITextView.appearance().tintColor = CLColor.textSelected
+		UITextField.appearance().tintColor = CLColor.textSelected
 		
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(notificationToLogin), name: NSNotification.Name(rawValue: ConfigNotification.toLogin), object: nil)

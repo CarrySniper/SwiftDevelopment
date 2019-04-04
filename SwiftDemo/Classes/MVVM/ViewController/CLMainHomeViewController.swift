@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CLMainHomeViewController: CLBaseViewController {
+class CLMainHomeViewController: CLBaseHomeViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

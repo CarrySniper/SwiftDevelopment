@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CLUserHomeViewController" customModule="SwiftDemo" customModuleProvider="target">
             <connections>
+                <outlet property="codeButton" destination="L0M-N0-Yk9" id="b9o-bd-FXL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -66,6 +67,13 @@
                         <outletCollection property="gestureRecognizers" destination="Qor-fz-x2j" appends="YES" id="6ik-pA-ayQ"/>
                     </connections>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0M-N0-Yk9" customClass="CLVerificationCodeButton" customModule="SwiftDemo" customModuleProvider="target">
+                    <rect key="frame" x="93" y="273" width="54" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
