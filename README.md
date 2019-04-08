@@ -6,6 +6,37 @@ CL为个人特殊名字,Swift 5发布，工程项目得新建才能更好地适�
 
 ## 学习从此刻开始（时间倒序）
 
+#### 2019-04-08（周一）
+重写UITextView，增加上placeholder和placeholderColor属性
+1、学会重写set、get方法。Swift 5 推荐
+```swift 
+  /** 占位文字 */
+  var placeholder: String? {
+    didSet {
+      self.setNeedsDisplay()
+    }
+
+  }
+  /** 占位文字颜色 */
+  var placeholderColor: UIColor? {
+    didSet {
+      self.setNeedsDisplay()
+    }
+  }
+```
+2、draw in方法绘制内容
+```swift
+// 属性
+let attributes = [NSAttributedString.Key.foregroundColor: self.placeholderColor as Any, NSAttributedString.Key.font: self.font as Any]
+    
+// 画文字
+var tempFrame: CGRect = rect
+tempFrame.origin.x = 5
+tempFrame.origin.y = 8
+tempFrame.size.width -= 2 * tempFrame.origin.x
+self.placeholder?.draw(in: tempFrame, withAttributes: attributes)
+```
+
 #### 2017-09-15（周五）
 1、学习Swift闭包，ypealias定义。<br>
 2、获取相机相册图片<br>
