@@ -21,7 +21,11 @@ class CLUser: CLBaseModel {
 	
 	var mobilePhoneVerified : Bool!
 	
-	class func currentUser() -> CLUser {
+	
+	/// 忧伤的 ！ ？
+	///
+	/// - Returns: 登录返回YYModel，未登录返回nil
+	class func currentUser() -> CLUser? {
 		var model : CLUser?
 		let user = AVUser.current()
 		if (user != nil) {
@@ -29,6 +33,6 @@ class CLUser: CLBaseModel {
 			model!.createdAt = user?.createdAt
 			return model!
 		}
-		return model!
+		return model
 	}
 }

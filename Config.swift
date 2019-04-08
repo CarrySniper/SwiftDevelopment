@@ -9,7 +9,14 @@
 import Foundation
 import UIKit
 
+/// LeanCloud相关
+struct LeanCloud {
+	static let appId: String          = "gcB1d0kP6vyUCtyIpeEaXUEq-gzGzoHsz"
+	static let appKey: String         = "3tkTIsfIhNEtCpE9KLJ9NmUx"
+}
+
 typealias CLViodHandler = () -> Void
+typealias CLBoolHandler = (_ success: Bool) -> Void
 
 /// 数值
 struct ConfigNumber {

@@ -8,15 +8,35 @@
 
 import UIKit
 
-class CLBaseNavigationController: UINavigationController {
-
+class CLBaseNavigationController: UINavigationController, UINavigationControllerDelegate {
+	
+	/// 防止多次push一个页面
+	var isPushing: Bool = false
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		self.delegate = self
     }
     
-
+	override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+		if isPushing == true {
+			print("被拦截: \(type(of: viewController))")
+		} else {
+			if self.viewControllers.count > 0 {
+				isPushing = true
+			}
+		}
+		if self.viewControllers.count > 0 {
+			viewController.hidesBottomBarWhenPushed = true
+		}
+		super.pushViewController(viewController, animated: animated)
+	}
+	
+	func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+		isPushing = false
+	}
     /*
     // MARK: - Navigation
 

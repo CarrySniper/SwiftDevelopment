@@ -39,7 +39,7 @@
                                         <constraint firstAttribute="height" constant="1" id="uoj-J6-Pmm"/>
                                     </constraints>
                                 </view>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ffq-TQ-pjS">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ffq-TQ-pjS">
                                     <rect key="frame" x="0.0" y="0.0" width="283" height="49"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
@@ -75,7 +75,7 @@
                                         <constraint firstAttribute="height" constant="1" id="bdo-rZ-RZm"/>
                                     </constraints>
                                 </view>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LzF-oM-KRF">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LzF-oM-KRF">
                                     <rect key="frame" x="0.0" y="0.0" width="190" height="49"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>

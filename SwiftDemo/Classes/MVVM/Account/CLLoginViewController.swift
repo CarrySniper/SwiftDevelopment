@@ -16,6 +16,15 @@ class CLLoginViewController: CLBaseHomeViewController, UITextFieldDelegate {
 	@IBOutlet weak var secureButton: UIButton!
 	@IBOutlet weak var doneButton: UIButton!
 	
+//	var viewModel: CLAccountViewModel!
+	
+	/// 懒加载
+	lazy var viewModel: CLAccountViewModel = {
+		var vm = CLAccountViewModel.init()
+		vm.view = self.view
+		return vm
+	}()
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +45,12 @@ class CLLoginViewController: CLBaseHomeViewController, UITextFieldDelegate {
 	// MARK: - UIControl
 	// MARK: 登录操作
 	@IBAction func loginAction(_ sender: Any) {
-		self.dismiss(animated: true, completion: nil)
+		viewModel.login(phone: phoneTextField.text!, password: passwordTextField.text!) { (success) in
+			if success == true {
+				// 登录成功
+				self.dismiss(animated: true, completion: nil)
+			}
+		}
 	}
 	
 	// MARK: 去注册
@@ -77,6 +91,11 @@ class CLLoginViewController: CLBaseHomeViewController, UITextFieldDelegate {
 	}
 	
 	// MARK: - UITextFieldDelegate
+	func textFieldShouldClear(_ textField: UITextField) -> Bool {
+		textField.text = ""
+		return true
+	}
+	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		switch textField {
 		case phoneTextField:

@@ -12,6 +12,7 @@ import AVOSCloud
 class CLBaseViewModel: NSObject {
 	
 	var className: String!	// 类名
+	var view: UIView!		// 禁止触摸视图
 	var limit: Int = 10		// 最多返回 10 条结果
 	var skip: Int! = 0		// 跳过 20 条结果
 	
@@ -55,4 +56,16 @@ class CLBaseViewModel: NSObject {
 	}
 	*/
 	
+	// MARK: - 设置禁用交互功能
+	func enableInteraction() {
+		if view != nil {
+			view.isUserInteractionEnabled = true
+		}
+	}
+	func disableInteraction() {
+		if view != nil {
+			view.isUserInteractionEnabled = false
+		}
+	}
+
 }

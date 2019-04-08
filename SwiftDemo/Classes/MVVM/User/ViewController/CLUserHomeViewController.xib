@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CLUserHomeViewController" customModule="SwiftDemo" customModuleProvider="target">
             <connections>
-                <outlet property="codeButton" destination="L0M-N0-Yk9" id="b9o-bd-FXL"/>
+                <outlet property="avatar" destination="Oiy-yb-R4p" id="Ihb-Nw-NrG"/>
+                <outlet property="nameLabel" destination="5Uz-Tu-F5E" id="NtL-iH-vZN"/>
+                <outlet property="signatureLabel" destination="e5B-96-OE3" id="zew-AP-IwS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,7 +33,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPA-eW-92q">
                     <rect key="frame" x="0.0" y="20" width="375" height="180"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oiy-yb-R4p">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Oiy-yb-R4p">
                             <rect key="frame" x="157.5" y="8" width="60" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="Sbb-t0-lrB"/>
@@ -67,13 +69,6 @@
                         <outletCollection property="gestureRecognizers" destination="Qor-fz-x2j" appends="YES" id="6ik-pA-ayQ"/>
                     </connections>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0M-N0-Yk9" customClass="CLVerificationCodeButton" customModule="SwiftDemo" customModuleProvider="target">
-                    <rect key="frame" x="93" y="273" width="54" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button">
-                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -90,4 +85,7 @@
             </connections>
         </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="avatar" width="650" height="650"/>
+    </resources>
 </document>

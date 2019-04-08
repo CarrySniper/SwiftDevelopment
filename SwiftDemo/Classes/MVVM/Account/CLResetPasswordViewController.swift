@@ -34,6 +34,11 @@ class CLResetPasswordViewController: CLBaseViewController, UITextFieldDelegate {
 	}
 	
 	// MARK: - UITextFieldDelegate
+	func textFieldShouldClear(_ textField: UITextField) -> Bool {
+		textField.text = ""
+		return true
+	}
+	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		switch textField {
 		case phoneTextField:

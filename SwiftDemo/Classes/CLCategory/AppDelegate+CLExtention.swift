@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVOSCloud
 
 extension AppDelegate {
 	
@@ -18,15 +19,30 @@ extension AppDelegate {
 		UITextView.appearance().tintColor = CLColor.textSelected
 		UITextField.appearance().tintColor = CLColor.textSelected
 		
+		CLToastView.setBackgroundColor(CLColor.red)
+		CLToastView.setTextColor(UIColor.white)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(notificationToLogin), name: NSNotification.Name(rawValue: ConfigNotification.toLogin), object: nil)
 		
 		
 		
+		self.registerApp()
+		
+		self.setupTabBar()
+	}
+	
+	func setupTabBar() {
+		
 		tabBarController = CLTabBarController()
 		tabBarController?.selectedIndex = 1
 		window?.rootViewController = tabBarController
+		window?.makeKeyAndVisible()
 	}
+	
+	func registerApp() {
+		AVOSCloud.setApplicationId(LeanCloud.appId, clientKey: LeanCloud.appKey)
+	}
+	
 	
 	/// 通知去登录页
 	class func postNotificationToLoginPage() {

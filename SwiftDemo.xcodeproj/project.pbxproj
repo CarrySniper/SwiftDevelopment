@@ -11,8 +11,6 @@
 		96086E952255A088009C0337 /* CLUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96086E942255A088009C0337 /* CLUser.swift */; };
 		96086E972255D4CA009C0337 /* CLAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96086E962255D4CA009C0337 /* CLAccountViewModel.swift */; };
 		96086E9A2255E01C009C0337 /* String+CLExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96086E992255E01C009C0337 /* String+CLExtention.swift */; };
-		96086E9C2255E689009C0337 /* CLProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96086E9B2255E689009C0337 /* CLProgressHUD.swift */; };
-		96086E9E2255FA07009C0337 /* CLProgressHUD+CLExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96086E9D2255FA07009C0337 /* CLProgressHUD+CLExtention.swift */; };
 		961D4D182251E5DB0060247A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D172251E5DB0060247A /* AppDelegate.swift */; };
 		961D4D1A2251E5DB0060247A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D192251E5DB0060247A /* ViewController.swift */; };
 		961D4D1D2251E5DB0060247A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961D4D1B2251E5DB0060247A /* Main.storyboard */; };
@@ -43,6 +41,15 @@
 		961D4D802254960A0060247A /* UIImage+CLExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D7F2254960A0060247A /* UIImage+CLExtention.swift */; };
 		961D4D832254A0190060247A /* CLResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D812254A0190060247A /* CLResetPasswordViewController.swift */; };
 		961D4D842254A0190060247A /* CLResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961D4D822254A0190060247A /* CLResetPasswordViewController.xib */; };
+		96472579225AE4DC005B620F /* CLToolKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96472578225AE4DC005B620F /* CLToolKit.swift */; };
+		9647257B225B1C2B005B620F /* CLToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647257A225B1C2B005B620F /* CLToastView.swift */; };
+		9647257D225B1C6F005B620F /* CLLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647257C225B1C6F005B620F /* CLLoadingView.swift */; };
+		96472588225B3DFB005B620F /* CLUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96472586225B3DFB005B620F /* CLUserInfoViewController.swift */; };
+		96472589225B3DFB005B620F /* CLUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96472587225B3DFB005B620F /* CLUserInfoViewController.xib */; };
+		9647258C225B4A36005B620F /* CLUserInfoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647258A225B4A36005B620F /* CLUserInfoEditViewController.swift */; };
+		9647258D225B4A36005B620F /* CLUserInfoEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9647258B225B4A36005B620F /* CLUserInfoEditViewController.xib */; };
+		9647258F225B4AE0005B620F /* CLTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647258E225B4AE0005B620F /* CLTextView.swift */; };
+		96FD9DA1225ADDCC00492BF9 /* UIView+CLExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD9DA0225ADDCC00492BF9 /* UIView+CLExtention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +75,6 @@
 		96086E942255A088009C0337 /* CLUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUser.swift; sourceTree = "<group>"; };
 		96086E962255D4CA009C0337 /* CLAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAccountViewModel.swift; sourceTree = "<group>"; };
 		96086E992255E01C009C0337 /* String+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CLExtention.swift"; sourceTree = "<group>"; };
-		96086E9B2255E689009C0337 /* CLProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLProgressHUD.swift; sourceTree = "<group>"; };
-		96086E9D2255FA07009C0337 /* CLProgressHUD+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLProgressHUD+CLExtention.swift"; sourceTree = "<group>"; };
 		961D4D142251E5DB0060247A /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961D4D172251E5DB0060247A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		961D4D192251E5DB0060247A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,16 +101,25 @@
 		961D4D662253096B0060247A /* CLUserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUserHomeViewController.swift; sourceTree = "<group>"; };
 		961D4D672253096B0060247A /* CLUserHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLUserHomeViewController.xib; sourceTree = "<group>"; };
 		961D4D6A22530DA20060247A /* CLBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBaseNavigationController.swift; sourceTree = "<group>"; };
-		961D4D6E22533A9D0060247A /* CLLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLoginViewController.swift; sourceTree = "<group>"; };
-		961D4D6F22533A9D0060247A /* CLLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLLoginViewController.xib; sourceTree = "<group>"; };
+		961D4D6E22533A9D0060247A /* CLLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CLLoginViewController.swift; path = ../CLLoginViewController.swift; sourceTree = "<group>"; };
+		961D4D6F22533A9D0060247A /* CLLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CLLoginViewController.xib; path = ../CLLoginViewController.xib; sourceTree = "<group>"; };
 		961D4D72225358F00060247A /* UITextField+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+CLExtention.swift"; sourceTree = "<group>"; };
-		961D4D74225363FE0060247A /* CLRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLRegisterViewController.swift; sourceTree = "<group>"; };
-		961D4D75225363FE0060247A /* CLRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLRegisterViewController.xib; sourceTree = "<group>"; };
+		961D4D74225363FE0060247A /* CLRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CLRegisterViewController.swift; path = ../CLRegisterViewController.swift; sourceTree = "<group>"; };
+		961D4D75225363FE0060247A /* CLRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CLRegisterViewController.xib; path = ../CLRegisterViewController.xib; sourceTree = "<group>"; };
 		961D4D782254492A0060247A /* CLBaseHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBaseHomeViewController.swift; sourceTree = "<group>"; };
 		961D4D7D22544C240060247A /* CLVerificationCodeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLVerificationCodeButton.swift; sourceTree = "<group>"; };
 		961D4D7F2254960A0060247A /* UIImage+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CLExtention.swift"; sourceTree = "<group>"; };
-		961D4D812254A0190060247A /* CLResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLResetPasswordViewController.swift; sourceTree = "<group>"; };
-		961D4D822254A0190060247A /* CLResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLResetPasswordViewController.xib; sourceTree = "<group>"; };
+		961D4D812254A0190060247A /* CLResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CLResetPasswordViewController.swift; path = ../CLResetPasswordViewController.swift; sourceTree = "<group>"; };
+		961D4D822254A0190060247A /* CLResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CLResetPasswordViewController.xib; path = ../CLResetPasswordViewController.xib; sourceTree = "<group>"; };
+		96472578225AE4DC005B620F /* CLToolKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLToolKit.swift; sourceTree = "<group>"; };
+		9647257A225B1C2B005B620F /* CLToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLToastView.swift; sourceTree = "<group>"; };
+		9647257C225B1C6F005B620F /* CLLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLoadingView.swift; sourceTree = "<group>"; };
+		96472586225B3DFB005B620F /* CLUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUserInfoViewController.swift; sourceTree = "<group>"; };
+		96472587225B3DFB005B620F /* CLUserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLUserInfoViewController.xib; sourceTree = "<group>"; };
+		9647258A225B4A36005B620F /* CLUserInfoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUserInfoEditViewController.swift; sourceTree = "<group>"; };
+		9647258B225B4A36005B620F /* CLUserInfoEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLUserInfoEditViewController.xib; sourceTree = "<group>"; };
+		9647258E225B4AE0005B620F /* CLTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLTextView.swift; sourceTree = "<group>"; };
+		96FD9DA0225ADDCC00492BF9 /* UIView+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CLExtention.swift"; sourceTree = "<group>"; };
 		EA576BDBA7F043E6B1A3D3F2 /* Pods-SwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,12 +283,10 @@
 		961D4D5B2251FABF0060247A /* CLCategory */ = {
 			isa = PBXGroup;
 			children = (
+				96FD9D9F225ADDA900492BF9 /* UIKit */,
 				96086E982255DF77009C0337 /* Foundation */,
 				961D4D5C225204570060247A /* AppDelegate+CLExtention.swift */,
-				961D4D5E225204EB0060247A /* UIColor+CLExtention.swift */,
-				961D4D72225358F00060247A /* UITextField+CLExtention.swift */,
-				961D4D7F2254960A0060247A /* UIImage+CLExtention.swift */,
-				96086E9D2255FA07009C0337 /* CLProgressHUD+CLExtention.swift */,
+				96472578225AE4DC005B620F /* CLToolKit.swift */,
 			);
 			path = CLCategory;
 			sourceTree = "<group>";
@@ -282,6 +294,7 @@
 		961D4D622253073B0060247A /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				96472582225B3D5C005B620F /* User */,
 				961D4D6D225339A00060247A /* Account */,
 				961D4D63225307560060247A /* ViewController */,
 			);
@@ -292,8 +305,6 @@
 			isa = PBXGroup;
 			children = (
 				961D4D64225309500060247A /* CLMainHomeViewController.swift */,
-				961D4D662253096B0060247A /* CLUserHomeViewController.swift */,
-				961D4D672253096B0060247A /* CLUserHomeViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -301,13 +312,8 @@
 		961D4D6D225339A00060247A /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				96472581225B3D42005B620F /* ViewController */,
 				96086E932255A073009C0337 /* ViewModel */,
-				961D4D6E22533A9D0060247A /* CLLoginViewController.swift */,
-				961D4D6F22533A9D0060247A /* CLLoginViewController.xib */,
-				961D4D74225363FE0060247A /* CLRegisterViewController.swift */,
-				961D4D75225363FE0060247A /* CLRegisterViewController.xib */,
-				961D4D812254A0190060247A /* CLResetPasswordViewController.swift */,
-				961D4D822254A0190060247A /* CLResetPasswordViewController.xib */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -315,10 +321,73 @@
 		961D4D7C22544B260060247A /* UIInterface */ = {
 			isa = PBXGroup;
 			children = (
+				9647257C225B1C6F005B620F /* CLLoadingView.swift */,
+				9647257A225B1C2B005B620F /* CLToastView.swift */,
 				961D4D7D22544C240060247A /* CLVerificationCodeButton.swift */,
-				96086E9B2255E689009C0337 /* CLProgressHUD.swift */,
+				9647258E225B4AE0005B620F /* CLTextView.swift */,
 			);
 			path = UIInterface;
+			sourceTree = "<group>";
+		};
+		96472581225B3D42005B620F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				961D4D6E22533A9D0060247A /* CLLoginViewController.swift */,
+				961D4D6F22533A9D0060247A /* CLLoginViewController.xib */,
+				961D4D74225363FE0060247A /* CLRegisterViewController.swift */,
+				961D4D75225363FE0060247A /* CLRegisterViewController.xib */,
+				961D4D812254A0190060247A /* CLResetPasswordViewController.swift */,
+				961D4D822254A0190060247A /* CLResetPasswordViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		96472582225B3D5C005B620F /* User */ = {
+			isa = PBXGroup;
+			children = (
+				96472583225B3DA0005B620F /* ViewController */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		96472583225B3DA0005B620F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				96472585225B3DBD005B620F /* 信息修改 */,
+				96472584225B3DB0005B620F /* 用户信息 */,
+				961D4D662253096B0060247A /* CLUserHomeViewController.swift */,
+				961D4D672253096B0060247A /* CLUserHomeViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		96472584225B3DB0005B620F /* 用户信息 */ = {
+			isa = PBXGroup;
+			children = (
+				96472586225B3DFB005B620F /* CLUserInfoViewController.swift */,
+				96472587225B3DFB005B620F /* CLUserInfoViewController.xib */,
+			);
+			path = "用户信息";
+			sourceTree = "<group>";
+		};
+		96472585225B3DBD005B620F /* 信息修改 */ = {
+			isa = PBXGroup;
+			children = (
+				9647258A225B4A36005B620F /* CLUserInfoEditViewController.swift */,
+				9647258B225B4A36005B620F /* CLUserInfoEditViewController.xib */,
+			);
+			path = "信息修改";
+			sourceTree = "<group>";
+		};
+		96FD9D9F225ADDA900492BF9 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				961D4D5E225204EB0060247A /* UIColor+CLExtention.swift */,
+				961D4D72225358F00060247A /* UITextField+CLExtention.swift */,
+				961D4D7F2254960A0060247A /* UIImage+CLExtention.swift */,
+				96FD9DA0225ADDCC00492BF9 /* UIView+CLExtention.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,12 +497,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9647258D225B4A36005B620F /* CLUserInfoEditViewController.xib in Resources */,
 				961D4D7122533A9D0060247A /* CLLoginViewController.xib in Resources */,
 				961D4D842254A0190060247A /* CLResetPasswordViewController.xib in Resources */,
 				961D4D612252F7AA0060247A /* LaunchScreen.storyboard in Resources */,
 				961D4D1F2251E5DD0060247A /* Assets.xcassets in Resources */,
 				961D4D1D2251E5DB0060247A /* Main.storyboard in Resources */,
 				961D4D77225363FE0060247A /* CLRegisterViewController.xib in Resources */,
+				96472589225B3DFB005B620F /* CLUserInfoViewController.xib in Resources */,
 				961D4D692253096B0060247A /* CLUserHomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,25 +590,30 @@
 				96086E9A2255E01C009C0337 /* String+CLExtention.swift in Sources */,
 				961D4D832254A0190060247A /* CLResetPasswordViewController.swift in Sources */,
 				961D4D552251F9130060247A /* CLBaseTableViewCell.swift in Sources */,
+				96FD9DA1225ADDCC00492BF9 /* UIView+CLExtention.swift in Sources */,
 				961D4D7E22544C240060247A /* CLVerificationCodeButton.swift in Sources */,
 				961D4D182251E5DB0060247A /* AppDelegate.swift in Sources */,
+				9647258F225B4AE0005B620F /* CLTextView.swift in Sources */,
 				961D4D802254960A0060247A /* UIImage+CLExtention.swift in Sources */,
 				961D4D4C2251F8750060247A /* CLTabBarController.swift in Sources */,
+				9647258C225B4A36005B620F /* CLUserInfoEditViewController.swift in Sources */,
+				9647257B225B1C2B005B620F /* CLToastView.swift in Sources */,
 				961D4D512251F8BB0060247A /* CLBaseModel.swift in Sources */,
 				961D4D462251F6C60060247A /* Config.swift in Sources */,
 				961D4D73225358F00060247A /* UITextField+CLExtention.swift in Sources */,
 				96086E952255A088009C0337 /* CLUser.swift in Sources */,
 				961D4D7022533A9D0060247A /* CLLoginViewController.swift in Sources */,
-				96086E9C2255E689009C0337 /* CLProgressHUD.swift in Sources */,
-				96086E9E2255FA07009C0337 /* CLProgressHUD+CLExtention.swift in Sources */,
 				961D4D792254492A0060247A /* CLBaseHomeViewController.swift in Sources */,
 				961D4D5D225204570060247A /* AppDelegate+CLExtention.swift in Sources */,
+				9647257D225B1C6F005B620F /* CLLoadingView.swift in Sources */,
+				96472588225B3DFB005B620F /* CLUserInfoViewController.swift in Sources */,
 				961D4D572251F92D0060247A /* CLBaseCollectionViewCell.swift in Sources */,
 				961D4D76225363FE0060247A /* CLRegisterViewController.swift in Sources */,
 				961D4D682253096B0060247A /* CLUserHomeViewController.swift in Sources */,
 				961D4D6B22530DA20060247A /* CLBaseNavigationController.swift in Sources */,
 				961D4D65225309500060247A /* CLMainHomeViewController.swift in Sources */,
 				96086E972255D4CA009C0337 /* CLAccountViewModel.swift in Sources */,
+				96472579225AE4DC005B620F /* CLToolKit.swift in Sources */,
 				961D4D4F2251F8A50060247A /* CLBaseViewController.swift in Sources */,
 				961D4D532251F8DA0060247A /* CLBaseViewModel.swift in Sources */,
 			);

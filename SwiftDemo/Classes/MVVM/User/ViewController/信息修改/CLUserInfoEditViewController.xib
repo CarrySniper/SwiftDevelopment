@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CLUserInfoEditViewController" customModule="SwiftDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="doneButton" destination="sE1-k6-r3y" id="uWM-Kc-s2F"/>
+                <outlet property="textView" destination="jEn-Q2-Pa0" id="o9h-pT-u5T"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0eg-pe-fKn">
+                    <rect key="frame" x="0.0" y="44" width="414" height="130"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jEn-Q2-Pa0" customClass="CLTextView" customModule="SwiftDemo" customModuleProvider="target">
+                            <rect key="frame" x="8" y="0.0" width="398" height="130"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sE1-k6-r3y">
+                            <rect key="frame" x="162" y="88" width="90" height="30"/>
+                            <color key="backgroundColor" red="1" green="0.2784313725" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="hgn-Fe-fRf"/>
+                                <constraint firstAttribute="height" constant="30" id="lGq-9e-I0e"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="完成">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="doneAction:" destination="-1" eventType="touchUpInside" id="Iqo-sJ-ceG"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jEn-Q2-Pa0" secondAttribute="trailing" constant="8" id="5PE-n6-Mfr"/>
+                        <constraint firstItem="jEn-Q2-Pa0" firstAttribute="top" secondItem="0eg-pe-fKn" secondAttribute="top" id="89V-u3-PDh"/>
+                        <constraint firstAttribute="bottom" secondItem="jEn-Q2-Pa0" secondAttribute="bottom" id="8kG-8j-kTe"/>
+                        <constraint firstItem="jEn-Q2-Pa0" firstAttribute="leading" secondItem="0eg-pe-fKn" secondAttribute="leading" constant="8" id="QSK-Gd-7Dx"/>
+                        <constraint firstAttribute="bottom" secondItem="sE1-k6-r3y" secondAttribute="bottom" constant="12" id="SB7-db-z09"/>
+                        <constraint firstItem="sE1-k6-r3y" firstAttribute="centerX" secondItem="0eg-pe-fKn" secondAttribute="centerX" id="rBM-0E-dBy"/>
+                        <constraint firstAttribute="height" constant="130" id="ywp-A3-aH4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0eg-pe-fKn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="TB4-8K-1on"/>
+                <constraint firstItem="0eg-pe-fKn" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="WGc-kD-Jaz"/>
+                <constraint firstItem="0eg-pe-fKn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="lJa-gS-q93"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </view>
+    </objects>
+</document>
