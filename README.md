@@ -5,6 +5,27 @@ CL为个人特殊名字,Swift 5发布，工程项目得新建才能更好地适�
 最近Objective C语言偏向MVVM架构，所以Swift一起转向MVVM。
 
 ## 学习从此刻开始（时间倒序）
+#### 2019-04-10（周三）
+自定义协议代理protocol，实现optional可选方法（extension扩展实现了需要标记的optional可选方法）。
+如下：cl_emptyViewDataSource()方法必须实现，cl_emptyViewOffset()是可实现可不实现。
+```swift 
+ /// protocol代理
+public protocol CLEmptyDataSource {
+
+  func cl_emptyViewDataSource(_ scrollView: UIScrollView) -> UIView?
+  
+  func cl_emptyViewOffset(_ scrollView: UIScrollView) -> CGPoint?
+}
+
+/// 让CLEmptyDataSource的代理方法变可以选实现
+extension CLEmptyDataSource {
+
+  // 这里实现，让这个方法变成可选方法，在实现的时候可以不写
+  func cl_emptyViewOffset(_ scrollView: UIScrollView) -> CGPoint? {
+    return nil
+  }
+}
+```
 
 #### 2019-04-08（周一）
 重写UITextView，增加上placeholder和placeholderColor属性

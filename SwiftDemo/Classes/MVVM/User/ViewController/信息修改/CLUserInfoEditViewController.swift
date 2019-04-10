@@ -10,7 +10,7 @@ import UIKit
 
 class CLUserInfoEditViewController: CLBaseViewController, UITextViewDelegate {
 
-	@IBOutlet weak var textView: CLTextView!
+	@IBOutlet weak var textView: CLBaseTextView!
 	@IBOutlet weak var doneButton: UIButton!
 	
 	var content: String!
@@ -24,7 +24,7 @@ class CLUserInfoEditViewController: CLBaseViewController, UITextViewDelegate {
 		
 		self.textView.text = content
 		self.textView.placeholder = placeholder
-		self.textView.defaultPlaceholder()
+		self.textView.placeholderColor = CLColor.placeholder
 		
 		self.doneButton.layer.cornerRadius = 15
 		self.doneButton.layer.masksToBounds = true

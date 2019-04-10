@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 extension UIImage {
+	class func navigationImage() -> UIImage? {
+		return UIImage.fromColor(CLColor.navigationColor)
+	}
 	
 	/// 根据颜色生成图片
 	///

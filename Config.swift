@@ -38,6 +38,7 @@ struct ConfigText {
 	
 	static let `default`                    = "default"
 	static let loading                		= "数据加载中"
+	static let emptyData                	= "没有相关数据"
 	
 }
 

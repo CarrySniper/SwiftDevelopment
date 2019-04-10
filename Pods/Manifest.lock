@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - Aspects (1.4.1)
   - AVOSCloud (11.6.1)
   - SnapKit (4.2.0)
   - SwiftyJSON (4.3.0)
@@ -7,6 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Aspects
   - AVOSCloud
   - SnapKit
   - SwiftyJSON
@@ -15,6 +17,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Aspects
     - AVOSCloud
     - SnapKit
     - SwiftyJSON
@@ -22,11 +25,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   AVOSCloud: 75fe137e0d4eae392047824cea66c9b99a2ea574
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 97e806bd8704a00ad6af79bb06dc3777ce28d8f0
+PODFILE CHECKSUM: b712b7fef00bd99d88965f1a5cd1b0d43e5ce517
 
 COCOAPODS: 1.5.3

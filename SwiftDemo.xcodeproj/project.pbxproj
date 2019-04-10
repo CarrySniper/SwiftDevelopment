@@ -48,7 +48,12 @@
 		96472589225B3DFB005B620F /* CLUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96472587225B3DFB005B620F /* CLUserInfoViewController.xib */; };
 		9647258C225B4A36005B620F /* CLUserInfoEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647258A225B4A36005B620F /* CLUserInfoEditViewController.swift */; };
 		9647258D225B4A36005B620F /* CLUserInfoEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9647258B225B4A36005B620F /* CLUserInfoEditViewController.xib */; };
-		9647258F225B4AE0005B620F /* CLTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647258E225B4AE0005B620F /* CLTextView.swift */; };
+		9647258F225B4AE0005B620F /* CLBaseTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647258E225B4AE0005B620F /* CLBaseTextView.swift */; };
+		96472591225C3323005B620F /* CLBaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96472590225C3323005B620F /* CLBaseTableView.swift */; };
+		96472593225C40CE005B620F /* UIViewController+CLExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96472592225C40CE005B620F /* UIViewController+CLExtention.swift */; };
+		96472596225C4F25005B620F /* CLEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96472595225C4F25005B620F /* CLEmptyView.swift */; };
+		96472598225C4F2C005B620F /* CLEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96472597225C4F2C005B620F /* CLEmptyView.xib */; };
+		9647259A225C7D87005B620F /* UIScrollView+CLEmtpyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96472599225C7D87005B620F /* UIScrollView+CLEmtpyView.swift */; };
 		96FD9DA1225ADDCC00492BF9 /* UIView+CLExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD9DA0225ADDCC00492BF9 /* UIView+CLExtention.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,7 +123,12 @@
 		96472587225B3DFB005B620F /* CLUserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLUserInfoViewController.xib; sourceTree = "<group>"; };
 		9647258A225B4A36005B620F /* CLUserInfoEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUserInfoEditViewController.swift; sourceTree = "<group>"; };
 		9647258B225B4A36005B620F /* CLUserInfoEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLUserInfoEditViewController.xib; sourceTree = "<group>"; };
-		9647258E225B4AE0005B620F /* CLTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLTextView.swift; sourceTree = "<group>"; };
+		9647258E225B4AE0005B620F /* CLBaseTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBaseTextView.swift; sourceTree = "<group>"; };
+		96472590225C3323005B620F /* CLBaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBaseTableView.swift; sourceTree = "<group>"; };
+		96472592225C40CE005B620F /* UIViewController+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CLExtention.swift"; sourceTree = "<group>"; };
+		96472595225C4F25005B620F /* CLEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLEmptyView.swift; sourceTree = "<group>"; };
+		96472597225C4F2C005B620F /* CLEmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLEmptyView.xib; sourceTree = "<group>"; };
+		96472599225C7D87005B620F /* UIScrollView+CLEmtpyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+CLEmtpyView.swift"; sourceTree = "<group>"; };
 		96FD9DA0225ADDCC00492BF9 /* UIView+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CLExtention.swift"; sourceTree = "<group>"; };
 		EA576BDBA7F043E6B1A3D3F2 /* Pods-SwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -269,6 +279,8 @@
 				961D4D6A22530DA20060247A /* CLBaseNavigationController.swift */,
 				961D4D4E2251F8A50060247A /* CLBaseViewController.swift */,
 				961D4D782254492A0060247A /* CLBaseHomeViewController.swift */,
+				96472590225C3323005B620F /* CLBaseTableView.swift */,
+				9647258E225B4AE0005B620F /* CLBaseTextView.swift */,
 			);
 			path = CLBase;
 			sourceTree = "<group>";
@@ -321,10 +333,10 @@
 		961D4D7C22544B260060247A /* UIInterface */ = {
 			isa = PBXGroup;
 			children = (
+				96472594225C4F0F005B620F /* CLEmptyView */,
 				9647257C225B1C6F005B620F /* CLLoadingView.swift */,
 				9647257A225B1C2B005B620F /* CLToastView.swift */,
 				961D4D7D22544C240060247A /* CLVerificationCodeButton.swift */,
-				9647258E225B4AE0005B620F /* CLTextView.swift */,
 			);
 			path = UIInterface;
 			sourceTree = "<group>";
@@ -379,6 +391,16 @@
 			path = "信息修改";
 			sourceTree = "<group>";
 		};
+		96472594225C4F0F005B620F /* CLEmptyView */ = {
+			isa = PBXGroup;
+			children = (
+				96472595225C4F25005B620F /* CLEmptyView.swift */,
+				96472597225C4F2C005B620F /* CLEmptyView.xib */,
+				96472599225C7D87005B620F /* UIScrollView+CLEmtpyView.swift */,
+			);
+			path = CLEmptyView;
+			sourceTree = "<group>";
+		};
 		96FD9D9F225ADDA900492BF9 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +408,7 @@
 				961D4D72225358F00060247A /* UITextField+CLExtention.swift */,
 				961D4D7F2254960A0060247A /* UIImage+CLExtention.swift */,
 				96FD9DA0225ADDCC00492BF9 /* UIView+CLExtention.swift */,
+				96472592225C40CE005B620F /* UIViewController+CLExtention.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -498,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9647258D225B4A36005B620F /* CLUserInfoEditViewController.xib in Resources */,
+				96472598225C4F2C005B620F /* CLEmptyView.xib in Resources */,
 				961D4D7122533A9D0060247A /* CLLoginViewController.xib in Resources */,
 				961D4D842254A0190060247A /* CLResetPasswordViewController.xib in Resources */,
 				961D4D612252F7AA0060247A /* LaunchScreen.storyboard in Resources */,
@@ -537,6 +561,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AVOSCloud/AVOSCloud.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Aspects/Aspects.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
@@ -547,6 +572,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AVOSCloud.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Aspects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
@@ -585,21 +611,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9647259A225C7D87005B620F /* UIScrollView+CLEmtpyView.swift in Sources */,
 				961D4D1A2251E5DB0060247A /* ViewController.swift in Sources */,
 				961D4D5F225204EB0060247A /* UIColor+CLExtention.swift in Sources */,
 				96086E9A2255E01C009C0337 /* String+CLExtention.swift in Sources */,
 				961D4D832254A0190060247A /* CLResetPasswordViewController.swift in Sources */,
 				961D4D552251F9130060247A /* CLBaseTableViewCell.swift in Sources */,
+				96472596225C4F25005B620F /* CLEmptyView.swift in Sources */,
 				96FD9DA1225ADDCC00492BF9 /* UIView+CLExtention.swift in Sources */,
 				961D4D7E22544C240060247A /* CLVerificationCodeButton.swift in Sources */,
 				961D4D182251E5DB0060247A /* AppDelegate.swift in Sources */,
-				9647258F225B4AE0005B620F /* CLTextView.swift in Sources */,
+				9647258F225B4AE0005B620F /* CLBaseTextView.swift in Sources */,
 				961D4D802254960A0060247A /* UIImage+CLExtention.swift in Sources */,
 				961D4D4C2251F8750060247A /* CLTabBarController.swift in Sources */,
 				9647258C225B4A36005B620F /* CLUserInfoEditViewController.swift in Sources */,
 				9647257B225B1C2B005B620F /* CLToastView.swift in Sources */,
 				961D4D512251F8BB0060247A /* CLBaseModel.swift in Sources */,
 				961D4D462251F6C60060247A /* Config.swift in Sources */,
+				96472593225C40CE005B620F /* UIViewController+CLExtention.swift in Sources */,
 				961D4D73225358F00060247A /* UITextField+CLExtention.swift in Sources */,
 				96086E952255A088009C0337 /* CLUser.swift in Sources */,
 				961D4D7022533A9D0060247A /* CLLoginViewController.swift in Sources */,
@@ -614,6 +643,7 @@
 				961D4D65225309500060247A /* CLMainHomeViewController.swift in Sources */,
 				96086E972255D4CA009C0337 /* CLAccountViewModel.swift in Sources */,
 				96472579225AE4DC005B620F /* CLToolKit.swift in Sources */,
+				96472591225C3323005B620F /* CLBaseTableView.swift in Sources */,
 				961D4D4F2251F8A50060247A /* CLBaseViewController.swift in Sources */,
 				961D4D532251F8DA0060247A /* CLBaseViewModel.swift in Sources */,
 			);

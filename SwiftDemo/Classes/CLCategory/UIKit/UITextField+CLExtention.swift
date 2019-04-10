@@ -22,18 +22,3 @@ extension UITextField {
 		self.setValue(color, forKeyPath: "_placeholderLabel.textColor")
 	}
 }
-
-extension UITextView {
-	
-	func defaultPlaceholder() {
-		self.placeholderColor(color: CLColor.placeholder)
-	}
-	
-	func placeholderColor(color: UIColor) {
-		//字体大小
-		self.setValue(self.font, forKeyPath: "_placeholderLabel.font")
-		//字体颜色
-		self.setValue(color, forKeyPath: "_placeholderLabel.textColor")
-	}
-}
-

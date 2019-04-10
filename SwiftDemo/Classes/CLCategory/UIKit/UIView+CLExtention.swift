@@ -54,6 +54,14 @@ extension UIView {
 		}
 		return false
 	}
+	
+	//加载xib
+	class  func loadViewFromNib() -> UIView {
+		//获取真正的类型名
+		let className: String = NSStringFromClass(self).components(separatedBy: ".").last!
+		let nibView = Bundle.main.loadNibNamed(className, owner: nil, options: nil);
+		return nibView?.first as! UIView
+	}
 }
 
 

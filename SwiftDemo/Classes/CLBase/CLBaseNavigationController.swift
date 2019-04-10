@@ -37,6 +37,16 @@ class CLBaseNavigationController: UINavigationController, UINavigationController
 	func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
 		isPushing = false
 	}
+	
+	// 重写这两个方法，状态栏颜色才可以修改.删除 info.plist view controller-based status bar appearance的设置
+	override var childForStatusBarHidden: UIViewController? {
+		return self.topViewController
+	}
+		
+	override var childForStatusBarStyle: UIViewController? {
+		return self.topViewController
+	}
+	
     /*
     // MARK: - Navigation
 

@@ -9,7 +9,12 @@
 import UIKit
 
 class CLBaseViewController: UIViewController {
-
+	
+	/// 状态栏文字颜色设置，见CLBaseNavigationController.swift
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .default
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +43,7 @@ class CLBaseViewController: UIViewController {
 		self.navigationController?.navigationBar.isHidden = false
 		self.navigationController?.navigationBar.isTranslucent = false
 		self.navigationController?.navigationBar.shadowImage = nil
+		self.navigationController?.navigationBar.setBackgroundImage(UIImage.navigationImage(), for: UIBarMetrics.default)
 		
 		self.navigationController?.navigationBar.tintColor = CLColor.title
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:CLColor.title,NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20)]

@@ -31,28 +31,6 @@ class CLTabBarController: UITabBarController {
 			let navigationController = CLBaseNavigationController.init(rootViewController: viewController)
 			self.addChild(navigationController)
 		}
-	
-//		let vc = self.makeViewController(className: "CLBaseViewController", title: "base", normalImageName: "T##String", selectedImageName: "T##String")
-		
-//		self.addChild(vc)
-//		NSArray *vcData = [NSArray arrayWithObjects:
-//			@[CLString(@"首页"), @"SM_CL_MainHomeViewController"],
-//			@[CLString(@"行情"), @"SM_CL_QuotationHomeViewController"],
-//			@[CLString(@"资讯"), @"SM_CL_InformationHomeViewController"],
-//			@[CLString(@"社区"), @"SM_CL_CommunityHomeViewController"],
-//			@[CLString(@"我的"), @"SM_CL_UserHomeViewController"],nil];
-//
-//		// 遍历生成UIViewController
-//		[vcData enumerateObjectsUsingBlock:^(NSArray *array, NSUInteger idx, BOOL * _Nonnull stop) {
-//			NSString *normalImageName = [NSString stringWithFormat:@"tabbar_normal%zd", idx];
-//			NSString *selectedImageName = [NSString stringWithFormat:@"tabbar_selected%zd", idx];
-//			UIViewController *vc = [self makeControllerWithClassName:array.lastObject title:array.firstObject normalImageName:normalImageName selectedImageName:selectedImageName];
-//
-//			BaseNavigationController *navigationController = [[BaseNavigationController alloc]initWithRootViewController:vc];
-//			navigationController.tabBarItem.tag = idx;// 要设置tag
-//			/// 添加到TabBar
-//			[self addChildViewController:navigationController];
-//			}];
     }
     
 	/// 配置
