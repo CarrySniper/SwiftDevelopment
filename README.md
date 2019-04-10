@@ -1,6 +1,6 @@
 # SwiftDemo
 
->用于了解Swift的例子，很有作用，学习过程中会更新。慢慢养成看Wiki的习惯。<br>
+>用于了解Swift的例子，很有作用，学习过程中会更新。慢慢养成看[Wiki](https://github.com/cjq002/SwiftDemo/wiki)的习惯。<br>
 CL为个人特殊名字,Swift 5发布，工程项目得新建才能更好地适配。
 最近Objective C语言偏向MVVM架构，所以Swift一起转向MVVM。
 
@@ -20,7 +20,6 @@ public protocol CLEmptyDataSource {
 /// 让CLEmptyDataSource的代理方法变可以选实现
 extension CLEmptyDataSource {
 
-  // 这里实现，让这个方法变成可选方法，在实现的时候可以不写
   func cl_emptyViewOffset(_ scrollView: UIScrollView) -> CGPoint? {
     return nil
   }
