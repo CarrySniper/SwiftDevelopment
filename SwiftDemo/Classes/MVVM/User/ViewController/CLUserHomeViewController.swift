@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Foundation
 import YYModel
 import SnapKit
 
-class CLUserHomeViewController: CLBaseHomeViewController {
+class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, UITableViewDataSource {
 
 	@IBOutlet weak var avatar: UIImageView!
 	@IBOutlet weak var nameLabel: UILabel!
@@ -27,10 +28,16 @@ class CLUserHomeViewController: CLBaseHomeViewController {
 		button.setTitleColor(CLColor.textSelected, for: UIControl.State.normal)
 		button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
 		button.addTarget(self, action: #selector(logoutAction), for: UIControl.Event.touchUpInside)
-	
 		return button
 	}()
 	
+	lazy var dataArray: Array = {
+		return [[CLUserSettingType.password, "密码设置", "icon_password", "CLResetPasswordViewController"],
+				[CLUserSettingType.about, "关于我们", "icon_about", "CLAboutUsViewController"],
+				[CLUserSettingType.feedback, "意见反馈", "icon_feedback", "CLFeedbackViewController"],
+				[CLUserSettingType.cleanCache, "清理缓存", "icon_delect", ""],
+		]
+	}()
 	/// 状态栏文字颜色设置，见CLBaseNavigationController.swift
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
@@ -56,6 +63,7 @@ class CLUserHomeViewController: CLBaseHomeViewController {
 		print(model.className, IS_IPHONE_X_SERIES())
 		
 		
+//		SHOW_LOADING(self.view)
 	}
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -70,20 +78,34 @@ class CLUserHomeViewController: CLBaseHomeViewController {
 		
 		self.loadUserData()
 	}
-//	- (void)viewWillAppear:(BOOL)animated {
-//	[super viewWillAppear:animated];
-//
-//	[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-//	self.navigationController.navigationBar.translucent = YES;
-//	self.navigationController.navigationBar.shadowImage = [UIImage new];
-//	[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-//
-//	[self loadUserData];
-//	}
+
 	@objc func aaaa() {
-		HIDE_LOADING()
+//		HIDE_LOADING()
+//
+//		self.tableView.reloadData()
+		let vc = CLWebViewController.init()
+		vc.loadUrlString("https://www.baidu.com", title: "T##String")
+		self.navigationController?.pushViewController(vc, animated: true)
 		
-		self.tableView.reloadData()
+//		let window = UIApplication.shared.keyWindow
+//		window!.windowLevel = UIWindow.Level.statusBar
+//		let view = UIView.init(frame: UIScreen.main.bounds)
+//		view.backgroundColor = UIColor.colorHex("666666", 0.8)
+//		window?.addSubview(view)
+		
+//		let window = CLPopupWindow.sharedInstance()
+//		let view = CLAlertView.loadView()
+//		window.rootViewController?.view.addSubview(view)
+
+//		let alertView = CLAlertView.loadView()
+//		alertView.show()
+//
+//
+//		let alertView1 = CLAlertView.loadView()
+//		alertView1.type = .sheet
+//		alertView1.show()
+//		let window = CLPopupWindow.sharedInstance()
+//		window.show()
 	}
 
 	func loadUserData() {
@@ -94,10 +116,14 @@ class CLUserHomeViewController: CLBaseHomeViewController {
 			signatureLabel.text = "这人很懒，什么都没有留下～"
 			tableView.tableFooterView = UIView.init()
 		} else {
-			
 			nameLabel.text = user?.username
-			avatar.image = ConfigImage.avatar
-			signatureLabel.text = user?.signature
+			avatar.setImageUrl(user!.avatar, ConfigImage.avatar)
+			if (user?.signature) != nil {
+				signatureLabel.text = user?.signature
+			} else {
+				signatureLabel.text = "这人很懒，什么都没有留下～"
+			}
+			
 			
 			tableView.tableFooterView = logoutButton
 		}
@@ -109,7 +135,6 @@ class CLUserHomeViewController: CLBaseHomeViewController {
 		if CLUser.currentUser() == nil {
 			AppDelegate.postNotificationToLoginPage()
 		} else {
-			print("去y个人信息页")
 			let vc = CLUserInfoViewController.init()
 			self.navigationController?.pushViewController(vc, animated: true)
 		}
@@ -127,7 +152,60 @@ class CLUserHomeViewController: CLBaseHomeViewController {
 	
 	/// 退出登录
 	@objc func logoutAction() {
+		SHOW_ALERT("温馨提示", "您要退出登录账号吗？", "确认退出") {
+			CLUser.logout()
+			AppDelegate.postNotificationToLoginPage()
+		}
+	}
+	//MARK: - UITableViewDelegate
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
 		
+		let rowArray: Array = dataArray[indexPath.section]
+		let type: CLUserSettingType = rowArray.first as! CLUserSettingType
+		switch type {
+		case .password:
+			break
+		default:
+			break
+		}
+		
+		let name: String = rowArray.last as! String
+		guard let viewController = UIViewController.loadViewControllerFromName(name) else {
+			return
+		}
+		self.navigationController?.pushViewController(viewController, animated: true)
+	}
+	
+	//MARK: - UITableViewDataSource
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return dataArray.count
+	}
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 1
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell: CLUserSystemTableViewCell = CLUserSystemTableViewCell.dequeueXibReusable(tableView, indexPath) as! CLUserSystemTableViewCell
+		
+		let rowArray: Array = dataArray[indexPath.section]
+		
+		cell.nameLabel.text = rowArray[1] as? String
+		cell.icon.image = UIImage.init(named: (rowArray[2] as? String)!)
+		cell.contentLabel.isHidden = true
+		
+		let type: CLUserSettingType = rowArray.first as! CLUserSettingType
+		
+		switch type {
+		case .password:
+			
+			break
+		default:
+			break
+		}
+		
+		
+		return cell
 	}
 	
 	// MARK: - 设置UI
@@ -135,8 +213,16 @@ class CLUserHomeViewController: CLBaseHomeViewController {
 		avatar.layer.cornerRadius = 30.0
 		avatar.layer.masksToBounds = true
 	
-		tableView.tableHeaderView = UIView.init(frame: CGRect (x: 0, y: 0, width: SCREEN_WIDTH(), height: funcView.bounds.height/2))
+		tableView.tableHeaderView = UIView.init(frame: CGRect (x: 0, y: 0, width: SCREEN_WIDTH(), height: funcView.bounds.height/2+10))
+		tableView.bounces = false
+		tableView.delegate = self
+		tableView.dataSource = self
+		tableView.rowHeight = 54.0
 		
+		tableView.backgroundColor = UIColor.white
+		tableView.separatorColor = CLColor.lineColor
+		
+		CLUserSystemTableViewCell.registerXibForTableView(tableView)
 		self.makeView(funcView)
 	}
 	

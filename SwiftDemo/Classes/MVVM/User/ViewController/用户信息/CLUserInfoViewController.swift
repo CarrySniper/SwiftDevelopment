@@ -23,7 +23,33 @@ class CLUserInfoViewController: CLBaseViewController {
 		
 		self.setupUI()
     }
-
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		self.loadUserData()
+	}
+	
+	func loadUserData() {
+		let user = CLUser.currentUser()
+		if user == nil {
+			nameLabel.text = "登录/注册"
+			avatar.image = ConfigImage.avatar
+			signatureLabel.text = "这人很懒，什么都没有留下～"
+			phoneLabel.text = "未绑定"
+		} else {
+			nameLabel.text = user?.username
+			avatar.setImageUrl(user!.avatar, ConfigImage.avatar)
+			signatureLabel.text = user?.signature
+			let phone: NSString = (user!.mobilePhoneNumber as NSString?)!
+			if phone.length > 7 {
+				phoneLabel.text = "\(phone.substring(to: 3))****\(phone.substring(from: 7))"
+			} else {
+				phoneLabel.text = "未绑定"
+			}
+		}
+	}
+	
 	@IBAction func avatarAction(_ sender: UIButton) {
 	}
 	
@@ -37,6 +63,7 @@ class CLUserInfoViewController: CLBaseViewController {
 	}
 	
 	@IBAction func phoneAction(_ sender: UIButton) {
+		SHOW_INFO("电话不能修改")
 	}
 	
 	@IBAction func signatureAction(_ sender: UIButton) {

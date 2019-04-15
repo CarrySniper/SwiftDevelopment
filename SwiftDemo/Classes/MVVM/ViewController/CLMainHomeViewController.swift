@@ -14,9 +14,17 @@ class CLMainHomeViewController: CLBaseHomeViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		
+		let rightBarItem = UIBarButtonItem.init(image: UIImage.init(named: "navigation_cancel"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(aaaa))
+		self.navigationItem.rightBarButtonItem = rightBarItem
     }
     
-
+	@objc func aaaa() {
+	
+		
+//		let window = CLPopupWindow.sharedInstance()
+//		window.show()
+	}
     /*
     // MARK: - Navigation
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CLBaseViewController: UIViewController {
+class CLBaseViewController: UIViewController, UIGestureRecognizerDelegate {
 	
 	/// 状态栏文字颜色设置，见CLBaseNavigationController.swift
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -48,8 +48,36 @@ class CLBaseViewController: UIViewController {
 		self.navigationController?.navigationBar.tintColor = CLColor.title
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:CLColor.title,NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20)]
 		
+		// 设置系统返回手势的代理为当前控制器
+		self.navigationController?.interactivePopGestureRecognizer!.delegate = self
 	}
 	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		
+		// 设置系统返回手势的代理为nil
+		self.navigationController?.interactivePopGestureRecognizer!.delegate = nil
+		self.view.endEditing(true)
+	}
+	
+	override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+		super.dismiss(animated: flag) {
+			// self.view = nil,有效销毁present的视图控制器，不然容易内存泄露
+			self.view.removeFromSuperview()
+			self.view = nil
+			if completion != nil {
+				completion!()
+			}
+		}
+	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		super.touchesBegan(touches, with: event)
+		
+		self.view.endEditing(true)
+	}
+	
+	/// 自定义返回事件
 	@objc func customBack() {
 		if self.navigationController != nil && (self.navigationController?.viewControllers.count)! > 1 {
 			self.navigationController?.popViewController(animated: true)
@@ -58,11 +86,6 @@ class CLBaseViewController: UIViewController {
 		}
 	}
 
-	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		super.touchesBegan(touches, with: event)
-		
-		self.view.endEditing(false)
-	}
 	
     /*
     // MARK: - Navigation

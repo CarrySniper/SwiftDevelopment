@@ -18,6 +18,13 @@ class CLResetPasswordViewController: CLBaseViewController, UITextFieldDelegate {
 	@IBOutlet weak var doneButton: UIButton!
 	@IBOutlet weak var codeButton: CLVerificationCodeButton!
 	
+	/// 懒加载
+	lazy var viewModel: CLAccountViewModel = {
+		var vm = CLAccountViewModel.init()
+		vm.view = self.view
+		return vm
+	}()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,12 +32,38 @@ class CLResetPasswordViewController: CLBaseViewController, UITextFieldDelegate {
 		self.title = "密码设置"
 		
 		self.setupUI()
+		phoneTextField.text = UserDefaults.string(forKey: .phoneNumber)
 	}
 
 
 	// MARK: - UIControl
+	// MARK: 发送验证码操作
+	private func sendCodeAction() {
+		UserDefaults.set(phoneTextField.text!, forKey: .phoneNumber)
+		
+		viewModel.sendCode(phone: phoneTextField.text!) { (success) in
+			if success == true {
+				
+			} else {
+				// 发送验证码失败
+				self.codeButton.stop()
+			}
+		}
+	}
 	// MARK: 注册操作
 	@IBAction func resetAction(_ sender: Any) {
+		UserDefaults.set(phoneTextField.text!, forKey: .phoneNumber)
+		
+		viewModel.resetPassword(phone: passwordTextField.text!, smscode: codeTextField.text!, password: passwordTextField.text!, apassword: apasswordTextField.text!) { (success) in
+			if success {
+				if CLUser.currentUser() != nil {
+					CLAppDelegate.setupTabBar()
+					AppDelegate.postNotificationToLoginPage()
+				} else {
+					self.navigationController?.popToRootViewController(animated: true)
+				}
+			}
+		}
 	}
 	
 	// MARK: - UITextFieldDelegate
@@ -81,7 +114,7 @@ class CLResetPasswordViewController: CLBaseViewController, UITextFieldDelegate {
 		codeButton.setHandler(60, start: { (button) in
 			button.layer.borderWidth = 0.0;
 			// 发起网络请求
-			//			[weakSelf sendCodeAction];
+			self.sendCodeAction()
 		}, end: { (button) in
 			button.layer.borderWidth = 0.5;
 		})

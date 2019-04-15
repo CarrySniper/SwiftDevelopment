@@ -9,14 +9,25 @@
 import Foundation
 import UIKit
 
+//Objective-C一直以来令人诟病的地方就是没有命名空间，在应用开发时，所有的代码和引用的静态库最终都会被编译到同一个域和二进制中。这样的后果是一旦我们有重复的类名的话，就会导致编译出错和冲突。为了避免这种情况，Objective-C的类型一般都会加上两到三个字母的前缀，比如Apple保留的NS和UI前缀，各个系统框架的前缀SK(StoreKit),CG(CoreGraphic)等。
+//在Swift中，由于可以使用命名空间了，即使是名字相同的类型，只要是来自不同的命名空间的话，都是可以和平共处的。
+
+var CLAppDelegate = UIApplication.shared.delegate as! AppDelegate
+
+/// APP固定信息
+struct AppInfo {
+	// 这个用大写开头吧，规则也有例外，Apple、AppStore
+	static let AppleID: String          = "1008611"
+	static let AppStoreUrl: String		= "https://itunes.apple.com/cn/lookup?id="
+	
+	static let protocolUrl: String      = "https://github.com/cjq002"
+}
+
 /// LeanCloud相关
 struct LeanCloud {
 	static let appId: String          = "gcB1d0kP6vyUCtyIpeEaXUEq-gzGzoHsz"
 	static let appKey: String         = "3tkTIsfIhNEtCpE9KLJ9NmUx"
 }
-
-typealias CLViodHandler = () -> Void
-typealias CLBoolHandler = (_ success: Bool) -> Void
 
 /// 数值
 struct ConfigNumber {
@@ -55,5 +66,23 @@ struct ConfigImage {
 	static let `default`                    = UIImage.init(named: "default")
 	static let appIcon                      = UIImage.init(named: "appIcon")
 	static let avatar                       = UIImage.init(named: "avatar")
+	static let emptyData                    = UIImage.init(named: "empty_content")
 }
 
+
+typealias CLViodHandler = () -> Void
+typealias CLBoolHandler = (_ success: Bool) -> Void
+
+/// 功能设置列表类型
+enum CLUserSettingType: Int {
+	case about 			// 关于我们
+	case cleanCache 	// 清理缓存
+	case collect		// 我的收藏
+	case fansList  		// 我的粉丝
+	case feedback 		// 意见反馈
+	case follow  		// 我的关注
+	case message		// 我的消息
+	case setting		// 系统设置
+	case publish  		// 我的发布
+	case password 		// 修改密码
+}

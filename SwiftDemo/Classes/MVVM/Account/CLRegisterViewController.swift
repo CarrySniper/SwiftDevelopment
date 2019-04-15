@@ -18,6 +18,14 @@ class CLRegisterViewController: CLBaseHomeViewController, UITextFieldDelegate {
 	@IBOutlet weak var doneButton: UIButton!
 	@IBOutlet weak var codeButton: CLVerificationCodeButton!
 	
+	/// 懒加载
+	lazy var viewModel: CLAccountViewModel = {
+		var vm = CLAccountViewModel.init()
+		vm.view = self.view
+		return vm
+	}()
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,12 +35,14 @@ class CLRegisterViewController: CLBaseHomeViewController, UITextFieldDelegate {
 		self.navigationItem.rightBarButtonItem = rightBarItem
 		
 		self.setupUI()
+		phoneTextField.text = UserDefaults.string(forKey: .phoneNumber)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
 		self.navigationController?.navigationBar.shadowImage = UIImage.init()
+		self.navigationController?.navigationBar.setBackgroundImage(UIImage.fromColor(UIColor.white), for: UIBarMetrics.default)
 	}
 	
 	@objc override func customBack() {
@@ -42,8 +52,29 @@ class CLRegisterViewController: CLBaseHomeViewController, UITextFieldDelegate {
 	}
 	
 	// MARK: - UIControl
+	// MARK: 发送验证码操作
+	private func sendCodeAction() {
+		UserDefaults.set(phoneTextField.text!, forKey: .phoneNumber)
+		
+		viewModel.sendCode(phone: phoneTextField.text!) { (success) in
+			if success == true {
+				
+			} else {
+				// 发送验证码失败
+				self.codeButton.stop()
+			}
+		}
+	}
 	// MARK: 注册操作
 	@IBAction func registerAction(_ sender: Any) {
+		UserDefaults.set(phoneTextField.text!, forKey: .phoneNumber)
+		
+		viewModel.register(phone: phoneTextField.text!, smscode: codeTextField.text!, password: passwordTextField.text!, apassword: apasswordTextField.text!) { (success) in
+			if (success) {
+				// 成功
+				self.dismiss(animated: true, completion: nil)
+			}
+		}
 	}
 	// MARK: 返回登录操作
 	@IBAction func backLoginAction(_ sender: Any) {
@@ -64,7 +95,11 @@ class CLRegisterViewController: CLBaseHomeViewController, UITextFieldDelegate {
 	}
 	// MARK: 用户协议操作
 	@IBAction func protocolAction(_ sender: Any) {
+		let vc = CLWebViewController.init()
+		vc.loadUrlString(AppInfo.protocolUrl, title: "用户协议")
+		self.navigationController?.pushViewController(vc, animated: true)
 	}
+	
 	
 	// MARK: - UITextFieldDelegate
 	func textFieldShouldClear(_ textField: UITextField) -> Bool {
@@ -114,7 +149,7 @@ class CLRegisterViewController: CLBaseHomeViewController, UITextFieldDelegate {
 		codeButton.setHandler(60, start: { (button) in
 			button.layer.borderWidth = 0.0;
 			// 发起网络请求
-			//			[weakSelf sendCodeAction];
+			self.sendCodeAction()
 		}, end: { (button) in
 			button.layer.borderWidth = 0.5;
 		})

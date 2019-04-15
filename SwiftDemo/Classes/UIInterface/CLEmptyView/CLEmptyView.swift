@@ -14,6 +14,9 @@ class CLEmptyView: UIView {
 	@IBOutlet weak var label: UILabel!
 	@IBOutlet weak var button: UIButton!
 	
+	typealias CLViodHandler = () -> Void
+	var actionHandler: CLViodHandler!
+	
 	
 	class func loadView() -> CLEmptyView {
 		let view: CLEmptyView = CLEmptyView.loadViewFromNib() as! CLEmptyView
@@ -32,6 +35,11 @@ class CLEmptyView: UIView {
 		return view
 	}
 	
+	@IBAction func buttonAction(_ sender: Any) {
+		if actionHandler != nil {
+			actionHandler()
+		}
+	}
 	
 
 //	required init?(coder aDecoder: NSCoder) {
@@ -39,26 +47,7 @@ class CLEmptyView: UIView {
 //	}
 
 	/*
-	- (instancetype)init
-	{
-		NSArray *nibViews = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self.class) owner:self options:nil];
-		// 得到第n个UIView作为底部容器
-		self = (CLEmtpyView *)[nibViews objectAtIndex:0];
-		if (self) {
-			self.backgroundColor = [UIColor clearColor];
-			
-			self.label.text = kEmptyText;
-			self.label.textColor = COLOR_TEXT_NORMAL;
-			
-			self.button.layer.cornerRadius = 20.0;
-			self.button.layer.masksToBounds = YES;
-			self.button.layer.borderWidth = 0.5;
-			self.button.layer.borderColor = COLOR_TEXT_SELECT.CGColor;
-			
-			self.button.tintColor = COLOR_TEXT_SELECT;
-		}
-		return self;
-	}
+	
 	
 	- (IBAction)clickAction:(id)sender {
 	if (self.actionBlock) {

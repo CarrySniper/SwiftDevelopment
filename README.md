@@ -1,10 +1,28 @@
 # SwiftDemo
 
 >用于了解Swift的例子，很有作用，学习过程中会更新。慢慢养成看[Wiki](https://github.com/cjq002/SwiftDemo/wiki)的习惯。<br>
-CL为个人特殊名字,Swift 5发布，工程项目得新建才能更好地适配。
+CL为个人特殊名字，不是说Swift有命名空间后就不需要前缀之类的。Swift 5发布，工程项目得新建才能更好地适配。
 最近Objective C语言偏向MVVM架构，所以Swift一起转向MVVM。
 
 ## 学习从此刻开始（时间倒序）
+
+#### 2019-04-15（周一）
+自定义Web视图控制器，带进度条progress，动态显示标题title。
+[CLWebViewController.swift](https://github.com/cjq002/SwiftDemo/wiki/功能-WebView)
+
+#### 2019-04-12（周五）
+自定义AlertView，学习UIWindow属性，遮挡状态栏
+```swift 
+extension UIWindow.Level {
+
+    public static let normal: UIWindow.Level
+
+    public static let alert: UIWindow.Level
+
+    public static let statusBar: UIWindow.Level
+}
+}
+
 #### 2019-04-10（周三）
 自定义协议代理protocol，实现optional可选方法（extension扩展实现了需要标记的optional可选方法）。
 如下：cl_emptyViewDataSource()方法必须实现，cl_emptyViewOffset()是可实现可不实现。

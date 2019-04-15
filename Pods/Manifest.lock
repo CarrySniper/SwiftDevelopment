@@ -1,15 +1,20 @@
 PODS:
   - Alamofire (4.8.2)
+  - AlamofireImage (3.5.2):
+    - Alamofire (~> 4.8)
   - Aspects (1.4.1)
   - AVOSCloud (11.6.1)
+  - KMNavigationBarTransition (1.1.5)
   - SnapKit (4.2.0)
   - SwiftyJSON (4.3.0)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireImage
   - Aspects
   - AVOSCloud
+  - KMNavigationBarTransition
   - SnapKit
   - SwiftyJSON
   - YYModel
@@ -17,20 +22,24 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AlamofireImage
     - Aspects
     - AVOSCloud
+    - KMNavigationBarTransition
     - SnapKit
     - SwiftyJSON
     - YYModel
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   AVOSCloud: 75fe137e0d4eae392047824cea66c9b99a2ea574
+  KMNavigationBarTransition: 7a52c9bc25b39b6e3343e980b453facee1591b82
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: b712b7fef00bd99d88965f1a5cd1b0d43e5ce517
+PODFILE CHECKSUM: ac36243ecc7175e6c8961dc89a8ea6cefff64832
 
 COCOAPODS: 1.5.3

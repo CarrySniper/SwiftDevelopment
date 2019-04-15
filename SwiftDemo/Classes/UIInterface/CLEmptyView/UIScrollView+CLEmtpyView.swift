@@ -16,13 +16,13 @@ var kCLEmptyDataSourceKey = "kCLEmptyDataSourceKey"
 /// protocol代理
 public protocol CLEmptyDataSource {
 	
-	/// 空数据时UI设置回调
+	/// 空数据时设置回调UIView
 	///
 	/// - Parameter scrollView:
 	/// - Returns: 回调设置的emptyView
 	func cl_emptyViewDataSource(_ scrollView: UIScrollView) -> UIView?
 	
-	/// 空数@objc @objc 据UI偏移设置回调
+	/// 空数据UIView偏移设置回调
 	///
 	/// - Parameter scrollView:
 	/// - Returns: 偏移量
@@ -79,7 +79,7 @@ extension UIScrollView {
 		}
 	}
 	
-	//MARK: -
+
 	/// 私有方法 - 制作EmptyView，并设置位置
 	private func makeEmptyView() {
 		emptyView?.removeFromSuperview()

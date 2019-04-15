@@ -11,12 +11,12 @@ import UIKit
 
 /// 常用颜色定义 小驼峰
 struct CLColor {
-	static let navigationColor  = UIColor.colorHex("F8F8F8")   //  导航条颜色
+	static let navigationColor  = UIColor.colorHex("FFFFFF")   //  导航条颜色
 	static let tabbarColor      = UIColor.colorHex("F8F8F8")   //  选项栏颜色
 	static let viewColor        = UIColor.colorHex("F8F8F8")   //  背景颜色
-	static let lineColor        = UIColor.colorHex("C8C8C8")   //  线条颜色
-	static let spaceColor       = UIColor.colorHex("FFFFFF")   //  区间颜色
-	static let cellColor        = UIColor.colorHex("F8F8F8")   //  单元格颜色
+	static let lineColor        = UIColor.colorHex("E5E5E5")   //  线条颜色
+	static let spaceColor       = UIColor.colorHex("F8F8F8")   //  区间颜色
+	static let cellColor        = UIColor.colorHex("FFFFFF")   //  单元格颜色
 	static let placeholder      = UIColor.colorHex("707070")   //  占位符字体颜色
 	
 	static let lightGray      	= UIColor.colorHex("999999")   //  浅灰颜色

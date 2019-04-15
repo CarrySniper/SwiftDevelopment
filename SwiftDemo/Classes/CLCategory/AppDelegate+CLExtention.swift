@@ -12,7 +12,6 @@ import AVOSCloud
 
 extension AppDelegate {
 	
-	
 	/// 配置应用
 	func configApplication() {
 		// 设置输入光标颜色
@@ -31,8 +30,7 @@ extension AppDelegate {
 		self.setupTabBar()
 	}
 	
-	func setupTabBar() {
-		
+	public func setupTabBar() {
 		tabBarController = CLTabBarController()
 		tabBarController?.selectedIndex = 1
 		window?.rootViewController = tabBarController
@@ -43,8 +41,9 @@ extension AppDelegate {
 		AVOSCloud.setApplicationId(LeanCloud.appId, clientKey: LeanCloud.appKey)
 	}
 	
+//	class func 
 	
-	/// 通知去登录页
+	/// 类方法 - 通知去登录页
 	class func postNotificationToLoginPage() {
 		// 发送通知方法
 		NotificationCenter.default.post(name: NSNotification.Name(rawValue: ConfigNotification.toLogin), object: nil)

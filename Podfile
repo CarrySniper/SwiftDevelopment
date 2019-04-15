@@ -7,11 +7,13 @@ target 'SwiftDemo' do
 
   # Pods for SwiftDemo
   pod 'Alamofire'           # 网络请求库
+  pod 'AlamofireImage'		# 网络图片加载库
   pod 'SwiftyJSON'          # Json解析库
   pod 'SnapKit'             # UI约束
   
-  pod 'Aspects'
-  pod 'YYModel'          	# OC的模型转换
+  pod 'Aspects'				# OC的切面工程
   pod 'AVOSCloud'  			# OC的云存储
+  pod 'YYModel'          	# OC的模型转换
+  pod 'KMNavigationBarTransition'
   
 end

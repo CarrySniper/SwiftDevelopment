@@ -16,8 +16,6 @@ class CLLoginViewController: CLBaseHomeViewController, UITextFieldDelegate {
 	@IBOutlet weak var secureButton: UIButton!
 	@IBOutlet weak var doneButton: UIButton!
 	
-//	var viewModel: CLAccountViewModel!
-	
 	/// 懒加载
 	lazy var viewModel: CLAccountViewModel = {
 		var vm = CLAccountViewModel.init()
@@ -34,17 +32,22 @@ class CLLoginViewController: CLBaseHomeViewController, UITextFieldDelegate {
 		self.navigationItem.rightBarButtonItem = rightBarItem
 		
 		self.setupUI()
+		phoneTextField.text = UserDefaults.string(forKey: .phoneNumber)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
 		self.navigationController?.navigationBar.shadowImage = UIImage.init()
+		self.navigationController?.navigationBar.setBackgroundImage(UIImage.fromColor(UIColor.white), for: UIBarMetrics.default)
 	}
+	
 	
 	// MARK: - UIControl
 	// MARK: 登录操作
 	@IBAction func loginAction(_ sender: Any) {
+		UserDefaults.set(phoneTextField.text!, forKey: .phoneNumber)
+		
 		viewModel.login(phone: phoneTextField.text!, password: passwordTextField.text!) { (success) in
 			if success == true {
 				// 登录成功

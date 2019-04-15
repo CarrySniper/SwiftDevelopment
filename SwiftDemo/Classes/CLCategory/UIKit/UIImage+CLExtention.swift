@@ -18,7 +18,7 @@ extension UIImage {
 	///
 	/// - Parameter color: 颜色
 	/// - Returns: 图片
-	static func fromColor(_ color: UIColor) -> UIImage {
+	class func fromColor(_ color: UIColor) -> UIImage {
 		let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
 		UIGraphicsBeginImageContext(rect.size)
 		let context = UIGraphicsGetCurrentContext()

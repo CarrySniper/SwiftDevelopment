@@ -34,6 +34,14 @@ class CLBaseNavigationController: UINavigationController, UINavigationController
 		super.pushViewController(viewController, animated: animated)
 	}
 	
+//	func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+//		
+//		if self.isEqual(viewController) {
+//			navigationController.setNavigationBarHidden(true, animated: true)
+//		}else{
+//			navigationController.setNavigationBarHidden(false, animated: true)
+//		}
+//	}
 	func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
 		isPushing = false
 	}

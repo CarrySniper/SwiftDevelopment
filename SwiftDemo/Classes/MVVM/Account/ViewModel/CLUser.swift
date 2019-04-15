@@ -25,7 +25,7 @@ class CLUser: CLBaseModel {
 	/// 忧伤的 ！ ？
 	///
 	/// - Returns: 登录返回YYModel，未登录返回nil
-	class func currentUser() -> CLUser? {
+	static func currentUser() -> CLUser? {
 		var model : CLUser?
 		let user = AVUser.current()
 		if (user != nil) {
@@ -34,5 +34,9 @@ class CLUser: CLBaseModel {
 			return model!
 		}
 		return model
+	}
+	
+	static func logout() {
+		AVUser.logOut()
 	}
 }
