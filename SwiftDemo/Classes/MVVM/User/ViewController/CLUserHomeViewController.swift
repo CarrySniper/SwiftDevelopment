@@ -63,7 +63,6 @@ class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, U
 		print(model.className, IS_IPHONE_X_SERIES())
 		
 		
-//		SHOW_LOADING(self.view)
 	}
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -77,14 +76,16 @@ class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, U
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white,NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20)]
 		
 		self.loadUserData()
+//		SHOW_LOADING(self.view)
 	}
 
 	@objc func aaaa() {
+//		SHOW_LOADING(self.view)
 //		HIDE_LOADING()
 //
 //		self.tableView.reloadData()
 		let vc = CLWebViewController.init()
-		vc.loadUrlString("https://www.baidu.com", title: "T##String")
+		vc.loadUrlString(AppInfo.protocolUrl, title: "GitHub")
 		self.navigationController?.pushViewController(vc, animated: true)
 		
 //		let window = UIApplication.shared.keyWindow

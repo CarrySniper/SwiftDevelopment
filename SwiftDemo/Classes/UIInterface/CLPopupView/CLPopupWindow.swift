@@ -19,7 +19,7 @@ class CLPopupWindow: UIWindow, UIGestureRecognizerDelegate {
 	// lazy var get
 	lazy var attachedView: UIView = {
 		let view = UIView.init(frame: UIScreen.main.bounds)
-		view.backgroundColor = UIColor.init(white: 0, alpha: 0.3)
+		view.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
 		return view
 	}()
 	

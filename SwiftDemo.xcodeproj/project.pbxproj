@@ -65,6 +65,10 @@
 		96B71AFE225DD5FB0034AC92 /* CLUserSystemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96B71AFC225DD5FB0034AC92 /* CLUserSystemTableViewCell.xib */; };
 		96B71B00225DDFFE0034AC92 /* UserDefaults+CLExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B71AFF225DDFFE0034AC92 /* UserDefaults+CLExtention.swift */; };
 		96B71B02225DF8330034AC92 /* CLPopupWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B71B01225DF8330034AC92 /* CLPopupWindow.swift */; };
+		96E5572A2265722000E13C94 /* CLUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E557292265722000E13C94 /* CLUserViewModel.swift */; };
+		96E5572D2265893500E13C94 /* CLImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5572C2265893500E13C94 /* CLImagePicker.swift */; };
+		96E5572F2265A86300E13C94 /* CLPictureSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5572E2265A86300E13C94 /* CLPictureSelectionView.swift */; };
+		96E557312265A86B00E13C94 /* CLPictureSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E557302265A86B00E13C94 /* CLPictureSelectionView.xib */; };
 		96FD9DA1225ADDCC00492BF9 /* UIView+CLExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD9DA0225ADDCC00492BF9 /* UIView+CLExtention.swift */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +155,10 @@
 		96B71AFC225DD5FB0034AC92 /* CLUserSystemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLUserSystemTableViewCell.xib; sourceTree = "<group>"; };
 		96B71AFF225DDFFE0034AC92 /* UserDefaults+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CLExtention.swift"; sourceTree = "<group>"; };
 		96B71B01225DF8330034AC92 /* CLPopupWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPopupWindow.swift; sourceTree = "<group>"; };
+		96E557292265722000E13C94 /* CLUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUserViewModel.swift; sourceTree = "<group>"; };
+		96E5572C2265893500E13C94 /* CLImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLImagePicker.swift; sourceTree = "<group>"; };
+		96E5572E2265A86300E13C94 /* CLPictureSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPictureSelectionView.swift; sourceTree = "<group>"; };
+		96E557302265A86B00E13C94 /* CLPictureSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLPictureSelectionView.xib; sourceTree = "<group>"; };
 		96FD9DA0225ADDCC00492BF9 /* UIView+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CLExtention.swift"; sourceTree = "<group>"; };
 		EA576BDBA7F043E6B1A3D3F2 /* Pods-SwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +211,7 @@
 			children = (
 				96086E942255A088009C0337 /* CLUser.swift */,
 				96086E962255D4CA009C0337 /* CLAccountViewModel.swift */,
+				96E557292265722000E13C94 /* CLUserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,6 +367,7 @@
 		961D4D7C22544B260060247A /* UIInterface */ = {
 			isa = PBXGroup;
 			children = (
+				96E5572B226588CC00E13C94 /* CLImagePicker */,
 				9647257A225B1C2B005B620F /* CLToastView.swift */,
 				969DEAF022648476009468BC /* CLLoadingView.swift */,
 				969DEAEE2264829C009468BC /* CLLoadingViewSington.swift */,
@@ -463,6 +473,16 @@
 				96B71AFC225DD5FB0034AC92 /* CLUserSystemTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		96E5572B226588CC00E13C94 /* CLImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				96E5572C2265893500E13C94 /* CLImagePicker.swift */,
+				96E5572E2265A86300E13C94 /* CLPictureSelectionView.swift */,
+				96E557302265A86B00E13C94 /* CLPictureSelectionView.xib */,
+			);
+			path = CLImagePicker;
 			sourceTree = "<group>";
 		};
 		96FD9D9F225ADDA900492BF9 /* UIKit */ = {
@@ -596,6 +616,7 @@
 				961D4D77225363FE0060247A /* CLRegisterViewController.xib in Resources */,
 				96472589225B3DFB005B620F /* CLUserInfoViewController.xib in Resources */,
 				967E4D04225EE8D800759625 /* CLAlertView.xib in Resources */,
+				96E557312265A86B00E13C94 /* CLPictureSelectionView.xib in Resources */,
 				961D4D692253096B0060247A /* CLUserHomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,11 +703,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E5572A2265722000E13C94 /* CLUserViewModel.swift in Sources */,
 				9647259A225C7D87005B620F /* UIScrollView+CLEmtpyView.swift in Sources */,
 				96B71B02225DF8330034AC92 /* CLPopupWindow.swift in Sources */,
 				961D4D1A2251E5DB0060247A /* ViewController.swift in Sources */,
 				961D4D5F225204EB0060247A /* UIColor+CLExtention.swift in Sources */,
 				96086E9A2255E01C009C0337 /* String+CLExtention.swift in Sources */,
+				96E5572F2265A86300E13C94 /* CLPictureSelectionView.swift in Sources */,
+				96E5572D2265893500E13C94 /* CLImagePicker.swift in Sources */,
 				961D4D832254A0190060247A /* CLResetPasswordViewController.swift in Sources */,
 				969DEAF122648476009468BC /* CLLoadingView.swift in Sources */,
 				967E4D06225EE90C00759625 /* CLAlertView.swift in Sources */,

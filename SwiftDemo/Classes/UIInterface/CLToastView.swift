@@ -8,21 +8,21 @@
 
 import UIKit
 
-func SHOW_SUCCESS(_ text: String) {
+func SHOW_TOAST_SUCCESS(_ text: String) {
 	CLToastView.sharedInstance().setText(text)
 	CLToastView.sharedInstance().show()
 	CLToastView.sharedInstance().hide(3.0)
 	CLToastView.setBackgroundColor(UIColor.colorHex("007F00"))
 }
 
-func SHOW_INFO(_ text: String) {
+func SHOW_TOAST_INFO(_ text: String) {
 	CLToastView.sharedInstance().setText(text)
 	CLToastView.sharedInstance().show()
 	CLToastView.sharedInstance().hide(3.0)
 	CLToastView.setBackgroundColor(UIColor.orange)
 }
 
-func SHOW_ERROR(_ error: Error) {
+func SHOW_TOAST_ERROR(_ error: Error) {
 	CLToastView.sharedInstance().setText(error.localizedDescription)
 	CLToastView.sharedInstance().show()
 	CLToastView.sharedInstance().hide(3.0)

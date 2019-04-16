@@ -12,7 +12,7 @@ func SHOW_LOADING(_ view: UIView) {
 	CLLoadingView.showInView(view, -1)
 }
 
-func SHOW_PROGRESS(_ view: UIView,_ progress: CGFloat) {
+func SHOW_LOADING_PROGRESS(_ view: UIView,_ progress: CGFloat) {
 	CLLoadingView.showInView(view, progress)
 }
 
@@ -88,14 +88,27 @@ class CLLoadingView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+
+		let superView = self.superview
+
+		let window = UIApplication.shared.keyWindow
+		let rect = superView!.convert(superView!.bounds, to: window)
+		let x = ((window?.bounds.width)! - self.frame.width) / 2
+		let y = ((window?.bounds.height)! - self.frame.height) / 2 - rect.origin.y
+		self.frame = CGRect(x: x, y: y, width: self.frame.width, height: self.frame.height)
+	}
+	
 	class func showInView(_ view: UIView,_ progress: CGFloat) {
 		view.isUserInteractionEnabled = false
 		var currentView = self.getCurrentView(view)
 		if currentView == nil {
 			currentView = CLLoadingView.init(frame: CGRect.zero)
 			view.addSubview(currentView!)
-			currentView!.center = CGPoint(x: view.center.x, y: view.center.y-60)
+			
 		} else {
+			view.bringSubviewToFront(currentView!)
 		}
 		
 		DispatchQueue.main.async {

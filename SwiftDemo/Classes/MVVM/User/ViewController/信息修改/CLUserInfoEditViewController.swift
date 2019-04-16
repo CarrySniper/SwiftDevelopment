@@ -16,6 +16,8 @@ class CLUserInfoEditViewController: CLBaseViewController, UITextViewDelegate {
 	var content: String!
 	var placeholder: String!
 	
+	var doneHandler: CLStringHandler!
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,7 +33,10 @@ class CLUserInfoEditViewController: CLBaseViewController, UITextViewDelegate {
     }
 
 	@IBAction func doneAction(_ sender: Any) {
-		
+		textView.resignFirstResponder()
+		if (doneHandler != nil) {
+			doneHandler(textView.text.trimSpace)
+		}
 	}
 	
     /*

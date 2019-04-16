@@ -15,6 +15,13 @@ class CLUserInfoViewController: CLBaseViewController {
 	@IBOutlet weak var phoneLabel: UILabel!
 	@IBOutlet weak var signatureLabel: UILabel!
 	
+	/// 懒加载
+	lazy var viewModel: CLUserViewModel = {
+		var vm = CLUserViewModel.init()
+		vm.view = self.view
+		return vm
+	}()
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +35,7 @@ class CLUserInfoViewController: CLBaseViewController {
 		super.viewWillAppear(animated)
 		
 		self.loadUserData()
+		
 	}
 	
 	func loadUserData() {
@@ -51,6 +59,11 @@ class CLUserInfoViewController: CLBaseViewController {
 	}
 	
 	@IBAction func avatarAction(_ sender: UIButton) {
+		CLPictureSelectionView.show(self) { (image) in
+			self.viewModel.setAvatar(avatarImage: image, handler: {
+				self.avatar.image = image
+			})
+		}
 	}
 	
 	@IBAction func nameAction(_ sender: UIButton) {
@@ -60,10 +73,17 @@ class CLUserInfoViewController: CLBaseViewController {
 		vc.content = user?.username
 		vc.placeholder = "输入昵称"
 		self.navigationController?.pushViewController(vc, animated: true)
+		
+		vc.doneHandler = { (content) in
+			self.viewModel.setInfo(username: content, signature: user!.signature, handler: {
+				self.customBack()
+				self.nameLabel.text = content
+			})
+		}
 	}
 	
 	@IBAction func phoneAction(_ sender: UIButton) {
-		SHOW_INFO("电话不能修改")
+		SHOW_TOAST_INFO("电话不能修改")
 	}
 	
 	@IBAction func signatureAction(_ sender: UIButton) {
@@ -71,8 +91,15 @@ class CLUserInfoViewController: CLBaseViewController {
 		
 		let vc = CLUserInfoEditViewController.init()
 		vc.content = user?.signature
-		vc.placeholder = "输入个人签名（不超过30字）"
+		vc.placeholder = "输入个人签名（不超过50字）"
 		self.navigationController?.pushViewController(vc, animated: true)
+		
+		vc.doneHandler = { (content) in
+			self.viewModel.setInfo(username: user!.username, signature: content, handler: {
+				self.customBack()
+				self.signatureLabel.text = content
+			})
+		}
 	}
 	
 	// MARK: - 设置UI

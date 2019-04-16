@@ -22,20 +22,20 @@ class CLAccountViewModel: CLBaseViewModel {
 		let passwordText = password.trimSpace
 		
 		if phoneText.count == 0 {
-			SHOW_INFO("请输入手机号")
+			SHOW_TOAST_INFO("请输入手机号")
 			return()
 		}
 		if passwordText.count == 0 {
-			SHOW_INFO("请输入密码")
+			SHOW_TOAST_INFO("请输入密码")
 			return()
 		}
 		
 		SHOW_LOADING(self.view)
 		AVUser.logInWithMobilePhoneNumber(inBackground: phoneText, password: passwordText) { (user, error) in
 			if user != nil {
-				SHOW_SUCCESS("登录成功")
+				SHOW_TOAST_SUCCESS("登录成功")
 			} else {
-				SHOW_ERROR(error!)
+				SHOW_TOAST_ERROR(error!)
 			}
 			HIDE_LOADING(self.view)
 			completionHandler(error == nil)
@@ -49,19 +49,19 @@ class CLAccountViewModel: CLBaseViewModel {
 		let apasswordText = apassword.trimSpace
 		
 		if phoneText.count == 0 {
-			SHOW_INFO("请输入手机号")
+			SHOW_TOAST_INFO("请输入手机号")
 			return()
 		}
 		if smscodeText.count == 0 {
-			SHOW_INFO("请输入验证码")
+			SHOW_TOAST_INFO("请输入验证码")
 			return()
 		}
 		if passwordText.count == 0 {
-			SHOW_INFO("请输入密码")
+			SHOW_TOAST_INFO("请输入密码")
 			return()
 		}
 		if apasswordText != passwordText {
-			SHOW_INFO("输入两次密码不一致")
+			SHOW_TOAST_INFO("输入两次密码不一致")
 			return()
 		}
 		
@@ -69,7 +69,7 @@ class CLAccountViewModel: CLBaseViewModel {
 		AVUser.signUpOrLoginWithMobilePhoneNumber(inBackground: phoneText, smsCode: smscodeText, password: passwordText) { (user, error) in
 			// 如果 error 为空就可以表示登录成功了，并且 user 是一个全新的用户
 			if user != nil && error == nil {
-				SHOW_SUCCESS("注册成功")
+				SHOW_TOAST_SUCCESS("注册成功")
 				var name = phoneText as NSString
 				if name.length > 7 {
 					name = "\(name.substring(to: 3))****\(name.substring(from: 7))" as NSString
@@ -79,7 +79,7 @@ class CLAccountViewModel: CLBaseViewModel {
 				user?.username = name as String
 				user?.saveInBackground()
 			} else {
-				SHOW_ERROR(error!)
+				SHOW_TOAST_ERROR(error!)
 			}
 			HIDE_LOADING(self.view)
 			completionHandler(error == nil)
@@ -93,28 +93,28 @@ class CLAccountViewModel: CLBaseViewModel {
 		let apasswordText = apassword.trimSpace
 		
 		if phoneText.count == 0 {
-			SHOW_INFO("请输入手机号")
+			SHOW_TOAST_INFO("请输入手机号")
 			return()
 		}
 		if smscodeText.count == 0 {
-			SHOW_INFO("请输入验证码")
+			SHOW_TOAST_INFO("请输入验证码")
 			return()
 		}
 		if passwordText.count == 0 {
-			SHOW_INFO("请输入密码")
+			SHOW_TOAST_INFO("请输入密码")
 			return()
 		}
 		if apasswordText != passwordText {
-			SHOW_INFO("输入两次密码不一致")
+			SHOW_TOAST_INFO("输入两次密码不一致")
 			return()
 		}
 		
 		SHOW_LOADING(self.view)
 		AVUser.resetPassword(withSmsCode: smscodeText, newPassword: passwordText) { (success, error) in
 			if success {
-				SHOW_SUCCESS("重置成功，请重新登录")
+				SHOW_TOAST_SUCCESS("重置成功，请重新登录")
 			} else {
-				SHOW_ERROR(error!)
+				SHOW_TOAST_ERROR(error!)
 			}
 			HIDE_LOADING(self.view)
 			completionHandler(error == nil)
@@ -125,16 +125,16 @@ class CLAccountViewModel: CLBaseViewModel {
 		let phoneText = phone.trimSpace
 		
 		if phoneText.count == 0 {
-			SHOW_INFO("请输入手机号")
+			SHOW_TOAST_INFO("请输入手机号")
 			completionHandler(false);
 			return()
 		}
 		SHOW_LOADING(self.view)
 		AVSMS.requestShortMessage(forPhoneNumber: phoneText, options: nil) { (success, error) in
 			if success {
-				SHOW_SUCCESS("验证码已发送")
+				SHOW_TOAST_SUCCESS("验证码已发送")
 			} else {
-				SHOW_ERROR(error!)
+				SHOW_TOAST_ERROR(error!)
 			}
 			HIDE_LOADING(self.view)
 			completionHandler(error == nil)

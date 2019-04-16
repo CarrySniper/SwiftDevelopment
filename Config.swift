@@ -72,6 +72,8 @@ struct ConfigImage {
 
 typealias CLViodHandler = () -> Void
 typealias CLBoolHandler = (_ success: Bool) -> Void
+typealias CLStringHandler = (_ text: String) -> Void
+typealias CLImageHandler = (_ image: UIImage) -> Void
 
 /// 功能设置列表类型
 enum CLUserSettingType: Int {

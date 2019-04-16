@@ -25,6 +25,7 @@ class CLWebViewController: CLBaseViewController, WKNavigationDelegate {
 		view.scrollView.bounces = false
 		view.isOpaque = false
 		view.navigationDelegate = self
+		view.configuration.preferences.minimumFontSize = 0.0
 		return view
 	}()
 	
@@ -43,10 +44,6 @@ class CLWebViewController: CLBaseViewController, WKNavigationDelegate {
 			make.top.left.right.equalTo(self.view)
 		}
 	
-		if request != nil {
-			webView.load(request)
-		}
-		
 		webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
 		webView.addObserver(self, forKeyPath: "title", options: .new, context: nil)
     }
@@ -56,6 +53,14 @@ class CLWebViewController: CLBaseViewController, WKNavigationDelegate {
 		webView.removeObserver(self, forKeyPath: "title")
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		if request != nil {
+			webView.load(request)
+		}
+		
+	}
 	override func customBack() {
 		if webView.canGoBack {
 			webView.goBack()
@@ -73,19 +78,33 @@ class CLWebViewController: CLBaseViewController, WKNavigationDelegate {
 	//MARK: - WKNavigationDelegate
 	/// 开始提交请求，当主框架导航开始时，调用“抽象”调用。
 	func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-		
+		DispatchQueue.main.async {
+			UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		}
 	}
 	/// 当内容开始到达主框架时，调用抽象调用。
 	func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
 		
 	}
+	/// Could not signal service com.apple.WebKit.Networking: 113: Could not find specified service
+	//信任这https证书
+	func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+		if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+			let credential = URLCredential.init(trust: challenge.protectionSpace.serverTrust!)
+			completionHandler(URLSession.AuthChallengeDisposition.useCredential, credential)
+		}
+	}
 	/// 请求完成
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-		
+		DispatchQueue.main.async {
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+		}
 	}
 	/// 请求失败
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-		
+		DispatchQueue.main.async {
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+		}
 	}
 	
 	//MARK: - KVO的监听代理

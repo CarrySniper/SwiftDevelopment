@@ -61,8 +61,6 @@ class CLPopupView: UIView, UIGestureRecognizerDelegate {
 		hideWhenTouchOutside = true
 		// 获取CLPopupWindow attachedView
 		windowAttachedView = CLPopupWindow.sharedInstance().attachedView
-		
-//		CLPopupWindow.sharedInstance().backgroundColor = UIColor.colorHex("666666", 0.8)
 	}
 	
 	func show() {
@@ -89,9 +87,9 @@ class CLPopupView: UIView, UIGestureRecognizerDelegate {
 		default: break
 			
 		}
-		self.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+		self.transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
 		self.alpha = 0.5;
-		UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+		UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
 			self.transform = CGAffineTransform.identity
 			self.alpha = 1.0
 		}) { (finished) in
