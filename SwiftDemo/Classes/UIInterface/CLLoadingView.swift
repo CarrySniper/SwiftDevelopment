@@ -42,7 +42,7 @@ class CLLoadingView: UIView {
 		layer.path = circlePath.cgPath
 		layer.lineWidth = 2
 		layer.strokeStart = 0.0	// 开始点
-		layer.strokeEnd = 0.0		// 终止点
+		layer.strokeEnd = 1.0		// 终止点
 		layer.fillColor = UIColor.clear.cgColor
 		layer.strokeColor = UIColor.lightGray.cgColor
 		return layer

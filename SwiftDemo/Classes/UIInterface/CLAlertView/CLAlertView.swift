@@ -80,16 +80,15 @@ class CLAlertView: CLPopupView {
 		}
 	}
 	@IBAction func leftItemAction(_ sender: Any) {
-//		print("\(#function) ")
+		self.hide()
 		if leftActionHandler != nil {
 			leftActionHandler()
 		}
-		self.hide()
 	}
 	@IBAction func rightItemAction(_ sender: Any) {
+		self.hide()
 		if rightActionHandler != nil {
 			rightActionHandler()
 		}
-		self.hide()
 	}
 }

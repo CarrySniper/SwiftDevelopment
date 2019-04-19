@@ -84,10 +84,13 @@ class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, U
 //		HIDE_LOADING()
 //
 //		self.tableView.reloadData()
-		let vc = CLWebViewController.init()
-		vc.loadUrlString(AppInfo.protocolUrl, title: "GitHub")
-		self.navigationController?.pushViewController(vc, animated: true)
-		
+//		let vc = CLWebViewController.init()
+//		vc.loadUrlString(AppInfo.protocolUrl, title: "GitHub")
+//		self.navigationController?.pushViewController(vc, animated: true)
+		SHOW_ALERT("温馨提示", "您要退出登录账号吗？", "确认退出") {
+			CLUser.logout()
+			AppDelegate.postNotificationToLoginPage()
+		}
 //		let window = UIApplication.shared.keyWindow
 //		window!.windowLevel = UIWindow.Level.statusBar
 //		let view = UIView.init(frame: UIScreen.main.bounds)

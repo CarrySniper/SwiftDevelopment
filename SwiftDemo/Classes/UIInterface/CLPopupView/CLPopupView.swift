@@ -36,7 +36,7 @@ class CLPopupView: UIView, UIGestureRecognizerDelegate {
 	
 	/// lazy var get 隐藏手势
 	lazy var tapGesture: UITapGestureRecognizer = {
-		var gesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(actionTap))
+		var gesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
 		gesture.cancelsTouchesInView = false
 		gesture.delegate = self
 		return gesture
@@ -67,7 +67,7 @@ class CLPopupView: UIView, UIGestureRecognizerDelegate {
 		
 		windowAttachedView.addSubview(containerView)
 		containerView.addSubview(self)
-		CLPopupWindow.sharedInstance().reloadView()
+		CLPopupWindow.sharedInstance().updateTheView()
 		
 		switch type {
 		case .alert? :
@@ -105,12 +105,12 @@ class CLPopupView: UIView, UIGestureRecognizerDelegate {
 		}) { (finished) in
 			self.removeFromSuperview()
 			self.containerView.removeFromSuperview()
-			CLPopupWindow.sharedInstance().reloadView()
+			CLPopupWindow.sharedInstance().updateTheView()
 		}
 	}
 	
 	
-	@objc func actionTap(recognizer : UITapGestureRecognizer) {
+	@objc func tapAction(recognizer : UITapGestureRecognizer) {
 		if hideWhenTouchOutside == true {
 			self.hide()
 		}

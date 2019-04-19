@@ -10,13 +10,9 @@ import UIKit
 import Foundation
 
 /// 这个UIWindow有点魔性呀，不用addSubview，只要管理好isHidden属性就可以直接显示了
-class CLPopupWindow: UIWindow, UIGestureRecognizerDelegate {
+class CLPopupWindow: UIWindow {
 	
-	/// 附件视图
-//	var attachedView: UIView {
-//		return self.rootViewController!.view
-//	}
-	// lazy var get
+	// lazy var get 透明层
 	lazy var attachedView: UIView = {
 		let view = UIView.init(frame: UIScreen.main.bounds)
 		view.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
@@ -34,21 +30,24 @@ class CLPopupWindow: UIWindow, UIGestureRecognizerDelegate {
 	
 	/// 懒加载-只执行一次的代码
 	lazy var setup_oncesAction: Void = {
-		// 写下想要执行一次的代码
+		// 显示级别alert或statusBar
+		self.windowLevel = UIWindow.Level.alert
+		
+		// 设置背景颜色透明
+		self.backgroundColor = UIColor.clear
 		
 		// 设rootViewController，才能保证状态栏颜色保持一致
 		self.rootViewController = UIApplication.shared.keyWindow!.rootViewController
 		
-		// 显示级别alert或statusBar
-		self.windowLevel = UIWindow.Level.alert
-		
-		self.backgroundColor = UIColor.clear
+		// 设主键并可视化
 		self.makeKeyAndVisible()
 		
+		// 添加遮盖层
 		self.addSubview(attachedView)
 	}()
 	
-	func reloadView()  {
+	func updateTheView()  {
+		
 		if attachedView.subviews.count == 0 {
 			attachedView.isHidden = true
 			self.isHidden = true
@@ -56,6 +55,8 @@ class CLPopupWindow: UIWindow, UIGestureRecognizerDelegate {
 		} else {
 			attachedView.isHidden = false
 			self.isHidden = false
+			// 设rootViewController，才能保证状态栏颜色保持一致
+			self.rootViewController = UIApplication.shared.keyWindow!.rootViewController
 			self.makeKeyAndVisible()
 		}
 	}
