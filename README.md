@@ -5,6 +5,8 @@ CL为个人特殊名字，不是说Swift有命名空间后就不需要前缀之�
 最近Objective C语言偏向MVVM架构，所以Swift一起转向MVVM。
 
 ## 学习从此刻开始（时间倒序）
+#### 2019-05-08（周三）
+扩展UIAlertController控制器，可以修改选项颜色UIAlertController+CLExtention.swift
 
 #### 2019-04-15（周一）
 自定义加载进度视图视图控制器CLLoadingView.swift
@@ -14,7 +16,7 @@ CL为个人特殊名字，不是说Swift有命名空间后就不需要前缀之�
 [CLWebViewController.swift](https://github.com/cjq002/SwiftDemo/wiki/功能-WebView)
 
 #### 2019-04-12（周五）
-自定义AlertView，学习UIWindow属性，遮挡状态栏
+自定义PopupView，学习UIWindow属性，遮挡状态栏
 ```swift 
 extension UIWindow.Level {
 
@@ -24,6 +26,7 @@ extension UIWindow.Level {
 
     public static let statusBar: UIWindow.Level
 }
+```
 
 #### 2019-04-10（周三）
 自定义协议代理protocol，实现optional可选方法（extension扩展实现了需要标记的optional可选方法）。
