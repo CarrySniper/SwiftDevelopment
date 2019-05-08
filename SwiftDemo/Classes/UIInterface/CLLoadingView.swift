@@ -102,16 +102,16 @@ class CLLoadingView: UIView {
 	
 	class func showInView(_ view: UIView,_ progress: CGFloat) {
 		view.isUserInteractionEnabled = false
-		var currentView = self.getCurrentView(view)
-		if currentView == nil {
-			currentView = CLLoadingView.init(frame: CGRect.zero)
-			view.addSubview(currentView!)
-			
-		} else {
-			view.bringSubviewToFront(currentView!)
-		}
-		
 		DispatchQueue.main.async {
+			var currentView = self.getCurrentView(view)
+			if currentView == nil {
+				currentView = CLLoadingView.init(frame: CGRect.zero)
+				view.addSubview(currentView!)
+				
+			} else {
+				view.bringSubviewToFront(currentView!)
+			}
+			
 			if progress < 0.0 {
 				// 图形1、菊花指示器
 				currentView!.activityIndicatorView.isHidden = false

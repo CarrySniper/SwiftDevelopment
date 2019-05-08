@@ -18,11 +18,7 @@ extension AppDelegate {
 		UITextView.appearance().tintColor = CLColor.textSelected
 		UITextField.appearance().tintColor = CLColor.textSelected
 		
-		CLToastView.setBackgroundColor(CLColor.red)
-		CLToastView.setTextColor(UIColor.white)
-		
 		NotificationCenter.default.addObserver(self, selector: #selector(notificationToLogin), name: NSNotification.Name(rawValue: ConfigNotification.toLogin), object: nil)
-		
 		
 		
 		self.registerApp()

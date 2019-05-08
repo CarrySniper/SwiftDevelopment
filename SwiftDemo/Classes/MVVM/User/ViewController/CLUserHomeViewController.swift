@@ -80,17 +80,24 @@ class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, U
 	}
 
 	@objc func aaaa() {
+//		UIAlertController.showAlert(title: "T##String?", message: "T##String?", handerName: "我要确认") { (UIAlertAction) in
+//			print("T##items: Any...##Any")
+//		}
+//		UIAlertController.showSheet(title: "T##String?", message: "T##String?", handerNameArray: ["aaa","bbb","10"]) { (UIAlertAction, Int) in
+//			print(UIAlertAction, Int)
+//		}
 //		SHOW_LOADING(self.view)
 //		HIDE_LOADING()
 //
+		
 //		self.tableView.reloadData()
 //		let vc = CLWebViewController.init()
 //		vc.loadUrlString(AppInfo.protocolUrl, title: "GitHub")
 //		self.navigationController?.pushViewController(vc, animated: true)
-		SHOW_ALERT("温馨提示", "您要退出登录账号吗？", "确认退出") {
-			CLUser.logout()
-			AppDelegate.postNotificationToLoginPage()
-		}
+//		SHOW_ALERT("温馨提示", "您要退出登录账号吗？", "确认退出") {
+//			CLUser.logout()
+//			AppDelegate.postNotificationToLoginPage()
+//		}
 //		let window = UIApplication.shared.keyWindow
 //		window!.windowLevel = UIWindow.Level.statusBar
 //		let view = UIView.init(frame: UIScreen.main.bounds)

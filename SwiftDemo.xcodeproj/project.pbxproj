@@ -65,6 +65,7 @@
 		96B71AFE225DD5FB0034AC92 /* CLUserSystemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96B71AFC225DD5FB0034AC92 /* CLUserSystemTableViewCell.xib */; };
 		96B71B00225DDFFE0034AC92 /* UserDefaults+CLExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B71AFF225DDFFE0034AC92 /* UserDefaults+CLExtention.swift */; };
 		96B71B02225DF8330034AC92 /* CLPopupWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B71B01225DF8330034AC92 /* CLPopupWindow.swift */; };
+		96BD94C32282F3ED00F722E4 /* UIAlertController+CLExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BD94C22282F3ED00F722E4 /* UIAlertController+CLExtention.swift */; };
 		96E5572A2265722000E13C94 /* CLUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E557292265722000E13C94 /* CLUserViewModel.swift */; };
 		96E5572D2265893500E13C94 /* CLImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5572C2265893500E13C94 /* CLImagePicker.swift */; };
 		96E5572F2265A86300E13C94 /* CLPictureSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5572E2265A86300E13C94 /* CLPictureSelectionView.swift */; };
@@ -155,6 +156,7 @@
 		96B71AFC225DD5FB0034AC92 /* CLUserSystemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLUserSystemTableViewCell.xib; sourceTree = "<group>"; };
 		96B71AFF225DDFFE0034AC92 /* UserDefaults+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CLExtention.swift"; sourceTree = "<group>"; };
 		96B71B01225DF8330034AC92 /* CLPopupWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPopupWindow.swift; sourceTree = "<group>"; };
+		96BD94C22282F3ED00F722E4 /* UIAlertController+CLExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+CLExtention.swift"; sourceTree = "<group>"; };
 		96E557292265722000E13C94 /* CLUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUserViewModel.swift; sourceTree = "<group>"; };
 		96E5572C2265893500E13C94 /* CLImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLImagePicker.swift; sourceTree = "<group>"; };
 		96E5572E2265A86300E13C94 /* CLPictureSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPictureSelectionView.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				96FD9DA0225ADDCC00492BF9 /* UIView+CLExtention.swift */,
 				96472592225C40CE005B620F /* UIViewController+CLExtention.swift */,
 				96B71AF5225DCEAF0034AC92 /* UIImageView+CLExtention.swift */,
+				96BD94C22282F3ED00F722E4 /* UIAlertController+CLExtention.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96BD94C32282F3ED00F722E4 /* UIAlertController+CLExtention.swift in Sources */,
 				96E5572A2265722000E13C94 /* CLUserViewModel.swift in Sources */,
 				9647259A225C7D87005B620F /* UIScrollView+CLEmtpyView.swift in Sources */,
 				96B71B02225DF8330034AC92 /* CLPopupWindow.swift in Sources */,

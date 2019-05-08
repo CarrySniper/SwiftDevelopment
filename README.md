@@ -7,6 +7,9 @@ CL为个人特殊名字，不是说Swift有命名空间后就不需要前缀之�
 ## 学习从此刻开始（时间倒序）
 
 #### 2019-04-15（周一）
+自定义加载进度视图视图控制器CLLoadingView.swift
+
+#### 2019-04-15（周一）
 自定义Web视图控制器，带进度条progress，动态显示标题title。
 [CLWebViewController.swift](https://github.com/cjq002/SwiftDemo/wiki/功能-WebView)
 
@@ -20,7 +23,6 @@ extension UIWindow.Level {
     public static let alert: UIWindow.Level
 
     public static let statusBar: UIWindow.Level
-}
 }
 
 #### 2019-04-10（周三）
