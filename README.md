@@ -1,6 +1,6 @@
 # SwiftDemo
 
->用于了解Swift的例子，很有作用，学习过程中会更新。慢慢养成看[Wiki](https://github.com/cjq002/SwiftDemo/wiki)的习惯。<br>
+>用于了解Swift，养成看[Wiki](https://github.com/cjq002/SwiftDemo/wiki)的习惯。<br>
 CL为个人特殊名字，不是说Swift有命名空间后就不需要前缀之类的。Swift 5发布，工程项目得新建才能更好地适配。
 最近Objective C语言偏向MVVM架构，所以Swift一起转向MVVM。
 
