@@ -1,5 +1,5 @@
 //
-//  UIImage+CLExtention.swift
+//  UIImage+CLExtension.swift
 //  SwiftDemo
 //
 //  Created by CL on 2019/4/3.

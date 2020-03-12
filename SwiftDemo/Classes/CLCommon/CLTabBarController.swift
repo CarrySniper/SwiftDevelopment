@@ -28,7 +28,7 @@ class CLTabBarController: UITabBarController {
 			let selectedImageName = "tabbar_selected" + String(index)
 			
 			let viewController = self.makeViewController(className: item.last!, title: item.first!, normalImageName: normalImageName, selectedImageName: selectedImageName)
-			let navigationController = CLBaseNavigationController.init(rootViewController: viewController)
+			let navigationController = CLNavigationController.init(rootViewController: viewController)
 			self.addChild(navigationController)
 		}
     }

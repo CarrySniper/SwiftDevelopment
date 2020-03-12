@@ -1,5 +1,5 @@
 //
-//  CLBaseNavigationController.swift
+//  CLNavigationController.swift
 //  SwiftDemo
 //
 //  Created by CL on 2019/4/2.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CLBaseNavigationController: UINavigationController, UINavigationControllerDelegate {
+class CLNavigationController: UINavigationController, UINavigationControllerDelegate {
 	
 	/// 防止多次push一个页面
 	var isPushing: Bool = false

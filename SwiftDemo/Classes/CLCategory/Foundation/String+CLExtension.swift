@@ -1,5 +1,5 @@
 //
-//  String+CLExtention.swift
+//  String+CLExtension.swift
 //  SwiftDemo
 //
 //  Created by CL on 2019/4/4.

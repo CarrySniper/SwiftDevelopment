@@ -1,5 +1,5 @@
 //
-//  UIAlertController+CLExtention.swift
+//  UIAlertController+CLExtension.swift
 //  SwiftDemo
 //
 //  Created by CL on 2019/5/8.

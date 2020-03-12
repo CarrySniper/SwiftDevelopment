@@ -1,5 +1,5 @@
 //
-//  UIView+CLExtention.swift
+//  UIView+CLExtension.swift
 //  SwiftDemo
 //
 //  Created by CL on 2019/4/8.

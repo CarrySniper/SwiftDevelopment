@@ -1,5 +1,5 @@
 //
-//  AppDelegate+CLExtention.swift
+//  AppDelegate+CLExtension.swift
 //  SwiftDemo
 //
 //  Created by CL on 2019/4/1.
@@ -25,14 +25,14 @@ extension AppDelegate {
 		
 		self.setupTabBar()
 	}
-	
+	// MARK: - 配置TabBar
 	public func setupTabBar() {
 		tabBarController = CLTabBarController()
 		tabBarController?.selectedIndex = 1
 		window?.rootViewController = tabBarController
 		window?.makeKeyAndVisible()
 	}
-	
+	// MARK: - 注册App信息
 	func registerApp() {
 		AVOSCloud.setApplicationId(LeanCloud.appId, clientKey: LeanCloud.appKey)
 	}
@@ -59,7 +59,7 @@ extension AppDelegate {
 			}
 			
 			let viewController = CLLoginViewController.init()
-			let navigationController = CLBaseNavigationController.init(rootViewController: viewController)
+			let navigationController = CLNavigationController.init(rootViewController: viewController)
 			self.window?.rootViewController?.present(navigationController, animated: true, completion: {
 				
 			})

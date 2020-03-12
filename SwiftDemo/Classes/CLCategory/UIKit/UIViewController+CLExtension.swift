@@ -1,5 +1,5 @@
 //
-//  UIViewController+CLExtention.swift
+//  UIViewController+CLExtension.swift
 //  SwiftDemo
 //
 //  Created by CL on 2019/4/9.

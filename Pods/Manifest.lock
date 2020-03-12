@@ -20,7 +20,7 @@ DEPENDENCIES:
   - YYModel
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AlamofireImage
     - Aspects
@@ -40,6 +40,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: ac36243ecc7175e6c8961dc89a8ea6cefff64832
+PODFILE CHECKSUM: 7a6af1c0d1322702d71f2a4b0e8b6d922bb74cfd
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.0.beta.3

@@ -1,5 +1,5 @@
 //
-//  UserDefaults+CLExtention.swift
+//  UserDefaults+CLExtension.swift
 //  SwiftDemo
 //
 //  Created by CL on 2019/4/10.

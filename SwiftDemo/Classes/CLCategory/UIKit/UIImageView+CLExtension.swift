@@ -1,5 +1,5 @@
 //
-//  UIImageView+CLExtention.swift
+//  UIImageView+CLExtension.swift
 //  SwiftDemo
 //
 //  Created by CL on 2019/4/10.

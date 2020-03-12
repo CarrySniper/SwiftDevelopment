@@ -1,5 +1,5 @@
 //
-//  UITextField+CLExtention.swift
+//  UITextField+CLExtension.swift
 //  SwiftDemo
 //
 //  Created by CL on 2019/4/2.
@@ -17,8 +17,8 @@ extension UITextField {
 	
 	func placeholderColor(color: UIColor) {
 		//字体大小
-		self.setValue(self.font ,forKeyPath: "_placeholderLabel.font")
+		self.setValue(self.font ,forKeyPath: "placeholderLabel.font")
 		//字体颜色
-		self.setValue(color, forKeyPath: "_placeholderLabel.textColor")
+		self.setValue(color, forKeyPath: "placeholderLabel.textColor")
 	}
 }
