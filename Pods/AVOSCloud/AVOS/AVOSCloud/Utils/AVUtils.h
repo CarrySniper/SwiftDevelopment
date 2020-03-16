@@ -11,26 +11,9 @@
 #import "AVOSCloud.h"
 #import "AVHelpers.h"
 
+// ref: https://github.com/keitaito/KeyPathMacroTestApp
 #define keyPath(base, path) ({ __unused typeof(base.path) _; @#path; })
 #define ivarName(base, path) ({ __unused typeof(base->path) _; @#path; })
-
-FOUNDATION_EXPORT NSInteger LCTimeZoneForSecondsFromGMT;
-NSDate * LCDateFromString(NSString *dateString);
-
-/**
- * Check the equality of two security key.
- */
-BOOL LCSecKeyIsEqual(SecKeyRef key1, SecKeyRef key2);
-
-/**
- * Get public key of given certificate.
- */
-SecKeyRef LCGetPublicKeyFromCertificate(SecCertificateRef cert);
-
-/**
- * Make certificate from base64 string.
- */
-SecCertificateRef LCGetCertificateFromBase64String(NSString *base64);
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
     #import <MobileCoreServices/MobileCoreServices.h>
@@ -66,11 +49,6 @@ SecCertificateRef LCGetCertificateFromBase64String(NSString *base64);
 + (NSString *)jsonStringFromDictionary:(NSDictionary *)dictionary;
 
 + (NSString *)jsonStringFromArray:(NSArray *)array;
-
-+ (void)performSelectorIfCould:(id)target
-                      selector:(SEL)selector
-                        object:(id)arg1
-                        object:(id)arg2;
 
 + (NSString *)generateUUID;
 + (NSString *)generateCompactUUID;
@@ -176,14 +154,13 @@ do {                                       \
 - (NSString *)AVAES256Decrypt;
 @end
 
-@interface NSObject (__LeanCloud__)
+@interface NSObject (LeanCloudObjcSDK)
 
-+ (BOOL)lc__checkingType:(id)instance __attribute__((warn_unused_result));
++ (BOOL)_lc_is_type_of:(id)instance
+__attribute__((warn_unused_result));
 
-+ (instancetype)lc__decodingDictionary:(NSDictionary *)dictionary
-                                   key:(NSString *)key __attribute__((warn_unused_result));
-
-+ (instancetype)lc__decodingWithKey:(NSString *)key
-                            fromDic:(NSDictionary *)dic __attribute__((warn_unused_result));
++ (instancetype)_lc_decoding:(NSDictionary *)dictionary
+                         key:(NSString *)key
+__attribute__((warn_unused_result));
 
 @end

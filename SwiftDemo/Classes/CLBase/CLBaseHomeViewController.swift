@@ -9,7 +9,12 @@
 import UIKit
 
 class CLBaseHomeViewController: CLBaseViewController {
-
+	
+	/// 状态栏文字颜色设置，见CLNavigationController.swift
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 

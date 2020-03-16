@@ -55,7 +55,7 @@ extension UIView {
 		return false
 	}
 	
-	//加载xib
+	/// 加载xib
 	class  func loadViewFromNib() -> UIView {
 		//获取真正的类型名
 		let className: String = NSStringFromClass(self).components(separatedBy: ".").last!

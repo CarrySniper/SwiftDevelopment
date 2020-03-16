@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import MGJRouter_Swift
 
 class CLBaseViewController: UIViewController, UIGestureRecognizerDelegate {
 	
-	/// 状态栏文字颜色设置，见CLBaseNavigationController.swift
+	/// 状态栏文字颜色设置，见CLNavigationController.swift
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .default
 	}
+	var routerParameters = Dictionary<String, Any>()
 	
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -44,10 +44,13 @@
     return self;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 - (void)finalize {
     [self close];
     [super finalize];
 }
+#pragma clang diagnostic pop
 
 - (void)dealloc {
     [self close];
@@ -354,7 +357,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 }
 
 - (BOOL)rekeyWithData:(NSData *)keyData {
-#ifdef SQLITE_HAS_CODEC
+#ifdef LC_SQLITE_HAS_CODEC
     if (!keyData) {
         return NO;
     }
@@ -379,7 +382,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 }
 
 - (BOOL)setKeyWithData:(NSData *)keyData {
-#ifdef SQLITE_HAS_CODEC
+#ifdef LC_SQLITE_HAS_CODEC
     if (!keyData) {
         return NO;
     }
@@ -1385,10 +1388,13 @@ void LCDBBlockSQLiteCallBackFunction(sqlite3_context *context, int argc, sqlite3
 @synthesize useCount=_useCount;
 @synthesize inUse=_inUse;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 - (void)finalize {
     [self close];
     [super finalize];
 }
+#pragma clang diagnostic pop
 
 - (void)dealloc {
     [self close];

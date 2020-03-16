@@ -11,10 +11,11 @@ import UIKit
 class CLImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	
 	typealias CLImageHandler = (_ image: UIImage) -> Void
-	var limitMaxLength: CGFloat = 0.0
+	var limitMaxSize: NSInteger = 0
 	
 	var imagePickerHandler: CLImageHandler!
 	
+	/// 懒加载
 	lazy var imagePickerController: UIImagePickerController = {
 		let imagePicker = UIImagePickerController()
 		imagePicker.delegate = self
@@ -37,7 +38,13 @@ class CLImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationCont
 		
 	}()
 	
-	public func show(_ viewController: UIViewController, _ allowsEditing: Bool, _ limitMaxLength: CGFloat,_ sourceType: UIImagePickerController.SourceType, _ imagePickerHandler: CLImageHandler?) {
+	/// 显示选择图片视图控制器
+	/// - Parameters:
+	///   - allowsEditing: 是否允许编辑
+	///   - limitMaxSize: 限制最大大小
+	///   - sourceType: 资源类型
+	///   - imagePickerHandler: 回调
+	public func show(_ allowsEditing: Bool, _ limitMaxSize: NSInteger,_ sourceType: UIImagePickerController.SourceType, _ imagePickerHandler: CLImageHandler?) {
 		
 		if (sourceType == .camera) {
 			//  判断是否支持相机。注：模拟器没有相机
@@ -46,12 +53,12 @@ class CLImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationCont
 				return()
 			}
 		}
-		self.limitMaxLength = limitMaxLength
+		self.limitMaxSize = limitMaxSize
 		self.imagePickerHandler = imagePickerHandler
 		
-		imagePickerController.allowsEditing = allowsEditing
-		imagePickerController.sourceType = sourceType
-		viewController.present(imagePickerController, animated: true, completion: nil)
+		self.imagePickerController.allowsEditing = allowsEditing
+		self.imagePickerController.sourceType = sourceType
+		getCurrentViewController()!.present(self.imagePickerController, animated: true, completion: nil)
 	}
 
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -62,8 +69,8 @@ class CLImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationCont
 			selectImage = (info[UIImagePickerController.InfoKey.originalImage] as! UIImage)
 		}
 		
-		if self.limitMaxLength >= 0.0 {
-			let limitSize = self.scaleImage(image: selectImage, imageLength: self.limitMaxLength)
+		if self.limitMaxSize >= 0 {
+			let limitSize = self.scaleImage(image: selectImage, imageLength: CGFloat(self.limitMaxSize))
 			selectImage = self.resizeImage(image: selectImage, newSize: limitSize)
 		}
 		
@@ -103,7 +110,7 @@ class CLImagePicker: NSObject, UIImagePickerControllerDelegate, UINavigationCont
 		
 		return newImage!
 	}
-	func  scaleImage(image: UIImage, imageLength: CGFloat) -> CGSize {
+	func scaleImage(image: UIImage, imageLength: CGFloat) -> CGSize {
 		var newWidth:CGFloat = 0.0
 		var newHeight:CGFloat = 0.0
 		let width = image.size.width

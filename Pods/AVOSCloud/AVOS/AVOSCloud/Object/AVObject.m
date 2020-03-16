@@ -24,8 +24,7 @@
 #import <libkern/OSAtomic.h>
 
 #import "AVUser_Internal.h"
-#import "SDMacros.h"
-#import "EXTScope.h"
+#import "AVInstallation_Internal.h"
 
 #define AV_BATCH_SAVE_SIZE 100
 #define AV_BATCH_CONCURRENT_SIZE 20
@@ -141,10 +140,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     return object;
 }
 
-+ (instancetype)objectWithoutDataWithObjectId:(NSString *)objectId {
-    return [self objectWithObjectId:objectId];
-}
-
 + (instancetype)objectWithClassName:(NSString *)className
 {
     AVObject *object = [[self alloc] initWithClassName:className];
@@ -155,10 +150,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     AVObject *object = [self objectWithClassName:className];
     object.objectId = objectId;
     return object;
-}
-
-+ (instancetype)objectWithoutDataWithClassName:(NSString *)className objectId:(NSString *)objectId {
-    return [self objectWithClassName:className objectId:objectId];
 }
 
 + (instancetype)objectWithClassName:(NSString *)className dictionary:(NSDictionary *)dictionary
@@ -310,7 +301,14 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
             return;
         if ([AVUtils containsProperty:key inClass:[self class] containSuper:YES filterDynamic:YES]) {
             self._inSetter = YES;
-            [self setValue:value forKey:key];
+            if ([self isKindOfClass:[AVInstallation class]] &&
+                [key isEqualToString:@"channels"]) {
+                if ([value isKindOfClass:[NSArray class]]) {
+                    [((AVInstallation *)self) updateChannels:(NSArray *)value];
+                }
+            } else {
+                [self setValue:value forKey:key];
+            }
             self._inSetter = NO;
         } else {
             [self internalSyncLock:^{
@@ -425,10 +423,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     return self.className;
 }
 
-- (AVRelation *)relationforKey:(NSString *)key {
-    return [self relationForKey:key];
-}
-
 - (AVRelation *)relationForKey:(NSString *)key {
     NSArray * array = [self._relationData objectForKey:key];
     AVObject *target = nil;
@@ -504,14 +498,20 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
             v = [[NSArray alloc] init];
         }
         if ([v isKindOfClass:[NSArray class]]) {
-            if (unique && [v containsObject:object]) {
-                return NO;
-            }
             NSMutableArray *array = [v mutableCopy];
-            [array addObject:object];
-            self._inSetter = YES;
-            [self setValue:array forKey:key];
-            self._inSetter = NO;
+            if (unique && [array containsObject:object]) {
+                // no need update local data.
+            } else {
+                [array addObject:object];
+                self._inSetter = YES;
+                if ([self isKindOfClass:[AVInstallation class]] &&
+                    [key isEqualToString:@"channels"]) {
+                    [((AVInstallation *)self) updateChannels:array];
+                } else {
+                    [self setValue:array forKey:key];
+                }
+                self._inSetter = NO;
+            }
             if (unique) {
                 [self._requestManager addUniqueObjectRequestForKey:key object:object];
             } else {
@@ -581,15 +581,25 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
             if (array) {
                 if (![array isKindOfClass:[NSMutableArray class]]) {
                     array = [array mutableCopy];
-                    [self setValue:array forKey:key];
+                    if ([self isKindOfClass:[AVInstallation class]] &&
+                        [key isEqualToString:@"channels"]) {
+                        [((AVInstallation *)self) updateChannels:array];
+                    } else {
+                        [self setValue:array forKey:key];
+                    }
                 }
             } else {
                 array = [[NSMutableArray alloc] init];
-                [self setValue:array forKey:key];
+                if ([self isKindOfClass:[AVInstallation class]] &&
+                    [key isEqualToString:@"channels"]) {
+                    [((AVInstallation *)self) updateChannels:array];
+                } else {
+                    [self setValue:array forKey:key];
+                }
             }
         }
     }
-    if (![array containsObject:object] && !self.hasValidObjectId)
+    if (!self.hasValidObjectId)
     {
         return;
     }
@@ -788,12 +798,8 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     if (!params.count)
         return;
 
-    @weakify(self);
     [requests enumerateObjectsWithOptions:NSEnumerationReverse
-                               usingBlock:^(NSMutableDictionary * _Nonnull request, NSUInteger idx, BOOL * _Nonnull stop)
-    {
-        @strongify(self);
-
+                               usingBlock:^(NSMutableDictionary * _Nonnull request, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([request_method(request) isEqualToString:@"PUT"] &&
             [request_internal_id(request) isEqualToString:self.objectId]) {
             request[@"params"] = params;
@@ -1120,23 +1126,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     return nil;
 }
 
-- (void)saveInBackgroundWithTarget:(id)target selector:(SEL)selector
-{
-    @weakify(self);
-    [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        @strongify(self);
-        [AVUtils performSelectorIfCould:target selector:selector object:self object:error];
-    }];
-}
-
-- (void)saveInBackgroundWithOption:(AVSaveOption *)option target:(id)target selector:(SEL)selector {
-    @weakify(self);
-    [self saveInBackgroundWithOption:option block:^(BOOL succeeded, NSError *error) {
-        @strongify(self);
-        [AVUtils performSelectorIfCould:target selector:selector object:self object:error];
-    }];
-}
-
 - (void)saveEventually
 {
     [self saveEventually:^(BOOL succeeded, NSError * _Nullable error) {
@@ -1296,7 +1285,9 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
         NSError *anError;
         if (![self postBatchRequests:subRequests forObjects:subObjects error:&anError]) {
             saveOK = NO;
-            *error = anError;
+            if (error) {
+                *error = anError;
+            }
         }
     }
     return saveOK;
@@ -1308,7 +1299,9 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     NSError *fileUploadError = nil;
     
     if (![self saveDescendantFileOfObjects:objects error:&fileUploadError]) {
-        *error = fileUploadError;
+        if (error) {
+            *error = fileUploadError;
+        }
         return NO;
     }
     
@@ -1316,7 +1309,9 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     NSError *requestPostError = nil;
 
     if (![self saveDescendantRequestsOfObjects:objects error:&requestPostError]) {
-        *error = requestPostError;
+        if (error) {
+            *error = requestPostError;
+        }
         return NO;
     }
 
@@ -1338,15 +1333,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
         [[self class] saveAll:objects error:&error];
         [AVUtils callBooleanResultBlock:block error:error];
     });
-}
-
-+ (void)saveAllInBackground:(NSArray *)objects
-                     target:(id)target
-                   selector:(SEL)selector
-{
-    [[self class] saveAllInBackground:objects block:^(BOOL succeeded, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:@(succeeded) object:error];
-    }];
 }
 
 - (BOOL)isDataAvailable
@@ -1430,26 +1416,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
         return NO;
     }
     return YES;
-}
-
-- (void)refreshInBackgroundWithTarget:(id)target selector:(SEL)selector
-{
-    NSString * path = [self myObjectPath];
-    [[AVPaasClient sharedInstance] getObject:path withParameters:nil block:^(id object, NSError *error) {
-        if (error == nil)
-        {
-            [self removeLocalData];
-            [AVObjectUtils copyDictionary:object toObject:self];
-        }
-        else
-        {
-            
-        }
-        if (self == [AVUser currentUser]) {
-            [[self class] changeCurrentUser:(AVUser *)self save:YES];
-        }
-        [AVUtils performSelectorIfCould:target selector:selector object:object object:error];
-    }];
 }
 
 #pragma mark - Fetch
@@ -1567,13 +1533,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     }];
 }
 
-- (void)fetchInBackgroundWithTarget:(id)target selector:(SEL)selector
-{
-    [self fetchInBackgroundWithBlock:^(AVObject *object, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:object object:error];
-    }];
-}
-
 - (void)fetchIfNeededInBackgroundWithBlock:(AVObjectResultBlock)block
 {
     if (![self isDataAvailable]) {
@@ -1583,14 +1542,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     } else {
         if (block) block(self, nil);
     }
-}
-
-- (void)fetchIfNeededInBackgroundWithTarget:(id)target
-                                   selector:(SEL)selector
-{
-    [self fetchIfNeededInBackgroundWithBlock:^(AVObject *object, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:object object:error];
-    }];
 }
 
 + (void)fetchAll:(NSArray *)objects
@@ -1677,15 +1628,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     });
 }
 
-+ (void)fetchAllInBackground:(NSArray *)objects
-                      target:(id)target
-                    selector:(SEL)selector
-{
-    [[self class] fetchAllInBackground:objects block:^(NSArray *objects, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:objects object:error];
-    }];
-}
-
 + (void)fetchAllIfNeededInBackground:(NSArray *)objects
                                block:(AVArrayResultBlock)block
 {
@@ -1694,15 +1636,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
         [[self class] fetchAllIfNeeded:objects error:&error];
         [AVUtils callArrayResultBlock:block array:objects error:error];
     });
-}
-
-+ (void)fetchAllIfNeededInBackground:(NSArray *)objects
-                              target:(id)target
-                            selector:(SEL)selector
-{
-    [[self class] fetchAllIfNeededInBackground:objects block:^(NSArray *objects, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:objects object:error];
-    }];
 }
 
 #pragma mark - delete
@@ -1763,14 +1696,6 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
         if (block) {
             block(error == nil, error);
         }
-    }];
-}
-
-- (void)deleteInBackgroundWithTarget:(id)target
-                            selector:(SEL)selector
-{
-    [self deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:@(succeeded) object:error];
     }];
 }
 
@@ -2086,6 +2011,23 @@ BOOL requests_contain_request(NSArray *requests, NSDictionary *request) {
     [self._estimatedData removeAllObjects];
     [self._requestManager clear];
 }
+
+// MARK: Deprecated
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
++ (instancetype)objectWithoutDataWithObjectId:(NSString *)objectId {
+    return [self objectWithObjectId:objectId];
+}
+
++ (instancetype)objectWithoutDataWithClassName:(NSString *)className objectId:(NSString *)objectId {
+    return [self objectWithClassName:className objectId:objectId];
+}
+
+- (AVRelation *)relationforKey:(NSString *)key {
+    return [self relationForKey:key];
+}
+#pragma clang diagnostic pop
 
 @end
 

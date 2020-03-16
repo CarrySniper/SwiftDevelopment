@@ -18,7 +18,6 @@ class CLPictureSelectionView: CLPopupView {
     }
     */
 	var imageHandler: CLImageHandler!
-	var viewController: UIViewController!
 	
 	@IBOutlet weak var cameraButton: UIButton!
 	@IBOutlet weak var albumButton: UIButton!
@@ -26,12 +25,12 @@ class CLPictureSelectionView: CLPopupView {
 	
 	
 	@IBAction func cameraAction(_ sender: Any) {
-		CLImagePicker.sharedInstance().show(viewController, true, 300, .camera, imageHandler)
+		CLImagePicker.sharedInstance().show(true, 300, .camera, imageHandler)
 		
 		self.hide()
 	}
 	@IBAction func albumAction(_ sender: Any) {
-		CLImagePicker.sharedInstance().show(viewController, true, 300, .photoLibrary, imageHandler)
+		CLImagePicker.sharedInstance().show(true, 300, .photoLibrary, imageHandler)
 		
 		self.hide()
 	}
@@ -39,13 +38,12 @@ class CLPictureSelectionView: CLPopupView {
 		self.hide()
 	}
 	
-	class func show(_ viewController: UIViewController, _ imageHandler: CLImageHandler?) {
+	class func show(_ imageHandler: CLImageHandler?) {
 		let view: CLPictureSelectionView = CLPictureSelectionView.loadViewFromNib() as! CLPictureSelectionView
 
 		view.type = .sheet
 		view.hideWhenTouchOutside = true
 
-		view.viewController = viewController
 		view.imageHandler = imageHandler
 		
 		view.show()

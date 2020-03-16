@@ -81,6 +81,12 @@ typedef NS_OPTIONS(NSUInteger, AVFileDownloadOption) {
  */
 + (instancetype)fileWithAVObject:(AVObject *)avObject;
 
+/// Create file from `objectId` and `url`
+/// @param objectId The ID of the File.
+/// @param url The url of the File.
++ (instancetype)fileWithObjectId:(NSString *)objectId
+                             url:(NSString *)url;
+
 // MARK: - Property
 
 /*!
@@ -132,6 +138,12 @@ typedef NS_OPTIONS(NSUInteger, AVFileDownloadOption) {
  *  The access control list for this file.
  */
 @property (nonatomic, strong, nullable) AVACL *ACL;
+
+/// Created date.
+@property (nonatomic, strong, readonly, nullable) NSDate *createdAt;
+
+/// Updated date.
+@property (nonatomic, strong, readonly, nullable) NSDate *updatedAt;
 
 /*!
  Request headers for file uploading.

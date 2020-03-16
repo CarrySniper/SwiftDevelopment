@@ -12,6 +12,10 @@ import UIKit
 //Objective-C一直以来令人诟病的地方就是没有命名空间，在应用开发时，所有的代码和引用的静态库最终都会被编译到同一个域和二进制中。这样的后果是一旦我们有重复的类名的话，就会导致编译出错和冲突。为了避免这种情况，Objective-C的类型一般都会加上两到三个字母的前缀，比如Apple保留的NS和UI前缀，各个系统框架的前缀SK(StoreKit),CG(CoreGraphic)等。
 //在Swift中，由于可以使用命名空间了，即使是名字相同的类型，只要是来自不同的命名空间的话，都是可以和平共处的。
 
+/// APP多地方都要用的第三方库，每个地方都去导入又非常麻烦
+@_exported import MGJRouter_Swift
+@_exported import AVOSCloud
+
 var CLAppDelegate = UIApplication.shared.delegate as! AppDelegate
 
 /// APP固定信息
@@ -20,13 +24,15 @@ struct AppInfo {
 	static let AppleID: String          = "1008611"
 	static let AppStoreUrl: String		= "https://itunes.apple.com/cn/lookup?id="
 	
-	static let protocolUrl: String      = "https://github.com/cjq002"
+	static let protocolUrl: String      = "https://github.com/CarrySniper"
 }
 
 /// LeanCloud相关
 struct LeanCloud {
-	static let appId: String          = "gcB1d0kP6vyUCtyIpeEaXUEq-gzGzoHsz"
-	static let appKey: String         = "3tkTIsfIhNEtCpE9KLJ9NmUx"
+	static let appId: String          = "N8EhB1MGy4Qk4bpLU938qrIm-gzGzoHsz"
+	static let appKey: String         = "viLlETQ2VxwRnEFFWlrBhOXg"
+	static let serverURL: String         = "https://n8ehb1mg.lc-cn-n1-shared.com"
+	static let phone: String          = "18566668888"
 }
 
 /// 数值
@@ -68,7 +74,6 @@ struct ConfigImage {
 	static let avatar                       = UIImage.init(named: "avatar")
 	static let emptyData                    = UIImage.init(named: "empty_content")
 }
-
 
 typealias CLViodHandler = () -> Void
 typealias CLBoolHandler = (_ success: Bool) -> Void

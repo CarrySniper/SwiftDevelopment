@@ -47,6 +47,7 @@ class CLNavigationController: UINavigationController, UINavigationControllerDele
 	}
 	
 	// 重写这两个方法，状态栏颜色才可以修改.删除 info.plist view controller-based status bar appearance的设置
+	// self.setNeedsStatusBarAppearanceUpdate()
 	override var childForStatusBarHidden: UIViewController? {
 		return self.topViewController
 	}

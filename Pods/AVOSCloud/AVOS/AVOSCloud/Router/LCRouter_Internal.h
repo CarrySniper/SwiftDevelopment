@@ -8,7 +8,7 @@
 
 #import "LCRouter.h"
 
-static NSString *const AppRouterURLString = @"https://app-router.leancloud.cn/2/route";
+static NSString *const AppRouterURLString = @"https://app-router.com/2/route";
 
 typedef NSString * const AppIDSuffix NS_TYPED_EXTENSIBLE_ENUM;
 static AppIDSuffix AppIDSuffixCN = @"-gzGzoHsz";
@@ -45,13 +45,19 @@ static RouterKey RouterKeyRTMServer = @"server";
 
 /// internal
 
++ (NSString *)appDomainForAppID:(NSString *)appID;
+
++ (NSString *)serverURLString;
+
++ (void)setServerURLString:(NSString *)URLString;
+
 - (NSString *)appURLForPath:(NSString *)path appID:(NSString *)appID;
 
 - (void)getRTMURLWithAppID:(NSString *)appID callback:(void (^)(NSDictionary *dictionary, NSError *error))callback;
 
 - (NSString *)batchPathForPath:(NSString *)path;
 
-- (void)customAppServerURL:(NSString *)URLString key:(RouterKey)key;
++ (void)customAppServerURL:(NSString *)URLString key:(RouterKey)key;
 
 /// unit test
 

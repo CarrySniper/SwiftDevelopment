@@ -34,23 +34,18 @@
     return _sharedInstance;
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _cacheQueue = dispatch_queue_create("avos.paas.cacheQueue", DISPATCH_QUEUE_SERIAL);
+        _diskCachePath = [AVCacheManager path];
+    }
+    return self;
+}
+
 #pragma mark - Accessors
 + (NSString *)path {
     return [AVPersistenceUtils avCacheDirectory];
-}
-
-- (NSString *)diskCachePath {
-    if (!_diskCachePath) {
-        _diskCachePath = [AVCacheManager path];
-    }
-    return _diskCachePath;
-}
-
-- (dispatch_queue_t)cacheQueue {
-    if (!_cacheQueue) {
-        _cacheQueue = dispatch_queue_create("avos.paas.cacheQueue", DISPATCH_QUEUE_SERIAL);
-    }
-    return _cacheQueue;
 }
 
 - (NSString *)pathForKey:(NSString *)key {

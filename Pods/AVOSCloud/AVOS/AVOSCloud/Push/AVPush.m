@@ -218,19 +218,6 @@ NSString *const kAVPushTargetPlatformWindowsPhone = @"wp";
     [AVPush sendPushMessage:push wait:YES block:block error:nil];
 }
 
-+ (void)sendPushMessageToChannelInBackground:(NSString *)channel
-                                 withMessage:(NSString *)message
-                                      target:(id)target
-                                    selector:(SEL)selector
-{
-    AVPush * push = [AVPush push];
-    [push setChannel:channel];
-    [push setMessage:message];
-    [AVPush sendPushMessage:push wait:YES block:^(BOOL succeeded, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:@(succeeded) object:error];
-    } error:nil];
-}
-
 + (BOOL)sendPushMessageToQuery:(AVQuery *)query
                    withMessage:(NSString *)message
                          error:(NSError **)theError
@@ -308,19 +295,17 @@ NSString *const kAVPushTargetPlatformWindowsPhone = @"wp";
         [data addEntriesFromDictionary:[self pushChannelsData]];
     }
     
-    if (self.expirationDate)
-    {
-        [data setObject:[AVObjectUtils stringFromDate:self.expirationDate] forKey:@"expiration_time"];
-    }
-    if (self.expireTimeInterval > 0)
-    {
-        NSDate * currentDate = [NSDate date];
-        [data setObject:[AVObjectUtils stringFromDate:currentDate] forKey:@"push_time"];
-        [data setObject:@(self.expireTimeInterval) forKey:@"expiration_interval"];
-    }
-    
     if (self.pushTime) {
-        [data setObject:[AVObjectUtils stringFromDate:self.pushTime] forKey:@"push_time"];
+        data[@"push_time"] = [AVDate stringFromDate:self.pushTime];
+    }
+    if (self.expirationDate) {
+        data[@"expiration_time"] = [AVDate stringFromDate:self.expirationDate];
+    }
+    if (self.expireTimeInterval > 0) {
+        if (!self.pushTime) {
+            data[@"push_time"] = [AVDate stringFromDate:[NSDate date]];
+        }
+        data[@"expiration_interval"] = @(self.expireTimeInterval);
     }
     
     if (self.pushTarget.count > 0)
@@ -343,13 +328,6 @@ NSString *const kAVPushTargetPlatformWindowsPhone = @"wp";
                                    eventually:false
                                         block:^(id object, NSError *error) {
                                                 [AVUtils callBooleanResultBlock:block error:error];
-    }];
-}
-
-- (void)sendPushInBackgroundWithTarget:(id)target selector:(SEL)selector
-{
-    [self sendPushInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:@(succeeded) object:error];
     }];
 }
 
@@ -380,19 +358,6 @@ NSString *const kAVPushTargetPlatformWindowsPhone = @"wp";
     [push setChannel:channel];
     [push setData:data];
     [AVPush sendPushMessage:push wait:NO block:block error:nil];
-}
-
-+ (void)sendPushDataToChannelInBackground:(NSString *)channel
-                                 withData:(NSDictionary *)data
-                                   target:(id)target
-                                 selector:(SEL)selector
-{
-    AVPush * push = [AVPush push];
-    [push setChannel:channel];
-    [push setData:data];
-    [AVPush sendPushMessage:push wait:NO block:^(BOOL succeeded, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:@(succeeded) object:error];
-    } error:nil];
 }
 
 + (BOOL)sendPushDataToQuery:(AVQuery *)query
@@ -441,14 +406,6 @@ NSString *const kAVPushTargetPlatformWindowsPhone = @"wp";
     } wait:NO error:nil];
 }
 
-+ (void)getSubscribedChannelsInBackgroundWithTarget:(id)target
-                                           selector:(SEL)selector
-{
-    [AVPush getSubscribedChannelsWithBlock:^(NSSet *channels, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:channels object:error];
-    } wait:NO error:nil];
-}
-
 + (NSSet *)getSubscribedChannelsWithBlock:(AVSetResultBlock)block
                                      wait:(BOOL)wait
                                     error:(NSError **)theError
@@ -458,7 +415,7 @@ NSString *const kAVPushTargetPlatformWindowsPhone = @"wp";
     NSError __block *blockError = nil;
     __block  NSSet * resultSet = nil;
 
-    AVQuery * query = [AVInstallation installationQuery];
+    AVQuery * query = [AVInstallation query];
     [query whereKey:deviceTokenTag equalTo:[AVInstallation defaultInstallation].deviceToken];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (objects.count > 0)
@@ -509,15 +466,6 @@ NSString *const kAVPushTargetPlatformWindowsPhone = @"wp";
     [installation saveInBackgroundWithBlock:block];
 }
 
-+ (void)subscribeToChannelInBackground:(NSString *)channel
-                                target:(id)target
-                              selector:(SEL)selector
-{
-    AVInstallation * installation = [AVInstallation defaultInstallation];
-    [installation addUniqueObject:channel forKey:channelsTag];
-    [installation saveInBackgroundWithTarget:target selector:selector];
-}
-
 + (BOOL)unsubscribeFromChannel:(NSString *)channel error:(NSError **)error
 {
     AVInstallation * installation = [AVInstallation defaultInstallation];
@@ -539,15 +487,6 @@ NSString *const kAVPushTargetPlatformWindowsPhone = @"wp";
     AVInstallation * installation = [AVInstallation defaultInstallation];
     [installation removeObject:channel forKey:channelsTag];
     [installation saveInBackgroundWithBlock:block];
-}
-
-+ (void)unsubscribeFromChannelInBackground:(NSString *)channel
-                                    target:(id)target
-                                  selector:(SEL)selector
-{
-    AVInstallation * installation = [AVInstallation defaultInstallation];
-    [installation removeObject:channel forKey:channelsTag];
-    [installation saveInBackgroundWithTarget:target selector:selector];
 }
 
 @end

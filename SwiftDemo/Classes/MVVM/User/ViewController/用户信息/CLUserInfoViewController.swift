@@ -59,7 +59,7 @@ class CLUserInfoViewController: CLBaseViewController {
 	}
 	
 	@IBAction func avatarAction(_ sender: UIButton) {
-		CLPictureSelectionView.show(self) { (image) in
+		CLPictureSelectionView.show() { (image) in
 			self.viewModel.setAvatar(avatarImage: image, handler: {
 				self.avatar.image = image
 			})
@@ -69,17 +69,29 @@ class CLUserInfoViewController: CLBaseViewController {
 	@IBAction func nameAction(_ sender: UIButton) {
 		let user = CLUser.currentUser()
 		
-		let vc = CLUserInfoEditViewController.init()
-		vc.content = user?.username
-		vc.placeholder = "输入昵称"
-		self.navigationController?.pushViewController(vc, animated: true)
-		
-		vc.doneHandler = { (content) in
-			self.viewModel.setInfo(username: content, signature: user!.signature, handler: {
-				self.customBack()
-				self.nameLabel.text = content
-			})
+//		let vc = CLUserInfoEditViewController.init()
+//		vc.content = user?.username
+//		vc.placeholder = "输入昵称"
+//		self.navigationController?.pushViewController(vc, animated: true)
+//
+//		vc.doneHandler = { (content) in
+//			self.viewModel.setInfo(username: content, signature: user!.signature, handler: {
+//				self.customBack()
+//				self.nameLabel.text = content
+//			})
+//		}
+
+		let parameters : Dictionary = ["content": user!.username as Any,
+								   "placeholder" : "输入昵称",
+								   "doneHandler" : { (content : String) in
+									self.viewModel.setInfo(username: content, signature: user!.signature, handler: {
+										self.customBack()
+										self.nameLabel.text = content
+									})
 		}
+		] as [String : Any]
+		
+		MGJRouter.open(MGJUser.edit, parameters, nil)
 	}
 	
 	@IBAction func phoneAction(_ sender: UIButton) {
@@ -89,17 +101,29 @@ class CLUserInfoViewController: CLBaseViewController {
 	@IBAction func signatureAction(_ sender: UIButton) {
 		let user = CLUser.currentUser()
 		
-		let vc = CLUserInfoEditViewController.init()
-		vc.content = user?.signature
-		vc.placeholder = "输入个人签名（不超过50字）"
-		self.navigationController?.pushViewController(vc, animated: true)
+//		let vc = CLUserInfoEditViewController.init()
+//		vc.content = user?.signature
+//		vc.placeholder = "输入个人签名（不超过50字）"
+//		self.navigationController?.pushViewController(vc, animated: true)
+//
+//		vc.doneHandler = { (content) in
+//			self.viewModel.setInfo(username: user!.username, signature: content, handler: {
+//				self.customBack()
+//				self.signatureLabel.text = content
+//			})
+//		}
 		
-		vc.doneHandler = { (content) in
-			self.viewModel.setInfo(username: user!.username, signature: content, handler: {
-				self.customBack()
-				self.signatureLabel.text = content
-			})
+		let parameters : Dictionary = ["content": user!.signature as Any,
+								   "placeholder" : "输入个人签名（不超过50字）",
+								   "doneHandler" : { (content : String) in
+									self.viewModel.setInfo(username: user!.username, signature: content, handler: {
+										self.customBack()
+										self.signatureLabel.text = content
+									})
 		}
+		] as [String : Any]
+		
+		MGJRouter.open(MGJUser.edit, parameters, nil)
 	}
 	
 	// MARK: - 设置UI

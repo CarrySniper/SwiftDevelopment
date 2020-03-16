@@ -14,6 +14,8 @@
 #import "AVUser.h"
 #import "AVUser_Internal.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 @implementation AVAnonymousUtils
 
 +(NSDictionary *)anonymousAuthData
@@ -47,13 +49,6 @@
     }];
 }
 
-+ (void)logInWithTarget:(id)target selector:(SEL)selector
-{
-    [AVAnonymousUtils logInWithBlock:^(AVUser *user, NSError *error) {
-        [AVUtils performSelectorIfCould:target selector:selector object:user object:error];
-    }];
-}
-
 + (BOOL)isLinkedWithUser:(AVUser *)user
 {
     if ([[user linkedServiceNames] containsObject:@"anonymous"])
@@ -64,3 +59,4 @@
 }
 
 @end
+#pragma clang diagnostic pop

@@ -26,22 +26,7 @@ class CLPopupView: UIView, UIGestureRecognizerDelegate {
 	/// CLPopupWindow的覆盖层
 	var windowAttachedView: UIView!
 	
-	/// lazy var get 视图容器
-	private lazy var containerView: UIView = {
-		let view = UIView.init(frame: UIScreen.main.bounds)
-		view.backgroundColor = UIColor.clear
-		view.addGestureRecognizer(tapGesture)
-		return view
-	}()
-	
-	/// lazy var get 隐藏手势
-	lazy var tapGesture: UITapGestureRecognizer = {
-		var gesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-		gesture.cancelsTouchesInView = false
-		gesture.delegate = self
-		return gesture
-	}()
-	
+	// MARK: -
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
@@ -63,6 +48,7 @@ class CLPopupView: UIView, UIGestureRecognizerDelegate {
 		windowAttachedView = CLPopupWindow.sharedInstance().attachedView
 	}
 	
+	/// 显示
 	func show() {
 		
 		windowAttachedView.addSubview(containerView)
@@ -95,9 +81,9 @@ class CLPopupView: UIView, UIGestureRecognizerDelegate {
 		}) { (finished) in
 			
 		}
-
 	}
 	
+	/// 隐藏
 	func hide() {
 		UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseIn, animations: {
 			self.transform = CGAffineTransform.identity
@@ -109,10 +95,28 @@ class CLPopupView: UIView, UIGestureRecognizerDelegate {
 		}
 	}
 	
-	
+	/// 手势点击 - 隐藏操作
+	/// - Parameter recognizer: 手势
 	@objc func tapAction(recognizer : UITapGestureRecognizer) {
 		if hideWhenTouchOutside == true {
 			self.hide()
 		}
 	}
+	
+	// MARK: - 懒加载
+	// MARK: lazy var get 视图容器
+	private lazy var containerView: UIView = {
+		let view = UIView.init(frame: UIScreen.main.bounds)
+		view.backgroundColor = UIColor.clear
+		view.addGestureRecognizer(tapGesture)
+		return view
+	}()
+	
+	// MARK: lazy var get 隐藏手势
+	lazy var tapGesture: UITapGestureRecognizer = {
+		var gesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+		gesture.cancelsTouchesInView = false
+		gesture.delegate = self
+		return gesture
+	}()
 }

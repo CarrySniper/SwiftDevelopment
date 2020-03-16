@@ -1,11 +1,14 @@
-# SwiftDemo
+# SwiftDevelopment
 
->用于了解Swift，养成看[Wiki](https://github.com/CarrySniper/SwiftDemo/wiki)的习惯。<br>
+>用于了解Swift，养成看[Wiki](https://github.com/CarrySniper/SwiftDevelopment/wiki)的习惯。<br>
 CL为个人特殊名字，不是说Swift有命名空间后就不需要前缀之类的。Swift 5发布，工程项目得新建才能更好地适配。
 最近Objective C语言偏向MVVM架构，所以Swift一起转向MVVM（Model-View-ViewModel）。
 
 
 ## 学习从此刻开始（时间倒序）
+#### 2020-03-16（周一）
+导入第三方框架MGJRouter_Swift，实现蘑菇街路由方案
+
 #### 2019-05-08（周三）
 扩展UIAlertController控制器，可以修改选项颜色UIAlertController+CLExtension.swift
 
@@ -14,7 +17,7 @@ CL为个人特殊名字，不是说Swift有命名空间后就不需要前缀之�
 
 #### 2019-04-15（周一）
 自定义Web视图控制器，带进度条progress，动态显示标题title。
-[CLWebViewController.swift](https://github.com/CarrySniper/SwiftDemo/wiki/功能-WebView)
+[CLWebViewController.swift](https://github.com/CarrySniper/SwiftDevelopment/wiki/功能-WebView)
 
 #### 2019-04-12（周五）
 自定义PopupView，学习UIWindow属性，遮挡状态栏
@@ -84,7 +87,7 @@ self.placeholder?.draw(in: tempFrame, withAttributes: attributes)
 #### 2017-09-15（周五）
 1、学习Swift闭包，ypealias定义。<br>
 2、获取相机相册图片<br>
-详情请查询:[Wiki 2017 0915](https://github.com/CarrySniper/SwiftDemo/wiki)
+详情请查询:[Wiki 2017 0915](https://github.com/CarrySniper/SwiftDevelopment/wiki)
 
 #### 2017-09-14（周四）
 1、设置UI主色调为系统默认颜色<br>
@@ -115,7 +118,7 @@ isTranslucent = false，近乎完美，当然默认半透明效果就没有了�
 #### 2017-09-12（周二）
 1、添加公共基类，前缀：CLBase（通常使用Base,避免和别人的基类同名冲突，加上CL）<br>
 2、添加UI交互类，UIInterface（通常使用UI），顺便添加扩展Extension（Objective-C中为Category）<br>
-![](https://github.com/CarrySniper/SwiftDemo/raw/master/Media/common.png) 
+![](https://github.com/CarrySniper/SwiftDevelopment/raw/master/Media/common.png) 
 
 #### 2017-01-16（周一）
 >百度经验：iOS开发 Swift添加CocoaPods依赖库管理 <br>
@@ -123,11 +126,11 @@ http://jingyan.baidu.com/article/4f34706e2eee45e387b56dc0.html
 
 可查找文件文件Podfile
 ```swift
-platform :ios, '8.0'
+platform :ios, '9.0'
 
-target 'SwiftDemo' do
+target 'SwiftDevelopment' do
   use_frameworks!
-  # Pods for SwiftDemo
+  # Pods for SwiftDevelopment
   pod 'Alamofire'           # 网络请求库
   pod 'SwiftyJSON'          # Json解析库
   pod 'SnapKit'             # UI约束
@@ -160,4 +163,4 @@ window?.makeKeyAndVisible()
 http://jingyan.baidu.com/article/c1a3101e5aeab3de656debe5.html
 
 仿OC的宏定义，利用结构体和静态变量定义全局属性。<br>
-详情请查询:[Wiki 2017 0113](https://github.com/CarrySniper/SwiftDemo/wiki)
+详情请查询:[Wiki 2017 0113](https://github.com/CarrySniper/SwiftDevelopment/wiki)

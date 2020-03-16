@@ -12,7 +12,6 @@
 #import "AVObjectUtils.h"
 #import "AVObject_Internal.h"
 #import "AVQuery_Internal.h"
-#import "SDMacros.h"
 #import "AVUtils.h"
 #import "AVUser_Internal.h"
 
@@ -151,7 +150,7 @@ NSString * const kAVStatusTypePrivateMessage=@"private";
         
         status.objectId=data[@"objectId"];
         status.type=data[@"inboxType"];
-        status.createdAt=[AVObjectUtils dateFromString:data[@"createdAt"]];
+        status.createdAt = [AVDate dateFromValue:data[@"createdAt"]];
         status.messageId=[data[@"messageId"] integerValue];
         status.source=[AVObjectUtils avobjectFromDictionary:data[@"source"]];
         
@@ -429,19 +428,15 @@ NSString * const kAVStatusTypePrivateMessage=@"private";
     AVPaasClient *client = [AVPaasClient sharedInstance];
     NSURLRequest *request = [client requestWithPath:@"statuses" method:@"POST" headers:nil parameters:body];
 
-    @weakify(self);
-
     [client
      performRequest:request
      success:^(NSHTTPURLResponse *response, id responseObject) {
-         @strongify(self);
          if ([responseObject isKindOfClass:[NSDictionary class]]) {
              NSString *objectId = responseObject[@"objectId"];
 
              if (objectId) {
                  self.objectId = objectId;
-                 self.createdAt = [AVObjectUtils dateFromString:responseObject[@"createdAt"]];
-
+                 self.createdAt = [AVDate dateFromValue:responseObject[@"createdAt"]];
                  [AVUtils callBooleanResultBlock:block error:nil];
                  return;
              }

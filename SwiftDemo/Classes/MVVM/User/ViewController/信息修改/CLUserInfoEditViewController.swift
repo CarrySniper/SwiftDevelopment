@@ -23,9 +23,12 @@ class CLUserInfoEditViewController: CLBaseViewController, UITextViewDelegate {
 
         // Do any additional setup after loading the view.
 		self.title = "编辑"
+		let parameters : Dictionary = self.routerParameters[MGJRouterParameterUserInfo] as! [String: Any];
 		
-		self.textView.text = content
-		self.textView.placeholder = placeholder
+		self.doneHandler = parameters["doneHandler"] as? CLStringHandler
+		
+		self.textView.text = parameters["content"] as? String
+		self.textView.placeholder = parameters["placeholder"] as? String
 		self.textView.placeholderColor = CLColor.placeholder
 		
 		self.doneButton.layer.cornerRadius = 15

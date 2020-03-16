@@ -41,18 +41,22 @@ class CLUserViewModel: CLBaseViewModel {
 		})
 	}
 	
-	func setInfo(username: String, signature: String, handler: CLViodHandler?) {
-		if (username.count < 2) {
+	func setInfo(username: String?, signature: String?, handler: CLViodHandler?) {
+		if (username != nil && username!.count < 2) {
 			SHOW_TOAST_INFO("用户名长度至少为2")
 			return()
 		}
-		if (signature.count > 50) {
+		if (signature != nil && signature!.count > 50) {
 			SHOW_TOAST_INFO("个性签名，一句话限制50个字")
 			return()
 		}
 		SHOW_LOADING(self.view)
-		AVUser.current()?.setObject(username, forKey: "username")
-		AVUser.current()?.setObject(signature, forKey: "signature")
+		if username != nil {
+			AVUser.current()?.setObject(username, forKey: "username")
+		}
+		if signature != nil {
+			AVUser.current()?.setObject(signature, forKey: "signature")
+		}
 		AVUser.current()?.saveInBackground({ (succeeded, error) in
 			if succeeded && error == nil && (handler != nil) {
 				handler!()

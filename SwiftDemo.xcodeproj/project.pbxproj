@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B268FD040A6ABEA59C7D102 /* Pods_SwiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3453EF2E2A0CABE3E0922C39 /* Pods_SwiftDemo.framework */; };
+		867246DC79807DD1372D7C13 /* Pods_SwiftDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E246ABB08ACB6FDA2706192C /* Pods_SwiftDemo.framework */; };
 		96086E952255A088009C0337 /* CLUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96086E942255A088009C0337 /* CLUser.swift */; };
 		96086E972255D4CA009C0337 /* CLAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96086E962255D4CA009C0337 /* CLAccountViewModel.swift */; };
 		96086E9A2255E01C009C0337 /* String+CLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96086E992255E01C009C0337 /* String+CLExtension.swift */; };
@@ -31,16 +31,10 @@
 		961D4D682253096B0060247A /* CLUserHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D662253096B0060247A /* CLUserHomeViewController.swift */; };
 		961D4D692253096B0060247A /* CLUserHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961D4D672253096B0060247A /* CLUserHomeViewController.xib */; };
 		961D4D6B22530DA20060247A /* CLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D6A22530DA20060247A /* CLNavigationController.swift */; };
-		961D4D7022533A9D0060247A /* CLLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D6E22533A9D0060247A /* CLLoginViewController.swift */; };
-		961D4D7122533A9D0060247A /* CLLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961D4D6F22533A9D0060247A /* CLLoginViewController.xib */; };
 		961D4D73225358F00060247A /* UITextField+CLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D72225358F00060247A /* UITextField+CLExtension.swift */; };
-		961D4D76225363FE0060247A /* CLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D74225363FE0060247A /* CLRegisterViewController.swift */; };
-		961D4D77225363FE0060247A /* CLRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961D4D75225363FE0060247A /* CLRegisterViewController.xib */; };
 		961D4D792254492A0060247A /* CLBaseHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D782254492A0060247A /* CLBaseHomeViewController.swift */; };
 		961D4D7E22544C240060247A /* CLVerificationCodeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D7D22544C240060247A /* CLVerificationCodeButton.swift */; };
 		961D4D802254960A0060247A /* UIImage+CLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D7F2254960A0060247A /* UIImage+CLExtension.swift */; };
-		961D4D832254A0190060247A /* CLResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D4D812254A0190060247A /* CLResetPasswordViewController.swift */; };
-		961D4D842254A0190060247A /* CLResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 961D4D822254A0190060247A /* CLResetPasswordViewController.xib */; };
 		96472579225AE4DC005B620F /* CLToolKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96472578225AE4DC005B620F /* CLToolKit.swift */; };
 		9647257B225B1C2B005B620F /* CLToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647257A225B1C2B005B620F /* CLToastView.swift */; };
 		96472588225B3DFB005B620F /* CLUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96472586225B3DFB005B620F /* CLUserInfoViewController.swift */; };
@@ -71,6 +65,15 @@
 		96E5572F2265A86300E13C94 /* CLPictureSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E5572E2265A86300E13C94 /* CLPictureSelectionView.swift */; };
 		96E557312265A86B00E13C94 /* CLPictureSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E557302265A86B00E13C94 /* CLPictureSelectionView.xib */; };
 		96FD9DA1225ADDCC00492BF9 /* UIView+CLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD9DA0225ADDCC00492BF9 /* UIView+CLExtension.swift */; };
+		FA385EC6241B73AF00B3F9B9 /* MGJRouter+CLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA385EC5241B73AE00B3F9B9 /* MGJRouter+CLExtension.swift */; };
+		FA622C1F241E731900582CFD /* CLSingletonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622C1E241E731900582CFD /* CLSingletonManager.swift */; };
+		FA622C21241E742100582CFD /* NSObject+CLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622C20241E742100582CFD /* NSObject+CLExtension.swift */; };
+		FA622C29241FB89600582CFD /* CLRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA622C23241FB89600582CFD /* CLRegisterViewController.xib */; };
+		FA622C2A241FB89600582CFD /* CLLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA622C24241FB89600582CFD /* CLLoginViewController.xib */; };
+		FA622C2B241FB89600582CFD /* CLLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622C25241FB89600582CFD /* CLLoginViewController.swift */; };
+		FA622C2C241FB89600582CFD /* CLResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622C26241FB89600582CFD /* CLResetPasswordViewController.swift */; };
+		FA622C2D241FB89600582CFD /* CLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622C27241FB89600582CFD /* CLRegisterViewController.swift */; };
+		FA622C2E241FB89600582CFD /* CLResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA622C28241FB89600582CFD /* CLResetPasswordViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,8 +94,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3453EF2E2A0CABE3E0922C39 /* Pods_SwiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A175E4F74F475BFABAF06B0 /* Pods-SwiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		197A9F2386578004F870E162 /* Pods-SwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.release.xcconfig"; path = "Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
+		3282AFB184F0E1923CE75680 /* Pods-SwiftDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.debug.xcconfig"; path = "Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		96086E942255A088009C0337 /* CLUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUser.swift; sourceTree = "<group>"; };
 		96086E962255D4CA009C0337 /* CLAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAccountViewModel.swift; sourceTree = "<group>"; };
 		96086E992255E01C009C0337 /* String+CLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CLExtension.swift"; sourceTree = "<group>"; };
@@ -122,16 +125,10 @@
 		961D4D662253096B0060247A /* CLUserHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUserHomeViewController.swift; sourceTree = "<group>"; };
 		961D4D672253096B0060247A /* CLUserHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLUserHomeViewController.xib; sourceTree = "<group>"; };
 		961D4D6A22530DA20060247A /* CLNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNavigationController.swift; sourceTree = "<group>"; };
-		961D4D6E22533A9D0060247A /* CLLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CLLoginViewController.swift; path = ../CLLoginViewController.swift; sourceTree = "<group>"; };
-		961D4D6F22533A9D0060247A /* CLLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CLLoginViewController.xib; path = ../CLLoginViewController.xib; sourceTree = "<group>"; };
 		961D4D72225358F00060247A /* UITextField+CLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+CLExtension.swift"; sourceTree = "<group>"; };
-		961D4D74225363FE0060247A /* CLRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CLRegisterViewController.swift; path = ../CLRegisterViewController.swift; sourceTree = "<group>"; };
-		961D4D75225363FE0060247A /* CLRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CLRegisterViewController.xib; path = ../CLRegisterViewController.xib; sourceTree = "<group>"; };
 		961D4D782254492A0060247A /* CLBaseHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBaseHomeViewController.swift; sourceTree = "<group>"; };
 		961D4D7D22544C240060247A /* CLVerificationCodeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLVerificationCodeButton.swift; sourceTree = "<group>"; };
 		961D4D7F2254960A0060247A /* UIImage+CLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CLExtension.swift"; sourceTree = "<group>"; };
-		961D4D812254A0190060247A /* CLResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CLResetPasswordViewController.swift; path = ../CLResetPasswordViewController.swift; sourceTree = "<group>"; };
-		961D4D822254A0190060247A /* CLResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CLResetPasswordViewController.xib; path = ../CLResetPasswordViewController.xib; sourceTree = "<group>"; };
 		96472578225AE4DC005B620F /* CLToolKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLToolKit.swift; sourceTree = "<group>"; };
 		9647257A225B1C2B005B620F /* CLToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLToastView.swift; sourceTree = "<group>"; };
 		96472586225B3DFB005B620F /* CLUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUserInfoViewController.swift; sourceTree = "<group>"; };
@@ -162,7 +159,16 @@
 		96E5572E2265A86300E13C94 /* CLPictureSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLPictureSelectionView.swift; sourceTree = "<group>"; };
 		96E557302265A86B00E13C94 /* CLPictureSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLPictureSelectionView.xib; sourceTree = "<group>"; };
 		96FD9DA0225ADDCC00492BF9 /* UIView+CLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CLExtension.swift"; sourceTree = "<group>"; };
-		EA576BDBA7F043E6B1A3D3F2 /* Pods-SwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E246ABB08ACB6FDA2706192C /* Pods_SwiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA385EC5241B73AE00B3F9B9 /* MGJRouter+CLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MGJRouter+CLExtension.swift"; sourceTree = "<group>"; };
+		FA622C1E241E731900582CFD /* CLSingletonManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLSingletonManager.swift; sourceTree = "<group>"; };
+		FA622C20241E742100582CFD /* NSObject+CLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+CLExtension.swift"; sourceTree = "<group>"; };
+		FA622C23241FB89600582CFD /* CLRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLRegisterViewController.xib; sourceTree = "<group>"; };
+		FA622C24241FB89600582CFD /* CLLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLLoginViewController.xib; sourceTree = "<group>"; };
+		FA622C25241FB89600582CFD /* CLLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLoginViewController.swift; sourceTree = "<group>"; };
+		FA622C26241FB89600582CFD /* CLResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLResetPasswordViewController.swift; sourceTree = "<group>"; };
+		FA622C27241FB89600582CFD /* CLRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLRegisterViewController.swift; sourceTree = "<group>"; };
+		FA622C28241FB89600582CFD /* CLResetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLResetPasswordViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B268FD040A6ABEA59C7D102 /* Pods_SwiftDemo.framework in Frameworks */,
+				867246DC79807DD1372D7C13 /* Pods_SwiftDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,18 +200,18 @@
 		048246EAFF1C4F6EB1CD6D09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3453EF2E2A0CABE3E0922C39 /* Pods_SwiftDemo.framework */,
+				E246ABB08ACB6FDA2706192C /* Pods_SwiftDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3DCA6AD545126C54D6601101 /* Pods */ = {
+		221E70E5CF5485B310361096 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3A175E4F74F475BFABAF06B0 /* Pods-SwiftDemo.debug.xcconfig */,
-				EA576BDBA7F043E6B1A3D3F2 /* Pods-SwiftDemo.release.xcconfig */,
+				3282AFB184F0E1923CE75680 /* Pods-SwiftDemo.debug.xcconfig */,
+				197A9F2386578004F870E162 /* Pods-SwiftDemo.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		96086E932255A073009C0337 /* ViewModel */ = {
@@ -223,6 +229,7 @@
 			children = (
 				96086E992255E01C009C0337 /* String+CLExtension.swift */,
 				96B71AFF225DDFFE0034AC92 /* UserDefaults+CLExtension.swift */,
+				FA622C20241E742100582CFD /* NSObject+CLExtension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -235,8 +242,8 @@
 				961D4D2B2251E5DD0060247A /* SwiftDemoTests */,
 				961D4D362251E5DD0060247A /* SwiftDemoUITests */,
 				961D4D152251E5DB0060247A /* Products */,
-				3DCA6AD545126C54D6601101 /* Pods */,
 				048246EAFF1C4F6EB1CD6D09 /* Frameworks */,
+				221E70E5CF5485B310361096 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,9 +260,11 @@
 		961D4D162251E5DB0060247A /* SwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
-				961D4D472251F7DF0060247A /* Classes */,
 				961D4D172251E5DB0060247A /* AppDelegate.swift */,
+				961D4D5C225204570060247A /* AppDelegate+CLExtension.swift */,
+				FA385EC5241B73AE00B3F9B9 /* MGJRouter+CLExtension.swift */,
 				961D4D192251E5DB0060247A /* ViewController.swift */,
+				961D4D472251F7DF0060247A /* Classes */,
 				961D4D1B2251E5DB0060247A /* Main.storyboard */,
 				961D4D1E2251E5DD0060247A /* Assets.xcassets */,
 				961D4D232251E5DD0060247A /* Info.plist */,
@@ -290,17 +299,10 @@
 				FA385EC2241A254200B3F9B9 /* CLCommon */,
 				961D4D5B2251FABF0060247A /* CLCategory */,
 				961D4D582251F9AD0060247A /* Define */,
-				961D4D482251F8090060247A /* Manager */,
+				FA622C1D241E72D100582CFD /* Mananer */,
 				961D4D7C22544B260060247A /* UIInterface */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		961D4D482251F8090060247A /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		961D4D4D2251F87F0060247A /* CLBase */ = {
@@ -331,7 +333,6 @@
 				96B71AF2225DCE150034AC92 /* Other */,
 				96FD9D9F225ADDA900492BF9 /* UIKit */,
 				96086E982255DF77009C0337 /* Foundation */,
-				961D4D5C225204570060247A /* AppDelegate+CLExtension.swift */,
 				96472578225AE4DC005B620F /* CLToolKit.swift */,
 			);
 			path = CLCategory;
@@ -358,7 +359,7 @@
 		961D4D6D225339A00060247A /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				96472581225B3D42005B620F /* ViewController */,
+				FA622C22241FB87E00582CFD /* ViewController */,
 				96086E932255A073009C0337 /* ViewModel */,
 			);
 			path = Account;
@@ -377,19 +378,6 @@
 				96472594225C4F0F005B620F /* CLEmptyView */,
 			);
 			path = UIInterface;
-			sourceTree = "<group>";
-		};
-		96472581225B3D42005B620F /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				961D4D6E22533A9D0060247A /* CLLoginViewController.swift */,
-				961D4D6F22533A9D0060247A /* CLLoginViewController.xib */,
-				961D4D74225363FE0060247A /* CLRegisterViewController.swift */,
-				961D4D75225363FE0060247A /* CLRegisterViewController.xib */,
-				961D4D812254A0190060247A /* CLResetPasswordViewController.swift */,
-				961D4D822254A0190060247A /* CLResetPasswordViewController.xib */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		96472582225B3D5C005B620F /* User */ = {
@@ -509,6 +497,27 @@
 			path = CLCommon;
 			sourceTree = "<group>";
 		};
+		FA622C1D241E72D100582CFD /* Mananer */ = {
+			isa = PBXGroup;
+			children = (
+				FA622C1E241E731900582CFD /* CLSingletonManager.swift */,
+			);
+			path = Mananer;
+			sourceTree = "<group>";
+		};
+		FA622C22241FB87E00582CFD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA622C25241FB89600582CFD /* CLLoginViewController.swift */,
+				FA622C24241FB89600582CFD /* CLLoginViewController.xib */,
+				FA622C27241FB89600582CFD /* CLRegisterViewController.swift */,
+				FA622C23241FB89600582CFD /* CLRegisterViewController.xib */,
+				FA622C26241FB89600582CFD /* CLResetPasswordViewController.swift */,
+				FA622C28241FB89600582CFD /* CLResetPasswordViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -516,11 +525,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 961D4D3C2251E5DD0060247A /* Build configuration list for PBXNativeTarget "SwiftDemo" */;
 			buildPhases = (
-				B86DE79145DDD3B6752EC58D /* [CP] Check Pods Manifest.lock */,
+				3522F28BD5D859488529CAB4 /* [CP] Check Pods Manifest.lock */,
 				961D4D102251E5DB0060247A /* Sources */,
 				961D4D112251E5DB0060247A /* Frameworks */,
 				961D4D122251E5DB0060247A /* Resources */,
-				5E0E4039FB456331E7D33F90 /* [CP] Embed Pods Frameworks */,
+				C9F2D0179FD3D4764B4E5E9D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -619,13 +628,13 @@
 				96B71AFE225DD5FB0034AC92 /* CLUserSystemTableViewCell.xib in Resources */,
 				9647258D225B4A36005B620F /* CLUserInfoEditViewController.xib in Resources */,
 				96472598225C4F2C005B620F /* CLEmptyView.xib in Resources */,
-				961D4D7122533A9D0060247A /* CLLoginViewController.xib in Resources */,
-				961D4D842254A0190060247A /* CLResetPasswordViewController.xib in Resources */,
 				961D4D612252F7AA0060247A /* LaunchScreen.storyboard in Resources */,
+				FA622C2E241FB89600582CFD /* CLResetPasswordViewController.xib in Resources */,
 				961D4D1F2251E5DD0060247A /* Assets.xcassets in Resources */,
+				FA622C2A241FB89600582CFD /* CLLoginViewController.xib in Resources */,
 				961D4D1D2251E5DB0060247A /* Main.storyboard in Resources */,
-				961D4D77225363FE0060247A /* CLRegisterViewController.xib in Resources */,
 				96472589225B3DFB005B620F /* CLUserInfoViewController.xib in Resources */,
+				FA622C29241FB89600582CFD /* CLRegisterViewController.xib in Resources */,
 				967E4D04225EE8D800759625 /* CLAlertView.xib in Resources */,
 				96E557312265A86B00E13C94 /* CLPictureSelectionView.xib in Resources */,
 				961D4D692253096B0060247A /* CLUserHomeViewController.xib in Resources */,
@@ -649,24 +658,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5E0E4039FB456331E7D33F90 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B86DE79145DDD3B6752EC58D /* [CP] Check Pods Manifest.lock */ = {
+		3522F28BD5D859488529CAB4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -688,6 +680,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C9F2D0179FD3D4764B4E5E9D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftDemo/Pods-SwiftDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -704,15 +713,17 @@
 				96086E9A2255E01C009C0337 /* String+CLExtension.swift in Sources */,
 				96E5572F2265A86300E13C94 /* CLPictureSelectionView.swift in Sources */,
 				96E5572D2265893500E13C94 /* CLImagePicker.swift in Sources */,
-				961D4D832254A0190060247A /* CLResetPasswordViewController.swift in Sources */,
 				969DEAF122648476009468BC /* CLLoadingView.swift in Sources */,
 				967E4D06225EE90C00759625 /* CLAlertView.swift in Sources */,
+				FA622C2D241FB89600582CFD /* CLRegisterViewController.swift in Sources */,
 				961D4D552251F9130060247A /* CLBaseTableViewCell.swift in Sources */,
 				96472596225C4F25005B620F /* CLEmptyView.swift in Sources */,
+				FA622C2B241FB89600582CFD /* CLLoginViewController.swift in Sources */,
 				96FD9DA1225ADDCC00492BF9 /* UIView+CLExtension.swift in Sources */,
 				96B71AF6225DCEAF0034AC92 /* UIImageView+CLExtension.swift in Sources */,
 				961D4D7E22544C240060247A /* CLVerificationCodeButton.swift in Sources */,
 				961D4D182251E5DB0060247A /* AppDelegate.swift in Sources */,
+				FA622C2C241FB89600582CFD /* CLResetPasswordViewController.swift in Sources */,
 				9647258F225B4AE0005B620F /* CLBaseTextView.swift in Sources */,
 				961D4D802254960A0060247A /* UIImage+CLExtension.swift in Sources */,
 				961D4D4C2251F8750060247A /* CLTabBarController.swift in Sources */,
@@ -723,7 +734,6 @@
 				96472593225C40CE005B620F /* UIViewController+CLExtension.swift in Sources */,
 				961D4D73225358F00060247A /* UITextField+CLExtension.swift in Sources */,
 				96086E952255A088009C0337 /* CLUser.swift in Sources */,
-				961D4D7022533A9D0060247A /* CLLoginViewController.swift in Sources */,
 				961D4D792254492A0060247A /* CLBaseHomeViewController.swift in Sources */,
 				969DEAE922647023009468BC /* CLWebViewController.swift in Sources */,
 				961D4D5D225204570060247A /* AppDelegate+CLExtension.swift in Sources */,
@@ -731,7 +741,8 @@
 				969DEAEF2264829C009468BC /* CLLoadingViewSington.swift in Sources */,
 				96472588225B3DFB005B620F /* CLUserInfoViewController.swift in Sources */,
 				961D4D572251F92D0060247A /* CLBaseCollectionViewCell.swift in Sources */,
-				961D4D76225363FE0060247A /* CLRegisterViewController.swift in Sources */,
+				FA622C1F241E731900582CFD /* CLSingletonManager.swift in Sources */,
+				FA385EC6241B73AF00B3F9B9 /* MGJRouter+CLExtension.swift in Sources */,
 				961D4D682253096B0060247A /* CLUserHomeViewController.swift in Sources */,
 				961D4D6B22530DA20060247A /* CLNavigationController.swift in Sources */,
 				961D4D65225309500060247A /* CLMainHomeViewController.swift in Sources */,
@@ -743,6 +754,7 @@
 				961D4D4F2251F8A50060247A /* CLBaseViewController.swift in Sources */,
 				96B71B00225DDFFE0034AC92 /* UserDefaults+CLExtension.swift in Sources */,
 				961D4D532251F8DA0060247A /* CLBaseViewModel.swift in Sources */,
+				FA622C21241E742100582CFD /* NSObject+CLExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,7 +852,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -895,7 +907,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -907,13 +919,13 @@
 		};
 		961D4D3D2251E5DD0060247A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A175E4F74F475BFABAF06B0 /* Pods-SwiftDemo.debug.xcconfig */;
+			baseConfigurationReference = 3282AFB184F0E1923CE75680 /* Pods-SwiftDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7X66L38K4;
 				INFOPLIST_FILE = SwiftDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -942,13 +954,13 @@
 		};
 		961D4D3E2251E5DD0060247A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA576BDBA7F043E6B1A3D3F2 /* Pods-SwiftDemo.release.xcconfig */;
+			baseConfigurationReference = 197A9F2386578004F870E162 /* Pods-SwiftDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P7X66L38K4;
 				INFOPLIST_FILE = SwiftDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

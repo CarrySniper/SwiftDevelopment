@@ -11,25 +11,34 @@
 #import "AVErrorUtils.h"
 #import "AVPaasClient.h"
 #import "AVPersistenceUtils.h"
-#import "LCNetworkStatistics.h"
 
 RouterCacheKey RouterCacheKeyApp = @"RouterCacheDataApp";
 RouterCacheKey RouterCacheKeyRTM = @"RouterCacheDataRTM";
 static RouterCacheKey RouterCacheKeyData = @"data";
 static RouterCacheKey RouterCacheKeyTimestamp = @"timestamp";
 
+static NSString *serverURLString;
+/// { 'module key' : 'URL' }
+static NSMutableDictionary<NSString *, NSString *> *customAppServerTable;
+
 @implementation LCRouter {
     /// { 'app ID' : 'app router data tuple' }
     NSMutableDictionary<NSString *, NSDictionary *> *_appRouterMap;
     /// { 'app ID' : 'RTM router data tuple' }
     NSMutableDictionary<NSString *, NSDictionary *> *_RTMRouterMap;
-    /// { 'module key' : 'URL' }
-    NSMutableDictionary<NSString *, NSString *> *_customAppServerTable;
     
     NSLock *_lock;
     NSDictionary<NSString *, NSString *> *_keyToModule;
     /// { 'app ID' : 'callback array' }
     NSMutableDictionary<NSString *, NSMutableArray<void (^)(NSDictionary *, NSError *)> *> *_RTMRouterCallbacksMap;
+}
+
++ (NSString *)serverURLString {
+    return serverURLString;
+}
+
++ (void)setServerURLString:(NSString *)URLString {
+    serverURLString = URLString;
 }
 
 + (instancetype)sharedInstance
@@ -56,7 +65,7 @@ static RouterCacheKey RouterCacheKeyTimestamp = @"timestamp";
                 if ([data length]) {
                     NSError *error = nil;
                     NSMutableDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-                    if (error || ![NSMutableDictionary lc__checkingType:dictionary]) {
+                    if (error || ![NSMutableDictionary _lc_is_type_of:dictionary]) {
                         if (!error) { error = LCErrorInternal([NSString stringWithFormat:@"file: %@ is invalid.", filePath]); }
                         AVLoggerError(AVLoggerDomainDefault, @"%@", error);
                     } else {
@@ -72,7 +81,6 @@ static RouterCacheKey RouterCacheKeyTimestamp = @"timestamp";
         self->_isUpdatingAppRouter = false;
         self->_RTMRouterCallbacksMap = [NSMutableDictionary dictionary];
         
-        self->_customAppServerTable = [NSMutableDictionary dictionary];
         self->_keyToModule = ({
             @{ RouterKeyAppAPIServer : AppModuleAPI,
                RouterKeyAppEngineServer : AppModuleEngine,
@@ -86,16 +94,9 @@ static RouterCacheKey RouterCacheKeyTimestamp = @"timestamp";
 
 // MARK: - API Version
 
-static NSString * LCAPIVersion = @"1.1";
-
 + (NSString *)APIVersion
 {
-    return LCAPIVersion;
-}
-
-+ (void)setAPIVersion:(NSString *)APIVersion
-{
-    LCAPIVersion = APIVersion;
+    return @"1.1";
 }
 
 static NSString * pathWithVersion(NSString *path)
@@ -112,33 +113,16 @@ static NSString * pathWithVersion(NSString *path)
 
 // MARK: - RTM Router Path
 
-static NSString * LCRTMRouterPath = @"/v1/route";
-
 + (NSString *)RTMRouterPath
 {
-    return LCRTMRouterPath;
-}
-
-+ (void)setRTMRouterPath:(NSString *)RTMRouterPath
-{
-    LCRTMRouterPath = RTMRouterPath;
+    return @"/v1/route";
 }
 
 // MARK: - Disk Cache
 
-static NSString * LCRouterCacheDirectoryPath = nil;
-
-+ (void)setRouterCacheDirectoryPath:(NSString *)directoryPath
-{
-    LCRouterCacheDirectoryPath = directoryPath;
-}
-
 + (NSString *)routerCacheDirectoryPath
 {
-    if (!LCRouterCacheDirectoryPath) {
-        LCRouterCacheDirectoryPath = [AVPersistenceUtils homeDirectoryLibraryCachesLeanCloudCachesRouter];
-    }
-    return LCRouterCacheDirectoryPath;
+    return [AVPersistenceUtils homeDirectoryLibraryCachesLeanCloudCachesRouter];
 }
 
 static void cachingRouterData(NSDictionary *routerDataMap, RouterCacheKey key)
@@ -196,7 +180,7 @@ static void cachingRouterData(NSDictionary *routerDataMap, RouterCacheKey key)
             callback(nil, error);
         } else {
             NSDictionary *dictionary = (NSDictionary *)object;
-            if ([NSDictionary lc__checkingType:dictionary]) {
+            if ([NSDictionary _lc_is_type_of:dictionary]) {
                 callback(dictionary, nil);
             } else {
                 callback(nil, LCErrorInternal(@"response data invalid."));
@@ -238,57 +222,69 @@ static void cachingRouterData(NSDictionary *routerDataMap, RouterCacheKey key)
     
     RouterKey serverKey = serverKeyForPath(path);
     
-    NSString *(^constructedURL)(NSString *) = ^NSString *(NSString *Host) {
+    NSString *(^constructedURL)(NSString *) = ^NSString *(NSString *host) {
         if ([serverKey isEqualToString:RouterKeyAppRTMRouterServer]) {
-            return absoluteURLStringWithHostAndPath(Host, path);
+            return absoluteURLStringWithHostAndPath(host, path);
         } else {
-            return absoluteURLStringWithHostAndPath(Host, pathWithVersion(path));
+            return absoluteURLStringWithHostAndPath(host, pathWithVersion(path));
         }
     };
     
     ({  /// get server URL from custom server table.
-        NSString *customServerURL = [NSString lc__decodingDictionary:self->_customAppServerTable key:serverKey];
+        NSString *customServerURL = [NSString _lc_decoding:customAppServerTable key:serverKey];
         if ([customServerURL length]) {
             return constructedURL(customServerURL);
         }
     });
     
-    ({  /// get server URL from memory cache
+    if ([LCRouter serverURLString].length) {
+        return constructedURL([LCRouter serverURLString]);
+    }
+    
+    if ([appID hasSuffix:AppIDSuffixUS]) {
         NSDictionary *appRouterDataTuple = nil;
         [self->_lock lock];
-        appRouterDataTuple = [NSDictionary lc__decodingDictionary:self->_appRouterMap key:appID];
+        appRouterDataTuple = [NSDictionary _lc_decoding:self->_appRouterMap key:appID];
         [self->_lock unlock];
         if (shouldUpdateRouterData(appRouterDataTuple)) {
             [self tryUpdateAppRouterWithAppID:appID callback:nil];
         }
-        NSDictionary *dataDic = [NSDictionary lc__decodingDictionary:appRouterDataTuple key:RouterCacheKeyData];
-        NSString *serverURL = [NSString lc__decodingDictionary:dataDic key:serverKey];
+        NSDictionary *dataDic = [NSDictionary _lc_decoding:appRouterDataTuple key:RouterCacheKeyData];
+        NSString *serverURL = [NSString _lc_decoding:dataDic key:serverKey];
         if ([serverURL length]) {
             return constructedURL(serverURL);
+        } else {
+            NSString *fallbackServerURL = [self appRouterFallbackURLWithKey:serverKey appID:appID];
+            return constructedURL(fallbackServerURL);
         }
-    });
+    }
     
-    /// fallback server URL
-    NSString *fallbackServerURL = [self appRouterFallbackURLWithKey:serverKey appID:appID];
-    return constructedURL(fallbackServerURL);
+    return nil;
 }
 
-- (NSString *)appRouterFallbackURLWithKey:(NSString *)key appID:(NSString *)appID
++ (NSString *)appDomainForAppID:(NSString *)appID
 {
-    NSParameterAssert(key);
-    NSParameterAssert(appID);
-    /// fallback server URL
-    NSString *appDomain = nil;
-    if ([appID rangeOfString:@"-"].location == NSNotFound || [appID hasSuffix:AppIDSuffixCN]) {
+    NSString *appDomain;
+    if ([appID hasSuffix:AppIDSuffixCN]) {
         appDomain = AppDomainCN;
     } else if ([appID hasSuffix:AppIDSuffixCE]) {
         appDomain = AppDomainCE;
     } else if ([appID hasSuffix:AppIDSuffixUS]) {
         appDomain = AppDomainUS;
     } else {
-        [NSException raise:NSInternalInconsistencyException format:@"application id invalid."];
+        appDomain = AppDomainCN;
     }
-    return [NSString stringWithFormat:@"%@.%@.%@", [appID substringToIndex:8].lowercaseString, self->_keyToModule[key], appDomain];
+    return appDomain;
+}
+
+- (NSString *)appRouterFallbackURLWithKey:(NSString *)key appID:(NSString *)appID
+{
+    NSParameterAssert(key);
+    NSParameterAssert(appID);
+    return [NSString stringWithFormat:@"%@.%@.%@",
+            [[appID substringToIndex:8] lowercaseString],
+            self->_keyToModule[key],
+            [LCRouter appDomainForAppID:appID]];
 }
 
 /// for compatibility, keep it.
@@ -323,7 +319,7 @@ static void cachingRouterData(NSDictionary *routerDataMap, RouterCacheKey key)
         if (error) {
             callback(nil, error);
         } else {
-            if ([NSDictionary lc__checkingType:object]) {
+            if ([NSDictionary _lc_is_type_of:object]) {
                 callback(object, nil);
             } else {
                 callback(nil, LCErrorInternal(@"response data invalid."));
@@ -361,6 +357,10 @@ static void cachingRouterData(NSDictionary *routerDataMap, RouterCacheKey key)
     
     /// get RTM router URL & try update app router
     NSString *RTMRouterURL = [self RTMRouterURLForAppID:appID];
+    if (!RTMRouterURL) {
+        callback(nil, LCError(9973, @"RTM Router URL not found.", nil));
+        return;
+    }
     
     ({  /// add callback to map
         BOOL addCallbacksToArray = false;
@@ -393,10 +393,10 @@ static void cachingRouterData(NSDictionary *routerDataMap, RouterCacheKey key)
     ({  /// get RTM URL data from memory
         NSDictionary *RTMRouterDataTuple = nil;
         [self->_lock lock];
-        RTMRouterDataTuple = [NSDictionary lc__decodingDictionary:self->_RTMRouterMap key:appID];
+        RTMRouterDataTuple = [NSDictionary _lc_decoding:self->_RTMRouterMap key:appID];
         [self->_lock unlock];
         if (!shouldUpdateRouterData(RTMRouterDataTuple)) {
-            NSDictionary *dataDic = [NSDictionary lc__decodingDictionary:RTMRouterDataTuple key:RouterCacheKeyData];
+            NSDictionary *dataDic = [NSDictionary _lc_decoding:RTMRouterDataTuple key:RouterCacheKeyData];
             invokeCallbacks(dataDic, nil);
             return;
         }
@@ -417,15 +417,17 @@ static void cachingRouterData(NSDictionary *routerDataMap, RouterCacheKey key)
 
 // MARK: - Custom App URL
 
-- (void)customAppServerURL:(NSString *)URLString key:(RouterKey)key
++ (void)customAppServerURL:(NSString *)URLString key:(RouterKey)key
 {
+    if (!customAppServerTable) {
+        customAppServerTable = [NSMutableDictionary dictionary];
+    }
     if (!key) { return; }
     if (URLString) {
-        self->_customAppServerTable[key] = URLString;
+        customAppServerTable[key] = URLString;
     } else {
-        [self->_customAppServerTable removeObjectForKey:key];
+        [customAppServerTable removeObjectForKey:key];
     }
-    LCNetworkStatistics.sharedInstance.ignoreAlwaysCollectIfCustomedService = true;
 }
 
 // MARK: - Misc
@@ -435,12 +437,12 @@ static BOOL shouldUpdateRouterData(NSDictionary *routerDataTuple)
     if (!routerDataTuple) {
         return true;
     }
-    NSDictionary *dataDic = [NSDictionary lc__decodingDictionary:routerDataTuple key:RouterCacheKeyData];
-    NSTimeInterval lastTimestamp = [[NSNumber lc__decodingDictionary:routerDataTuple key:RouterCacheKeyTimestamp] doubleValue];
+    NSDictionary *dataDic = [NSDictionary _lc_decoding:routerDataTuple key:RouterCacheKeyData];
+    NSTimeInterval lastTimestamp = [[NSNumber _lc_decoding:routerDataTuple key:RouterCacheKeyTimestamp] doubleValue];
     if (!dataDic) {
         return true;
     }
-    NSTimeInterval ttl = [[NSNumber lc__decodingDictionary:dataDic key:RouterKeyTTL] doubleValue];
+    NSTimeInterval ttl = [[NSNumber _lc_decoding:dataDic key:RouterKeyTTL] doubleValue];
     NSTimeInterval currentTimestamp = [[NSDate date] timeIntervalSince1970];
     if (currentTimestamp >= lastTimestamp && currentTimestamp <= (lastTimestamp + ttl)) {
         return false;

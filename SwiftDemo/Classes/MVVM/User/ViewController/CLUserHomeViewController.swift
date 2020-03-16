@@ -38,6 +38,7 @@ class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, U
 				[CLUserSettingType.cleanCache, "清理缓存", "icon_delect", ""],
 		]
 	}()
+	
 	/// 状态栏文字颜色设置，见CLBaseNavigationController.swift
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
@@ -80,6 +81,9 @@ class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, U
 	}
 
 	@objc func aaaa() {
+//		let vc = ViewController.init()
+//
+//		getCurrentViewController()?.navigationController?.pushViewController(vc, animated: true)
 //		UIAlertController.showAlert(title: "T##String?", message: "T##String?", handerName: "我要确认") { (UIAlertAction) in
 //			print("T##items: Any...##Any")
 //		}
@@ -94,10 +98,10 @@ class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, U
 //		let vc = CLWebViewController.init()
 //		vc.loadUrlString(AppInfo.protocolUrl, title: "GitHub")
 //		self.navigationController?.pushViewController(vc, animated: true)
-//		SHOW_ALERT("温馨提示", "您要退出登录账号吗？", "确认退出") {
+		SHOW_ALERT("温馨提示", "您要退出登录账号吗？", "确认退出") {
 //			CLUser.logout()
 //			AppDelegate.postNotificationToLoginPage()
-//		}
+		}
 //		let window = UIApplication.shared.keyWindow
 //		window!.windowLevel = UIWindow.Level.statusBar
 //		let view = UIView.init(frame: UIScreen.main.bounds)
