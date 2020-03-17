@@ -19,12 +19,33 @@ import UIKit
 var CLAppDelegate = UIApplication.shared.delegate as! AppDelegate
 
 /// APP固定信息
-struct AppInfo {
+struct AppStore {
 	// 这个用大写开头吧，规则也有例外，Apple、AppStore
 	static let AppleID: String          = "1008611"
 	static let AppStoreUrl: String		= "https://itunes.apple.com/cn/lookup?id="
-	
 	static let protocolUrl: String      = "https://github.com/CarrySniper"
+}
+
+struct  AppInfo {
+    static let infoDictionary = Bundle.main.infoDictionary
+    
+    static let appDisplayName: String = Bundle.main.infoDictionary!["CFBundleDisplayName"] as! String //App 名称（要确保info.plist文件有Bundle display name项，否则获取失败）
+    
+    static let bundleIdentifier:String = Bundle.main.bundleIdentifier! // Bundle Identifier
+    
+    static let appVersion:String = Bundle.main.infoDictionary! ["CFBundleShortVersionString"] as! String// App 版本号
+    
+    static let buildVersion : String = Bundle.main.infoDictionary! ["CFBundleVersion"] as! String //Bulid 版本号
+    
+    static let iOSVersion:String = UIDevice.current.systemVersion //ios 版本
+    
+    static let identifierNumber = UIDevice.current.identifierForVendor //设备 udid
+    
+    static let systemName = UIDevice.current.systemName //设备名称
+    
+    static let model = UIDevice.current.model // 设备型号
+    
+    static let localizedModel = UIDevice.current.localizedModel  //设备区域化型号
 }
 
 /// LeanCloud相关
@@ -70,7 +91,7 @@ struct ConfigNotification {
 struct ConfigImage {
 	
 	static let `default`                    = UIImage.init(named: "default")
-	static let appIcon                      = UIImage.init(named: "appIcon")
+	static let appIcon                      = UIImage.init(named: "AppIcon")
 	static let avatar                       = UIImage.init(named: "avatar")
 	static let emptyData                    = UIImage.init(named: "empty_content")
 }

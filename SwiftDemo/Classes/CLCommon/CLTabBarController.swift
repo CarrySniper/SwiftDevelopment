@@ -59,13 +59,13 @@ class CLTabBarController: UITabBarController {
 		}
 		// 2.通过命名空间和类名转换成类
 		let NewClass : AnyClass? = NSClassFromString((namespace as! String) + "." + className)
-		
+
 		// swift 中通过Class创建一个对象,必须告诉系统Class的类型
 		guard let classType = NewClass as? UIViewController.Type else {
 			NSLog("无法转换成UIViewController")
 			return UIViewController.init()
 		}
-		
+
 		// 3.通过Class创建对象
 		let viewController = classType.init()
 		

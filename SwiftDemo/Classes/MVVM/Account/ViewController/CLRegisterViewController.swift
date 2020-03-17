@@ -96,7 +96,7 @@ class CLRegisterViewController: CLBaseHomeViewController, UITextFieldDelegate {
 	// MARK: 用户协议操作
 	@IBAction func protocolAction(_ sender: Any) {
 		let vc = CLWebViewController.init()
-		vc.loadUrlString(AppInfo.protocolUrl, title: "用户协议")
+		vc.loadUrlString(AppStore.protocolUrl, title: "用户协议")
 		self.navigationController?.pushViewController(vc, animated: true)
 	}
 	

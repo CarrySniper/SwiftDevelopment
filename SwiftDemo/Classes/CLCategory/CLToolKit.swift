@@ -22,8 +22,6 @@ class CLToolKit: NSObject {
 		_ = self.onceAction
 		return Series.iPhoneX
 	}
-	
-	
 }
 
 /// 获取当前视图控制器

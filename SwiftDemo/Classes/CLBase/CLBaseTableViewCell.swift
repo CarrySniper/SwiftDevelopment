@@ -37,7 +37,6 @@ class CLBaseTableViewCell: UITableViewCell {
 		let view: UIView = UIView()
 		view.backgroundColor = CLColor.spaceColor
 		self.selectedBackgroundView = view
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

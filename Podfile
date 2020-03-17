@@ -11,7 +11,7 @@ target 'SwiftDemo' do
   pod 'AlamofireImage'			# 网络图片加载库
   pod 'SwiftyJSON'          # Json解析库
   pod 'SnapKit'             # UI约束
-	pod 'MGJRouter_Swift'			# 蘑菇街路由注册
+	pod 'MGJRouter_Swift'			# 蘑菇街路由
 	
   pod 'Aspects'							# OC的切面工程
   pod 'AVOSCloud'  					# OC的云存储

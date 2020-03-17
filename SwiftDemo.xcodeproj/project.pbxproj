@@ -74,6 +74,9 @@
 		FA622C2C241FB89600582CFD /* CLResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622C26241FB89600582CFD /* CLResetPasswordViewController.swift */; };
 		FA622C2D241FB89600582CFD /* CLRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622C27241FB89600582CFD /* CLRegisterViewController.swift */; };
 		FA622C2E241FB89600582CFD /* CLResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA622C28241FB89600582CFD /* CLResetPasswordViewController.xib */; };
+		FA622C322420996A00582CFD /* CLAboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622C302420996A00582CFD /* CLAboutUsViewController.swift */; };
+		FA622C332420996A00582CFD /* CLAboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA622C312420996A00582CFD /* CLAboutUsViewController.xib */; };
+		FA622C352420AE3100582CFD /* Bundle+CLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA622C342420AE3100582CFD /* Bundle+CLExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +102,7 @@
 		96086E942255A088009C0337 /* CLUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUser.swift; sourceTree = "<group>"; };
 		96086E962255D4CA009C0337 /* CLAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAccountViewModel.swift; sourceTree = "<group>"; };
 		96086E992255E01C009C0337 /* String+CLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CLExtension.swift"; sourceTree = "<group>"; };
-		961D4D142251E5DB0060247A /* SwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		961D4D142251E5DB0060247A /* Swift进阶0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift进阶0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		961D4D172251E5DB0060247A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		961D4D192251E5DB0060247A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		961D4D1C2251E5DB0060247A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -169,6 +172,9 @@
 		FA622C26241FB89600582CFD /* CLResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLResetPasswordViewController.swift; sourceTree = "<group>"; };
 		FA622C27241FB89600582CFD /* CLRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLRegisterViewController.swift; sourceTree = "<group>"; };
 		FA622C28241FB89600582CFD /* CLResetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLResetPasswordViewController.xib; sourceTree = "<group>"; };
+		FA622C302420996A00582CFD /* CLAboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAboutUsViewController.swift; sourceTree = "<group>"; };
+		FA622C312420996A00582CFD /* CLAboutUsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CLAboutUsViewController.xib; sourceTree = "<group>"; };
+		FA622C342420AE3100582CFD /* Bundle+CLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+CLExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +236,7 @@
 				96086E992255E01C009C0337 /* String+CLExtension.swift */,
 				96B71AFF225DDFFE0034AC92 /* UserDefaults+CLExtension.swift */,
 				FA622C20241E742100582CFD /* NSObject+CLExtension.swift */,
+				FA622C342420AE3100582CFD /* Bundle+CLExtension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -250,7 +257,7 @@
 		961D4D152251E5DB0060247A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				961D4D142251E5DB0060247A /* SwiftDemo.app */,
+				961D4D142251E5DB0060247A /* Swift进阶0.app */,
 				961D4D282251E5DD0060247A /* SwiftDemoTests.xctest */,
 				961D4D332251E5DD0060247A /* SwiftDemoUITests.xctest */,
 			);
@@ -392,6 +399,7 @@
 		96472583225B3DA0005B620F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FA622C2F242098BC00582CFD /* 关于我们 */,
 				96472585225B3DBD005B620F /* 信息修改 */,
 				96472584225B3DB0005B620F /* 用户信息 */,
 				961D4D662253096B0060247A /* CLUserHomeViewController.swift */,
@@ -518,6 +526,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		FA622C2F242098BC00582CFD /* 关于我们 */ = {
+			isa = PBXGroup;
+			children = (
+				FA622C302420996A00582CFD /* CLAboutUsViewController.swift */,
+				FA622C312420996A00582CFD /* CLAboutUsViewController.xib */,
+			);
+			path = "关于我们";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -537,7 +554,7 @@
 			);
 			name = SwiftDemo;
 			productName = SwiftDemo;
-			productReference = 961D4D142251E5DB0060247A /* SwiftDemo.app */;
+			productReference = 961D4D142251E5DB0060247A /* Swift进阶0.app */;
 			productType = "com.apple.product-type.application";
 		};
 		961D4D272251E5DD0060247A /* SwiftDemoTests */ = {
@@ -638,6 +655,7 @@
 				967E4D04225EE8D800759625 /* CLAlertView.xib in Resources */,
 				96E557312265A86B00E13C94 /* CLPictureSelectionView.xib in Resources */,
 				961D4D692253096B0060247A /* CLUserHomeViewController.xib in Resources */,
+				FA622C332420996A00582CFD /* CLAboutUsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,8 +745,10 @@
 				9647258F225B4AE0005B620F /* CLBaseTextView.swift in Sources */,
 				961D4D802254960A0060247A /* UIImage+CLExtension.swift in Sources */,
 				961D4D4C2251F8750060247A /* CLTabBarController.swift in Sources */,
+				FA622C352420AE3100582CFD /* Bundle+CLExtension.swift in Sources */,
 				9647258C225B4A36005B620F /* CLUserInfoEditViewController.swift in Sources */,
 				9647257B225B1C2B005B620F /* CLToastView.swift in Sources */,
+				FA622C322420996A00582CFD /* CLAboutUsViewController.swift in Sources */,
 				961D4D512251F8BB0060247A /* CLBaseModel.swift in Sources */,
 				961D4D462251F6C60060247A /* Config.swift in Sources */,
 				96472593225C40CE005B620F /* UIViewController+CLExtension.swift in Sources */,
@@ -946,7 +966,7 @@
 					"\"VideoToolbox\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cl.SwiftDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Swift进阶0";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -981,7 +1001,7 @@
 					"\"VideoToolbox\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cl.SwiftDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Swift进阶0";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

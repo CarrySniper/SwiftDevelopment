@@ -32,9 +32,9 @@ class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, U
 	}()
 	
 	lazy var dataArray: Array = {
-		return [[CLUserSettingType.password, "密码设置", "icon_password", "CLResetPasswordViewController"],
-				[CLUserSettingType.about, "关于我们", "icon_about", "CLAboutUsViewController"],
-				[CLUserSettingType.feedback, "意见反馈", "icon_feedback", "CLFeedbackViewController"],
+		return [[CLUserSettingType.password, "密码设置", "icon_password", MGJApp.resetPassword],
+				[CLUserSettingType.about, "关于我们", "icon_about", MGJApp.about],
+				[CLUserSettingType.feedback, "意见反馈", "icon_feedback", MGJApp.feedback],
 				[CLUserSettingType.cleanCache, "清理缓存", "icon_delect", ""],
 		]
 	}()
@@ -72,7 +72,7 @@ class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, U
 //		self.navigationController?.navigationBar.isTranslucent = false
 		self.navigationController?.navigationBar.shadowImage = UIImage.init()
 		self.navigationController?.navigationBar.setBackgroundImage(UIImage.fromColor(UIColor.colorHex("#F55D64")), for: UIBarMetrics.default)
-		
+
 		self.navigationController?.navigationBar.tintColor = UIColor.white
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white,NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20)]
 		
@@ -185,11 +185,9 @@ class CLUserHomeViewController: CLBaseHomeViewController, UITableViewDelegate, U
 			break
 		}
 		
+		
 		let name: String = rowArray.last as! String
-		guard let viewController = UIViewController.loadViewControllerFromName(name) else {
-			return
-		}
-		self.navigationController?.pushViewController(viewController, animated: true)
+		MGJRouter.open(name, nil)
 	}
 	
 	//MARK: - UITableViewDataSource

@@ -80,7 +80,7 @@ class CLUserInfoViewController: CLBaseViewController {
 //				self.nameLabel.text = content
 //			})
 //		}
-
+		
 		let parameters : Dictionary = ["content": user!.username as Any,
 								   "placeholder" : "输入昵称",
 								   "doneHandler" : { (content : String) in

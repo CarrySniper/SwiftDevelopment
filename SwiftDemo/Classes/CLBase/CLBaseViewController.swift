@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MGJRouter_Swift
 
 class CLBaseViewController: UIViewController, UIGestureRecognizerDelegate {
 	
@@ -42,13 +41,18 @@ class CLBaseViewController: UIViewController, UIGestureRecognizerDelegate {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		
+		// 导航栏设置隐藏
 		self.navigationController?.navigationBar.isHidden = false
+		// 导航栏设置透明
 		self.navigationController?.navigationBar.isTranslucent = false
+		// 导航栏显示阴影分割线
 		self.navigationController?.navigationBar.shadowImage = nil
+		// 导航栏背景图片：可设置纯色背景和其他样式背景
 		self.navigationController?.navigationBar.setBackgroundImage(UIImage.navigationImage(), for: UIBarMetrics.default)
-		
+		// 导航栏tint着色（上面的控件渲染色）
 		self.navigationController?.navigationBar.tintColor = CLColor.title
-		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:CLColor.title,NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20)]
+		// 导航栏标题属性设置：字体、颜色、大小等
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:CLColor.title ,NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20)]
 		
 		// 设置系统返回手势的代理为当前控制器
 		self.navigationController?.interactivePopGestureRecognizer!.delegate = self

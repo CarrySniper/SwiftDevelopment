@@ -7,7 +7,7 @@ CL为个人特殊名字，不是说Swift有命名空间后就不需要前缀之�
 
 ## 学习从此刻开始（时间倒序）
 #### 2020-03-16（周一）
-导入第三方框架MGJRouter_Swift，实现蘑菇街路由方案
+导入第三方框架MGJRouter_Swift，实现[蘑菇街路由](https://github.com/CarrySniper/SwiftDevelopment/wiki/MGJRouter_Swift蘑菇街路由)方案
 
 #### 2019-05-08（周三）
 扩展UIAlertController控制器，可以修改选项颜色UIAlertController+CLExtension.swift
@@ -20,7 +20,7 @@ CL为个人特殊名字，不是说Swift有命名空间后就不需要前缀之�
 [CLWebViewController.swift](https://github.com/CarrySniper/SwiftDevelopment/wiki/功能-WebView)
 
 #### 2019-04-12（周五）
-自定义PopupView，学习UIWindow属性，遮挡状态栏
+自定义PopupView，学习UIWindow属性
 ```swift 
 extension UIWindow.Level {
 
@@ -36,7 +36,7 @@ extension UIWindow.Level {
 自定义协议代理protocol，实现optional可选方法（extension扩展实现了需要标记的optional可选方法）。
 如下：cl_emptyViewDataSource()方法必须实现，cl_emptyViewOffset()是可实现可不实现。
 ```swift 
- /// protocol代理
+/// protocol代理
 public protocol CLEmptyDataSource {
 
   func cl_emptyViewDataSource(_ scrollView: UIScrollView) -> UIView?
@@ -57,19 +57,19 @@ extension CLEmptyDataSource {
 重写UITextView，增加上placeholder和placeholderColor属性
 1、学会重写set、get方法。Swift 5 推荐
 ```swift 
-  /** 占位文字 */
-  var placeholder: String? {
-    didSet {
-      self.setNeedsDisplay()
-    }
+/** 占位文字 */
+var placeholder: String? {
+  didSet {
+    self.setNeedsDisplay()
+  }
 
+}
+/** 占位文字颜色 */
+var placeholderColor: UIColor? {
+  didSet {
+    self.setNeedsDisplay()
   }
-  /** 占位文字颜色 */
-  var placeholderColor: UIColor? {
-    didSet {
-      self.setNeedsDisplay()
-    }
-  }
+}
 ```
 2、draw in方法绘制内容
 ```swift
@@ -98,14 +98,14 @@ isTranslucent = false，近乎完美，当然默认半透明效果就没有了�
 
 导航栏隐藏主要代码：
 ```swift
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        
-        if self.isEqual(viewController) {
-            navigationController.setNavigationBarHidden(true, animated: true)
-        }else{
-            navigationController.setNavigationBarHidden(false, animated: true)
-        }
+func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    
+    if self.isEqual(viewController) {
+        navigationController.setNavigationBarHidden(true, animated: true)
+    }else{
+        navigationController.setNavigationBarHidden(false, animated: true)
     }
+}
 ```
 
 #### 2017-09-13（周三）
@@ -118,7 +118,7 @@ isTranslucent = false，近乎完美，当然默认半透明效果就没有了�
 #### 2017-09-12（周二）
 1、添加公共基类，前缀：CLBase（通常使用Base,避免和别人的基类同名冲突，加上CL）<br>
 2、添加UI交互类，UIInterface（通常使用UI），顺便添加扩展Extension（Objective-C中为Category）<br>
-![](https://github.com/CarrySniper/SwiftDevelopment/raw/master/Media/common.png) 
+<!-- ![](https://github.com/CarrySniper/SwiftDevelopment/raw/master/Media/common.png)  -->
 
 #### 2017-01-16（周一）
 >百度经验：iOS开发 Swift添加CocoaPods依赖库管理 <br>
@@ -126,7 +126,7 @@ http://jingyan.baidu.com/article/4f34706e2eee45e387b56dc0.html
 
 可查找文件文件Podfile
 ```swift
-platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'SwiftDevelopment' do
   use_frameworks!
