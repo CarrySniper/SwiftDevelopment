@@ -26,26 +26,30 @@ struct AppStore {
 	static let protocolUrl: String      = "https://github.com/CarrySniper"
 }
 
-struct  AppInfo {
+struct AppInfo {
+	/// Bundle要确保info.plist文件有Bundle display name项，否则获取失败
+	// App Info信息
     static let infoDictionary = Bundle.main.infoDictionary
-    
-    static let appDisplayName: String = Bundle.main.infoDictionary!["CFBundleDisplayName"] as! String //App 名称（要确保info.plist文件有Bundle display name项，否则获取失败）
-    
-    static let bundleIdentifier:String = Bundle.main.bundleIdentifier! // Bundle Identifier
-    
-    static let appVersion:String = Bundle.main.infoDictionary! ["CFBundleShortVersionString"] as! String// App 版本号
-    
-    static let buildVersion : String = Bundle.main.infoDictionary! ["CFBundleVersion"] as! String //Bulid 版本号
-    
-    static let iOSVersion:String = UIDevice.current.systemVersion //ios 版本
-    
-    static let identifierNumber = UIDevice.current.identifierForVendor //设备 udid
-    
-    static let systemName = UIDevice.current.systemName //设备名称
-    
-    static let model = UIDevice.current.model // 设备型号
-    
-    static let localizedModel = UIDevice.current.localizedModel  //设备区域化型号
+    // App显示名称
+    static let appDisplayName: String = Bundle.main.infoDictionary!["CFBundleDisplayName"] as! String
+    // Bundle Identifier
+    static let bundleIdentifier:String = Bundle.main.bundleIdentifier!
+    // App版本号
+    static let appVersion:String = Bundle.main.infoDictionary! ["CFBundleShortVersionString"] as! String
+    // App Bulid构建版本号
+    static let buildVersion : String = Bundle.main.infoDictionary! ["CFBundleVersion"] as! String
+	
+	/// Device设备信息
+    // iOS版本
+    static let iOSVersion:String = UIDevice.current.systemVersion
+    // 设备UDID
+    static let identifierNumber = UIDevice.current.identifierForVendor
+    // 设备名称
+    static let systemName = UIDevice.current.systemName
+    // 设备型号
+    static let model = UIDevice.current.model
+    // 设备区域化型号
+    static let localizedModel = UIDevice.current.localizedModel
 }
 
 /// LeanCloud相关

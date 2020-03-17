@@ -102,7 +102,7 @@
 		96086E942255A088009C0337 /* CLUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUser.swift; sourceTree = "<group>"; };
 		96086E962255D4CA009C0337 /* CLAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAccountViewModel.swift; sourceTree = "<group>"; };
 		96086E992255E01C009C0337 /* String+CLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CLExtension.swift"; sourceTree = "<group>"; };
-		961D4D142251E5DB0060247A /* Swift进阶0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift进阶0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		961D4D142251E5DB0060247A /* Swift进阶.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift进阶.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		961D4D172251E5DB0060247A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		961D4D192251E5DB0060247A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		961D4D1C2251E5DB0060247A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 		961D4D152251E5DB0060247A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				961D4D142251E5DB0060247A /* Swift进阶0.app */,
+				961D4D142251E5DB0060247A /* Swift进阶.app */,
 				961D4D282251E5DD0060247A /* SwiftDemoTests.xctest */,
 				961D4D332251E5DD0060247A /* SwiftDemoUITests.xctest */,
 			);
@@ -554,7 +554,7 @@
 			);
 			name = SwiftDemo;
 			productName = SwiftDemo;
-			productReference = 961D4D142251E5DB0060247A /* Swift进阶0.app */;
+			productReference = 961D4D142251E5DB0060247A /* Swift进阶.app */;
 			productType = "com.apple.product-type.application";
 		};
 		961D4D272251E5DD0060247A /* SwiftDemoTests */ = {
@@ -966,7 +966,7 @@
 					"\"VideoToolbox\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cl.SwiftDemo;
-				PRODUCT_NAME = "Swift进阶0";
+				PRODUCT_NAME = "Swift进阶";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1001,7 +1001,7 @@
 					"\"VideoToolbox\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cl.SwiftDemo;
-				PRODUCT_NAME = "Swift进阶0";
+				PRODUCT_NAME = "Swift进阶";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

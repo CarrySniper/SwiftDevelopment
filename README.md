@@ -6,6 +6,10 @@ CL为个人特殊名字，不是说Swift有命名空间后就不需要前缀之�
 
 
 ## 学习从此刻开始（时间倒序）
+
+#### 2020-03-17（周二）
+[获取应用和设备信息](https://github.com/CarrySniper/SwiftDevelopment/wiki/获取应用和设备信息)
+
 #### 2020-03-16（周一）
 导入第三方框架MGJRouter_Swift，实现[蘑菇街路由](https://github.com/CarrySniper/SwiftDevelopment/wiki/MGJRouter_Swift蘑菇街路由)方案
 
