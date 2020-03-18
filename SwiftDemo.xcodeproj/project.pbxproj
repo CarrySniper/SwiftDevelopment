@@ -348,28 +348,28 @@
 		961D4D622253073B0060247A /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				96472582225B3D5C005B620F /* User */,
-				961D4D6D225339A00060247A /* Account */,
-				961D4D63225307560060247A /* ViewController */,
+				96472582225B3D5C005B620F /* 用户User */,
+				961D4D6D225339A00060247A /* 账号Account */,
+				961D4D63225307560060247A /* 首页Home */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
 		};
-		961D4D63225307560060247A /* ViewController */ = {
+		961D4D63225307560060247A /* 首页Home */ = {
 			isa = PBXGroup;
 			children = (
-				961D4D64225309500060247A /* CLMainHomeViewController.swift */,
+				FA622C362420FB5E00582CFD /* ViewController */,
 			);
-			path = ViewController;
+			path = "首页Home";
 			sourceTree = "<group>";
 		};
-		961D4D6D225339A00060247A /* Account */ = {
+		961D4D6D225339A00060247A /* 账号Account */ = {
 			isa = PBXGroup;
 			children = (
 				FA622C22241FB87E00582CFD /* ViewController */,
 				96086E932255A073009C0337 /* ViewModel */,
 			);
-			path = Account;
+			path = "账号Account";
 			sourceTree = "<group>";
 		};
 		961D4D7C22544B260060247A /* UIInterface */ = {
@@ -387,13 +387,13 @@
 			path = UIInterface;
 			sourceTree = "<group>";
 		};
-		96472582225B3D5C005B620F /* User */ = {
+		96472582225B3D5C005B620F /* 用户User */ = {
 			isa = PBXGroup;
 			children = (
 				96B71AFA225DD5BB0034AC92 /* View */,
 				96472583225B3DA0005B620F /* ViewController */,
 			);
-			path = User;
+			path = "用户User";
 			sourceTree = "<group>";
 		};
 		96472583225B3DA0005B620F /* ViewController */ = {
@@ -533,6 +533,14 @@
 				FA622C312420996A00582CFD /* CLAboutUsViewController.xib */,
 			);
 			path = "关于我们";
+			sourceTree = "<group>";
+		};
+		FA622C362420FB5E00582CFD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				961D4D64225309500060247A /* CLMainHomeViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

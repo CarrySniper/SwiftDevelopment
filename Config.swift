@@ -13,6 +13,7 @@ import UIKit
 //在Swift中，由于可以使用命名空间了，即使是名字相同的类型，只要是来自不同的命名空间的话，都是可以和平共处的。
 
 /// APP多地方都要用的第三方库，每个地方都去导入又非常麻烦
+@_exported import Alamofire
 @_exported import MGJRouter_Swift
 @_exported import AVOSCloud
 

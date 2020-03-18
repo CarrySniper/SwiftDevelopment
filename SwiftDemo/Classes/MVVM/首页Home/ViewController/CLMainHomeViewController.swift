@@ -9,7 +9,9 @@
 import UIKit
 
 class CLMainHomeViewController: CLBaseHomeViewController {
-
+	
+    private var reachability: NetworkReachabilityManager!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +22,7 @@ class CLMainHomeViewController: CLBaseHomeViewController {
     }
     
 	@objc func aaaa() {
-	
+//		AF.request("https://httpbin.org/get", method: .get, parameters: nil, encoder: endorder, headers: nil, interceptor: RequestInterceptor?)
 		
 //		let window = CLPopupWindow.sharedInstance()
 //		window.show()
